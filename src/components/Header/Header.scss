@@ -1,0 +1,97 @@
+@import '../../styles/utils/variables.scss';
+@import '../../styles/utils/mixins.scss';
+@font-face {
+  font-family: 'Mont';
+  src: url(../../../fonts/Mont-Bold.otf);
+}
+
+.header {
+  justify-content: left;
+  align-items: center;
+  display: flex;
+  gap: $header-element-gap;
+  height: $header-height;
+  box-shadow: 0px 1px 0px 0px $elements-color;
+
+  &_logo {
+    padding: 0 $header-padding;
+    transform: scale($header-logo-scale);
+  }
+
+  &_nav {
+    display: flex;
+    gap: $header-nav-gap;
+    height: 100%;
+
+    &_link {
+      font-family: 'Mont';
+      display: inline-block;
+      position: relative;
+      text-decoration: none;
+      align-content: center;
+      color: $secondary-color;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 11px;
+      letter-spacing: 0.04em;
+      height: 100%;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+
+  &_is-active {
+    color: $primary-color;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 4px;
+      bottom: 0;
+      left: 0;
+      background-color: $primary-color;
+    }
+  }
+
+  &_buttons {
+    margin-left: auto;
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    &_element {
+      padding: $header-padding;
+      position: relative;
+      display: inline-block;
+      border-left: 1px solid $elements-color;
+    }
+  }
+
+  @include on-desktop {
+    $header-element-gap: 24px;
+    $header-nav-gap: 64px;
+    $header-height: 64px;
+    $header-padding: 23px;
+    $header-logo-scale: 1;
+
+    gap: $header-element-gap;
+    height: 64px;
+
+    &_logo {
+      padding: 0 $header-padding;
+      transform: scale($header-logo-scale);
+    }
+
+    &_nav {
+      gap: $header-nav-gap;
+    }
+
+    &_buttons_element {
+      padding: $header-padding;
+    }
+  }
+}
