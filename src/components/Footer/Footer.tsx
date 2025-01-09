@@ -1,10 +1,9 @@
+import { Link } from 'react-router-dom';
+import Vector from '../../images/icons/Vector-Stroke.png';
 import { Logo } from '../Logo/Logo';
 import './Footer.scss';
-export const Footer = () => {
-  const goToTop = () => {
-    return window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
+export const Footer = () => {
   return (
     <div className="Footer">
       <div className="container">
@@ -15,56 +14,50 @@ export const Footer = () => {
           <nav className="Footer__nav">
             <ul className="Footer__nav-list">
               <li className="Footer__nav-item">
-                <a
-                  href="https://github.com"
+                <Link
+                  to="https://github.com"
                   target="_blank"
                   rel="noreferrer noopener"
                   className="Footer__nav-link"
                 >
                   Github
-                </a>
+                </Link>
               </li>
               <li className="Footer__nav-item">
-                <a
-                  href="/contacts"
+                <Link
+                  to="/contacts"
                   className="Footer__nav-link"
                 >
                   Contacts
-                </a>
+                </Link>
               </li>
               <li className="Footer__nav-item">
-                <a
-                  href="/rigths"
+                <Link
+                  to="/rigths"
                   className="Footer__nav-link"
                 >
                   Rights
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
 
-          <a
-            href="#/"
-            className="footer__button"
-            onClick={goToTop}
+          <Link
+            to="/"
+            className="Footer__button"
           >
-            <p className="smallText footer__back-to-top--text">Back to top</p>
-            <img
-              className="smallIcon footer__back-to-top--icon"
-              src=""
-              alt="Arrow top"
-            />
-          </a>
-
-          {/* <div className="Footer__button">
             <p className="Footer__button-text">Back to top</p>
             <button
               type="button"
-              className="button button--back-to-top"
-              onClick={goToTop}
-              aria-label="Back to top"
-            />
-          </div> */}
+              className="button--back-to-top"
+            >
+              <img
+                className="footer__back-to-top--icon"
+                src={Vector}
+                alt="Vector-Stroke"
+              />
+            </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,15 +1,31 @@
+@use '../../styles/utils/mixins.scss' as *;
+@use '../../styles/utils/variables.scss' as *;
+
 .Footer {
   position: fixed;
   bottom: 0;
   margin: 0;
-  padding: 0 152px;
+  padding: 0;
+  width: 100%;
 
   &__content {
     display: flex;
-    flex-grow: auto;
-    justify-content: space-between;
-    align-items: center;
-    height: 96px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    padding-inline: 32px 16px 0;
+
+    @include on-tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: 96px;
+      padding: 32px 32px 0;
+    }
+
+    @include on-desktop {
+      padding: 32px 152px 0;
+    }
   }
 
   &__logo {
@@ -18,187 +34,63 @@
   }
 
   &__nav-list {
+    margin: 0;
+    padding: 0;
     display: flex;
-    justify-content: space-between;
-    height: 11px;
-    line-height: 11px;
+    flex-direction: column;
+    align-items: flex-start;
     list-style: none;
+
+    @include on-tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 192px;
+    }
+
+    @include on-desktop {
+      width: 378px;
+    }
   }
 
   &__nav-item {
-    margin-right: 20px;
-
-    &:last-child {
-      margin-right: 0;
-    }
+    margin: 0;
+    padding: 0;
   }
 
   &__nav-link {
     text-decoration: none;
     text-transform: uppercase;
-    font-family: Mont;
+    font-family: 'Mont', sans-serif;
     font-size: 12px;
     font-weight: 700;
     line-height: 11px;
-    letter-spacing: 0.04em;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-    color: #89939a;
+    color: $secondary-color;
   }
 
   &__button {
+    align-self: center;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    gap: 8px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  &__button-text {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 15.34px;
+    text-align: right;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: $secondary-color;
   }
 }
+
 .button--back-to-top {
   width: 32px;
   height: 32px;
   border-radius: 50%;
 }
-
-@media (max-width: 320px) {
-  .Footer {
-    margin: 0;
-    padding: 0 16px;
-
-    &__content {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 32px;
-    }
-
-    &__nav-list {
-      display: flex;
-      flex-direction: column;
-      justify-content: start;
-      gap: 8px;
-    }
-
-    // &__button {
-    //   display: flex;
-
-    // }
-  }
-}
-
-// .footer {
-
-//   &_content {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: flex-start;
-//     gap: 32px;
-
-//     // @include on-desktop {
-//     //   flex-direction: row;
-//     //   justify-content: space-between;
-//     //   align-items: center;
-//     //   height: 96px;
-//     // }
-//   }
-
-//   &__logo {
-//     height: 32px;
-//     display: flex;
-//     align-items: flex-start;
-//     flex: 1;
-//   }
-
-//   &__nav {
-//     &-list {
-//       display: flex;
-//       flex-direction: column;
-//       justify-content: center;
-//       gap: 8px;
-
-//       // @include onTablet {
-//       //   flex-direction: row;
-//       //   align-items: center;
-//       //   gap: 14px;
-//       // }
-
-//       // @include onDesktop {
-//       //   gap: 106px;
-//       // }
-//     }
-
-//     &-link {
-//       text-transform: uppercase;
-//       color: black;
-//       &:hover {
-//         color: gray
-//       }
-//     }
-//   }
-
-//   &__button {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     flex: 1;
-//     width: 100%;
-//     gap: 16px;
-
-//     // @include onTablet {
-//     //   width: max-content;
-//     //   justify-content: right;
-//     //   align-items: center;
-//     // }
-
-//     // &-text {
-//     //   // @extend %text-small;
-//     //   // color: $gray-second;
-//     // }
-//   }
-// }
-
-// //   .nav {
-
-// //     .list {
-// //     display: flex;
-// //     justify-content: space-between;
-// //     list-style: none;
-// //     padding: 0;
-// //     margin: 0;
-
-// //       .nav__item {
-// //         margin-right: 20px;
-
-// //         &:last-child {
-// //           margin-right: 0;
-// //         }
-
-// //         .nav__link {
-// //           text-decoration: none;
-// //           text-transform: uppercase;
-
-// //           &:hover {
-// //             text-decoration: underline;
-// //           }
-// //         }
-// //       }
-// //     }
-// //   }
-
-// //   .navbar {
-// //       .nav__list {
-// //         flex-direction: column;
-
-// //         .nav__item {
-// //           margin-bottom: 10px;
-
-// //           &:last-child {
-// //             margin-bottom: 0;
-// //           }
-// //         }
-// //       }
-// //     }
-
-// //     button {
-// //       align-self: flex-end;
-// //     }
-// //   }
-// // }
