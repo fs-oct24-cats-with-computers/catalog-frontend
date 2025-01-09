@@ -1,43 +1,32 @@
 import React from 'react';
 import './ProductCard.scss';
+import { Product } from '../../types/Product';
 
-interface ProductCardProps {
-  image: string;
-  name: string;
-  price: number;
-  oldPrice?: number | null;
-  screen: string;
-  capacity: string;
-  ram: string;
-}
+type Props = {
+  product: Product;
+};
 
-export const ProductCard: React.FC<ProductCardProps> = ({
-  image,
-  name,
-  price,
-  oldPrice,
-  screen,
-  capacity,
-  ram,
-}) => {
+export const ProductCard: React.FC<Props> = ({ product }) => {
   return (
     <div className="product">
       {/* Image container */}
       <div className="product_image">
         <img
-          src={image}
-          alt={name}
+          src={product.image}
+          alt={product.name}
           className="product_image_img"
         />
       </div>
 
       {/* Title */}
-      <h2 className="product_title">{name}</h2>
+      <h2 className="product_title">{product.name}</h2>
 
       {/* Prices */}
       <div className="product_price">
-        <span>${price}</span>
-        {oldPrice && <span className="product_price_noDisc">${oldPrice}</span>}
+        <span>${product.price}</span>
+        {product.price && (
+          <span className="product_price_noDisc">${product.price}</span>
+        )}
       </div>
 
       {/* Divider */}
@@ -47,15 +36,15 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       <div className="product_characteristic">
         <div className="product_characteristic_detail">
           <span className="product_characteristic_detail_name">Screen:</span>
-          <span>{screen}</span>
+          <span>{product.screen}</span>
         </div>
         <div className="product_characteristic_detail">
           <span className="product_characteristic_detail_name">Capacity:</span>
-          <span>{capacity}</span>
+          <span>{product.capacity}</span>
         </div>
         <div className="product_characteristic_detail">
           <span className="product_characteristic_detail_name">RAM:</span>
-          <span>{ram}</span>
+          <span>{product.ram}</span>
         </div>
       </div>
 
