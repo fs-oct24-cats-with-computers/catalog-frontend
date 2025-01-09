@@ -1,11 +1,14 @@
 @mixin on-talbet {
-  @media (min-width: 640px) {
+@use './variables.scss' as *;
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
     @content;
   }
 }
 
 @mixin on-desktop {
-  @media (min-width: 1200px) {
+  @media (min-width: $desktop-min-width) {
     @content;
   }
 }
