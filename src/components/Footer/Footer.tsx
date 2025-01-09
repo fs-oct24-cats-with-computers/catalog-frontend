@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Vector from '../../images/icons/Vector-Stroke.png';
+import Vector from '../../images/icons/Vector-Stroke.svg';
 import { Logo } from '../Logo/Logo';
 import './Footer.scss';
 
@@ -42,13 +42,10 @@ export const Footer = () => {
             </ul>
           </nav>
 
-          <Link
-            to="/"
-            className="Footer__button"
-          >
+          <div className="Footer__button">
             <p className="Footer__button-text">Back to top</p>
-            <button
-              type="button"
+            <a
+              href="#root"
               className="button--back-to-top"
             >
               <img
@@ -56,8 +53,8 @@ export const Footer = () => {
                 src={Vector}
                 alt="Vector-Stroke"
               />
-            </button>
-          </Link>
+            </a>
+          </div>
         </div>
       </div>
     </div>
