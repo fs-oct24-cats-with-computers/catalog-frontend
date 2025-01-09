@@ -1,3 +1,4 @@
+import './PhonesPage.scss';
 import { useEffect, useState } from 'react';
 import { Product } from '../../types/Product';
 import { getProducts } from '../../api';
@@ -20,8 +21,10 @@ export const PhonesPage = () => {
 
   return (
     <>
-      <h1>Phones Page</h1>
-      <p>{phones.length}</p>
+      <div className="page container">
+        <h1 className="page__title">Mobile phones</h1>
+        <p className="page__subtitle">{phones.length} models</p>
+      </div>
     </>
   );
 };
