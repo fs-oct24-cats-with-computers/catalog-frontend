@@ -1,0 +1,104 @@
+@use '../../styles/utils/mixins.scss' as *;
+@use '../../styles/utils/variables.scss' as *;
+
+.BannerContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include on-tablet {
+    width: 592px;
+    height: 221px;
+  }
+
+  @include on-desktop {
+    width: 1136px;
+    height: 432px;
+  }
+}
+
+.SwiperSlide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.BannerImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+
+  @include on-tablet {
+    width: 100%;
+  }
+
+  @include on-desktop {
+    width: 100%;
+  }
+}
+
+/* Custom pagination styles */
+// .swiper-pagination {
+//   position: absolute;
+//   bottom: 10px;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   width: 80px;
+//   height: 24px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .swiper-pagination-bullet {
+//   width: 14px;
+//   height: 4px;
+//   opacity: 1;
+//   border-radius: 2px;
+// }
+
+// .swiper-pagination-bullet-active {
+//   background-color: #000;
+// }
+
+// /* Custom navigation styles */
+// .swiper-button-next,
+// .swiper-button-prev {
+//   background-color: #f5f5f5;
+//   width: 40px;
+//   height: 100;
+//   border-radius: 8px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+
+//   // &::after {
+//   //   font-size: 16px;
+//   //   color: #000;
+//   // }
+
+//   @include on-tablet {
+//     width: 40px;
+//     height: 40px;
+//   }
+
+//   @include on-desktop {
+//     width: 40px;
+//     height: 40px;
+//   }
+// }
+
+// /* Adjusting for multiple slides on tablet and desktop */
+// @media (min-width: $tablet-min-width) {
+//   .swiper {
+//     .swiper-wrapper {
+//       display: flex;
+//       justify-content: space-between;
+//     }
+
+//     .swiper-slide {
+//       flex: 0 0 45%; /* Two slides per view with some space */
+//     }
+//   }
+// }
