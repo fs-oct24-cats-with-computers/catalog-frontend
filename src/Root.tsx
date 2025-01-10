@@ -1,8 +1,8 @@
 import { StrictMode } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { App } from './App';
-import { PhonesPage } from './components/PhonesPage/PhonesPage';
-import { NotFoundPage } from './components/NotFoundPage';
+import { PhonesPage } from './components/pages/PhonesPage/PhonesPage';
+import { NotFoundPage } from './components/pages/NotFoundPage';
 
 export const Root = () => (
   <StrictMode>
