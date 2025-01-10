@@ -3,13 +3,30 @@
 
 .BannerContainer {
   width: 100%;
+  height: 352px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 
   @include on-tablet {
-    width: 592px;
     height: 221px;
+  }
+
+  @include on-desktop {
+    height: 432px;
+  }
+}
+
+.BannerContainer .SwiperSlide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  @include on-tablet {
+    width: 490px;
+    height: 189px;
   }
 
   @include on-desktop {
@@ -18,15 +35,24 @@
   }
 }
 
-.SwiperSlide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.BannerContainer .ImgWrapper {
+  width: 100%;
+  height: 320px;
+
+  @include on-tablet {
+    width: 100%;
+    height: 189px;
+  }
+
+  @include on-desktop {
+    width: 1040px;
+    height: 400px;
+  }
 }
 
 .BannerImg {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: contain;
 
   @include on-tablet {
@@ -38,67 +64,60 @@
   }
 }
 
-/* Custom pagination styles */
-// .swiper-pagination {
-//   position: absolute;
-//   bottom: 10px;
-//   left: 50%;
-//   transform: translateX(-50%);
-//   width: 80px;
-//   height: 24px;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
+.BannerContainer .swiper-pagination {
+  // position: absolute; // Розташування пагінації
+  // bottom: 10px; // Відступ від низу контейнера
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 
-// .swiper-pagination-bullet {
-//   width: 14px;
-//   height: 4px;
-//   opacity: 1;
-//   border-radius: 2px;
-// }
+.BannerContainer .swiper-pagination-bullet {
+  width: 14px;
+  height: 4px;
+  border-radius: 2px;
+}
 
-// .swiper-pagination-bullet-active {
-//   background-color: #000;
-// }
+.BannerContainer .swiper-pagination-bullet-active {
+  background-color: #000;
+}
 
-// /* Custom navigation styles */
-// .swiper-button-next,
-// .swiper-button-prev {
-//   background-color: #f5f5f5;
-//   width: 40px;
-//   height: 100;
-//   border-radius: 8px;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
+.BannerContainer .swiper-button-next,
+.BannerContainer .swiper-button-prev {
+  display: none;
 
-//   // &::after {
-//   //   font-size: 16px;
-//   //   color: #000;
-//   // }
+  @include on-tablet {
+    display: flex;
+    background-color: #f5f5f5;
+    width: 32px;
+    height: 189px;
+    border-radius: 48px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    border: 1px solid $icons-color;
 
-//   @include on-tablet {
-//     width: 40px;
-//     height: 40px;
-//   }
+    @include on-tablet {
+      height: 400;
+    }
 
-//   @include on-desktop {
-//     width: 40px;
-//     height: 40px;
-//   }
-// }
+    &.swiper-button-next {
+      right: 0;
+    }
 
-// /* Adjusting for multiple slides on tablet and desktop */
-// @media (min-width: $tablet-min-width) {
-//   .swiper {
-//     .swiper-wrapper {
-//       display: flex;
-//       justify-content: space-between;
-//     }
+    &.swiper-button-prev {
+      left: 0;
+    }
 
-//     .swiper-slide {
-//       flex: 0 0 45%; /* Two slides per view with some space */
-//     }
-//   }
-// }
+    @include on-desktop {
+      height: 100%;
+    }
+
+    &::after {
+      font-size: 16px;
+      color: #000;
+    }
+  }
+}
