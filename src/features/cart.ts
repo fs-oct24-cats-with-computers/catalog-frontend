@@ -1,13 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Product } from '../types/Product';
+import { ProductWithQuantity } from '../types/ProductWithQuantity';
 
-const initialState = [] as Product[];
+const initialState = [] as ProductWithQuantity[];
 
 export const cartProductsSlice = createSlice({
   name: 'cartProducts',
   initialState,
   reducers: {
-    toggleProducts(cartProducts, { payload }: PayloadAction<Product>) {
+    toggleProducts(
+      cartProducts,
+      { payload }: PayloadAction<ProductWithQuantity>,
+    ) {
       //parametrs -> product
       return cartProducts.find((product) => product.id === payload.id) ?
           cartProducts.filter((product) => product.id !== payload.id)
@@ -32,7 +35,7 @@ export const cartProductsSlice = createSlice({
           { ...product, quantity: product.quantity! - 1 }
         : product,
       );
-      //.filter((product) => product.quantity! > 0);
+      //.filter((product) => product.quantity! > 0); use this or disable decrease button when quantity === 1
     },
   },
 });

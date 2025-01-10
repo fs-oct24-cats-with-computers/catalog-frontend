@@ -1,4 +1,4 @@
-export type Product = {
+export type ProductWithQuantity = {
   id: number;
   category: 'phones' | 'tablets' | 'accessories';
   itemId: string;
@@ -11,4 +11,5 @@ export type Product = {
   ram: string;
   year: number;
   image: string;
+  quantity?: number;
 };

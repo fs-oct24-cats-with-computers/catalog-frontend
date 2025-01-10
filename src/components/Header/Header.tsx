@@ -17,9 +17,13 @@ export const Header = () => {
   };
 
   //add to the hedder for all NawLink when Route is work
-  // const chooseActivePage = (isActive: boolean) => {
-  //   return (classnames({'header_is-active': isActive}))
-  // }
+  const chooseActivePage = ({ isActive }: { isActive: boolean }) =>
+    isActive ? 'header__nav_link header__is-active' : 'header__nav_link';
+
+  const chooseActivePageButton = ({ isActive }: { isActive: boolean }) =>
+    isActive ?
+      'header__buttons_element header__is-active'
+    : 'header__buttons_element';
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
@@ -27,8 +31,8 @@ export const Header = () => {
 
   return (
     <header className="header">
-      <div className="header_logo">
-        <NavLink to="#/">
+      <div className="header__logo">
+        <NavLink to="/home">
           <img
             src="img/header_components/Logo.png"
             alt="Nice gadgets logo"
@@ -36,40 +40,40 @@ export const Header = () => {
         </NavLink>
       </div>
       {!isMobile && (
-        <nav className="header_nav">
+        <nav className="header__nav">
           <NavLink
-            to="#/"
-            className={'header_nav_link header_is-active'}
+            to="/"
+            className={chooseActivePage}
           >
             <div>HOME</div>
           </NavLink>
           <NavLink
-            to="#/phones"
-            className={'header_nav_link'}
+            to="/phones"
+            className={chooseActivePage}
           >
             <div>PHONES</div>
           </NavLink>
           <NavLink
-            to="#/talbets"
-            className={'header_nav_link'}
+            to="/tablets"
+            className={chooseActivePage}
           >
-            <div>TALBETS</div>
+            <div>TABLETS</div>
           </NavLink>
           <NavLink
-            to="#/accessories"
-            className={'header_nav_link'}
+            to="/accessories"
+            className={chooseActivePage}
           >
             <div>ACCESSORIES</div>
           </NavLink>
         </nav>
       )}
 
-      <div className="header_buttons header-right">
+      <div className="header__buttons header-right">
         {!isMobile ?
           <>
             <NavLink
-              to="#/likes"
-              className="header_buttons_element header_is-active"
+              to="/favorites"
+              className={chooseActivePageButton}
             >
               <img
                 src="img/header_components/Favourites.png"
@@ -77,8 +81,8 @@ export const Header = () => {
               />
             </NavLink>
             <NavLink
-              to="#/shopbag"
-              className="header_buttons_element"
+              to="/cart"
+              className={chooseActivePageButton}
             >
               <img
                 src="img/header_components/Shopping bag.png"
@@ -88,7 +92,7 @@ export const Header = () => {
           </>
         : <NavLink
             to="."
-            className="header_buttons_element"
+            className="header__buttons_element"
           >
             <img
               src="img/header_components/Menu.png"
