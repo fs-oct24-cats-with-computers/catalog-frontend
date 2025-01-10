@@ -2,7 +2,7 @@
 @use '../../styles/utils/variables.scss' as *;
 
 @font-face {
-  font-family: 'Mont';
+  font-family: 'Mont Bold';
   src: url(../../../fonts/Mont-Bold.otf);
 }
 
@@ -25,7 +25,7 @@
     height: 100%;
 
     &_link {
-      font-family: 'Mont';
+      font-family: 'Mont Bold';
       display: inline-block;
       position: relative;
       text-decoration: none;
