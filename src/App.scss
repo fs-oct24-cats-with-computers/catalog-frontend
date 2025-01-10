@@ -1,6 +1,6 @@
 @use './styles/utils/mixins.scss' as *;
-
 * {
+  margin: 0;
   scroll-behavior: smooth;
 }
 
