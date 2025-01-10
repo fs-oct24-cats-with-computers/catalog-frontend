@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import './App.scss';
+import { Header } from './components/Header';
 import { Footer } from './components/Footer/Footer';
 import { ProductCard } from './components/ProductCard/ProductCard';
 import { Product } from './types/Product';
@@ -21,10 +22,9 @@ const testProduct: Product = {
 export const App = () => {
   return (
     <>
-      <div className="container">
-        <ProductCard product={testProduct} />
-        <Outlet />
-      </div>
+      <Header />
+      <ProductCard product={testProduct} />
+      <Outlet />
       <Footer />
     </>
   );

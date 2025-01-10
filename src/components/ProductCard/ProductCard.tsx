@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './ProductCard.scss';
 import { Product } from '../../types/Product';
 import Favorite from '../../../public/icons/Favourites Filled (Heart Like).svg?react';
