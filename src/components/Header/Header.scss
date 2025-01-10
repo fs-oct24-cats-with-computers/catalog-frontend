@@ -14,12 +14,12 @@
   height: $header-height;
   box-shadow: 0px 1px 0px 0px $elements-color;
 
-  &_logo {
+  &__logo {
     padding: 0 $header-padding;
     transform: scale($header-logo-scale);
   }
 
-  &_nav {
+  &__nav {
     display: flex;
     gap: $header-nav-gap;
     height: 100%;
@@ -43,7 +43,7 @@
     }
   }
 
-  &_is-active {
+  &__is-active {
     color: $primary-color;
 
     &::after {
@@ -58,7 +58,7 @@
     }
   }
 
-  &_buttons {
+  &__buttons {
     margin-left: auto;
     display: flex;
     height: 100%;
@@ -82,16 +82,16 @@
     gap: $header-element-gap;
     height: 64px;
 
-    &_logo {
+    &__logo {
       padding: 0 $header-padding;
       transform: scale($header-logo-scale);
     }
 
-    &_nav {
+    &__nav {
       gap: $header-nav-gap;
     }
 
-    &_buttons_element {
+    &__buttons_element {
       padding: $header-padding;
     }
   }
