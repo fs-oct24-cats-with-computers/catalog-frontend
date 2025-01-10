@@ -11,8 +11,9 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { cartProductsSlice } from '../features/cart';
+import { favoriteProductsSlice } from '../features/favorites';
 
-const rootReducer = combineSlices(cartProductsSlice);
+const rootReducer = combineSlices(cartProductsSlice, favoriteProductsSlice);
 
 const persistConfig = {
   key: 'root',
