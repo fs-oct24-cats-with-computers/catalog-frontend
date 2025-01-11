@@ -1,7 +1,15 @@
+@use './styles/utils/mixins.scss' as *;
 * {
   margin: 0;
+  scroll-behavior: smooth;
 }
 
-#root {
-  scroll-behavior: smooth;
+.container {
+  max-width: 1136px;
+  margin: 0 auto;
+  padding-inline: 16px;
+
+  @include on-tablet {
+    padding-inline: 24px;
+  }
 }
