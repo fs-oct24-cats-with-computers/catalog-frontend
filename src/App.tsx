@@ -23,7 +23,9 @@ export const App = () => {
   return (
     <>
       <Header />
-      <ProductCard product={testProduct} />
+      <div className="container">
+        <ProductCard product={testProduct} />
+      </div>
       <Outlet />
       <Footer />
     </>
