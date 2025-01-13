@@ -1,0 +1,48 @@
+@use '../../styles/utils/variables.scss' as *;
+@use '../../styles/utils/mixins.scss' as *;
+
+@font-face {
+  font-family: 'Mont';
+  src: url('/fonts/Mont-Regular.otf');
+}
+@font-face {
+  font-family: 'Mont Bold';
+  src: url('/fonts/Mont-Bold.otf');
+}
+@font-face {
+  font-family: 'Mont SemiBold';
+  src: url('/fonts/Mont-SemiBold.otf');
+}
+
+.product-section {
+  &__title {
+    font-family: 'Mont SemiBold';
+    font-size: 20px;
+    line-height: 26px;
+    padding-bottom: 16px;
+
+    @include on-tablet {
+      font-family: 'Mont Bold';
+      font-size: 22px;
+      line-height: 31px;
+    }
+  }
+
+  &__divider {
+    width: 100%;
+    background-color: $elements-color;
+    height: 1px;
+  }
+
+  &--about {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 13;
+    }
+  }
+}

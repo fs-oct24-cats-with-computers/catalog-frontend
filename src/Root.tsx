@@ -13,6 +13,7 @@ import { AccessoriesPage } from './pages/AccessoriesPage';
 import { FavoritesPage } from './pages/FavoritesPage';
 import { CartPage } from './pages/CartPage';
 import { HomePage } from './pages/HomePage';
+import { PhonePage } from './pages/PhonePage';
 
 export const Root = () => (
   <StrictMode>
@@ -43,7 +44,7 @@ export const Root = () => (
             {/* replace with <PhonePage /> component after implement it */}
             <Route
               path=":phoneId"
-              element={<div>Phone Page</div>}
+              element={<PhonePage />}
             />
           </Route>
           <Route path="tablets">
