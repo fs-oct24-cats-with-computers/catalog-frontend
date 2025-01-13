@@ -7,8 +7,9 @@ type PropsType = {
   products: Product[];
 };
 
-export const ProductsListWithPagination: React.FC<PropsType> = (props) => {
-  const { products } = props;
+export const ProductsListWithPagination: React.FC<PropsType> = ({
+  products,
+}) => {
   const [itemOffset, setItemOffset] = useState(0);
 
   const [currentItems, setCurrentItems] = useState<Product[]>([]);
@@ -58,7 +59,10 @@ export const ProductsListWithPagination: React.FC<PropsType> = (props) => {
         >
           {phone.name}
         </p>
-        // <ProductCard key={phone.id} product={phone}/>
+        // <ProductCard
+        //   key={phone.id}
+        //   product={phone}
+        // />
       ))}
       {/* </div> */}
       <ReactPaginate
