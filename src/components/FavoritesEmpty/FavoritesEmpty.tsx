@@ -11,7 +11,7 @@ export const FavoritesEmpty = () => {
         />
         <h2 className="empty__title">No favorites yet</h2>
         <p className="empty__description">
-          Press #heart# to add item to favorites
+          Press &apos;heart icon&apos; on any item to add them to favorites
         </p>
       </div>
     </>
