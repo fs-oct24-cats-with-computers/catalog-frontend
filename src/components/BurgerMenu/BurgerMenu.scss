@@ -18,7 +18,7 @@
   opacity: 0;
   height: 0;
   width: 0;
-  transition: 1s;
+  transition: 0.5s;
 
   &__is-open {
     opacity: 1;
@@ -79,23 +79,5 @@
       border: 1px solid $elements-color;
       width: 50%;
     }
-  }
-}
-
-@keyframes select {
-  0% {
-    width: 0%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
-@keyframes openBur {
-  0% {
-    height: 0%;
-  }
-  100% {
-    height: calc(100% - $header-height - 24px);
   }
 }

@@ -1,5 +1,6 @@
 @use '../../styles/utils/mixins.scss' as *;
 @use '../../styles/utils/variables.scss' as *;
+@use '../../styles/utils/animation.scss' as *;
 
 @font-face {
   font-family: 'Mont Bold';
@@ -101,12 +102,3 @@
     }
   }
 }
-
-// @keyframes select {
-//   0% {
-//     width: 0%;
-//   }
-//   100% {
-//     width: 100%;
-//   }
-// }

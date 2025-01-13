@@ -42,11 +42,11 @@ export const BurgerMenu: React.FC<Props> = ({
           <div>PHONES</div>
         </NavLink>
         <NavLink
-          to="/talbets"
+          to="/tablets"
           className={chooseActivePage}
           onClick={onClickNavButton}
         >
-          <div>TALBETS</div>
+          <div>TABLETS</div>
         </NavLink>
         <NavLink
           to="/accessories"
@@ -58,7 +58,7 @@ export const BurgerMenu: React.FC<Props> = ({
       </nav>
       <div className="burger__buttons">
         <NavLink
-          to="/likes"
+          to="/favorites"
           className={chooseActivePageButton}
           onClick={onClickNavButton}
         >
@@ -68,7 +68,7 @@ export const BurgerMenu: React.FC<Props> = ({
           />
         </NavLink>
         <NavLink
-          to="/shopbag"
+          to="/cart"
           className={chooseActivePageButton}
           onClick={onClickNavButton}
         >
