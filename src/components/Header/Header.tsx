@@ -59,10 +59,10 @@ export const Header = () => {
               <div>PHONES</div>
             </NavLink>
             <NavLink
-              to="/talbets"
+              to="/tablets"
               className={chooseActivePage}
             >
-              <div>TALBETS</div>
+              <div>TABLETS</div>
             </NavLink>
             <NavLink
               to="/accessories"
@@ -77,7 +77,7 @@ export const Header = () => {
           {!isMobile ?
             <>
               <NavLink
-                to="/likes"
+                to="/favorites"
                 className={chooseActivePageButton}
               >
                 <img
@@ -86,7 +86,7 @@ export const Header = () => {
                 />
               </NavLink>
               <NavLink
-                to="/shopbag"
+                to="/cart"
                 className={chooseActivePageButton}
               >
                 <img
