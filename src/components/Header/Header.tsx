@@ -6,7 +6,7 @@ import { BurgerMenu } from '../BurgerMenu';
 
 export const Header = () => {
   const mobileScreen: number = 640;
-  const [isMobile, checkIsMobile] = useState(false);
+  const [isMobile, checkIsMobile] = useState(true);
   const [isBurgerClose, checkIsBurgerClose] = useState(true);
 
   const handleResize = () => {
