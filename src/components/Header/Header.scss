@@ -7,19 +7,22 @@
 }
 
 .header {
+  position: sticky;
+  top: 0;
+  background-color: $hover-bg-color;
   justify-content: left;
   align-items: center;
   display: flex;
   gap: $header-element-gap;
   height: $header-height;
-  box-shadow: 0px 1px 0px 0px $elements-color;
+  border-bottom: 1px solid $elements-color;
 
-  &_logo {
+  &__logo {
     padding: 0 $header-padding;
     transform: scale($header-logo-scale);
   }
 
-  &_nav {
+  &__nav {
     display: flex;
     gap: $header-nav-gap;
     height: 100%;
@@ -43,7 +46,7 @@
     }
   }
 
-  &_is-active {
+  &__is-active {
     color: $primary-color;
 
     &::after {
@@ -55,10 +58,12 @@
       bottom: 0;
       left: 0;
       background-color: $primary-color;
+      animation-duration: 0.5s;
+      animation-name: select;
     }
   }
 
-  &_buttons {
+  &__buttons {
     margin-left: auto;
     display: flex;
     height: 100%;
@@ -82,17 +87,26 @@
     gap: $header-element-gap;
     height: 64px;
 
-    &_logo {
+    &__logo {
       padding: 0 $header-padding;
       transform: scale($header-logo-scale);
     }
 
-    &_nav {
+    &__nav {
       gap: $header-nav-gap;
     }
 
-    &_buttons_element {
+    &__buttons_element {
       padding: $header-padding;
     }
+  }
+}
+
+@keyframes select {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
   }
 }
