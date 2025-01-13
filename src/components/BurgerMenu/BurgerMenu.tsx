@@ -1,7 +1,16 @@
 import { NavLink } from 'react-router-dom';
 import './BurgerMenu.scss';
+import React from 'react';
 
-export const BurgerMenu = () => {
+interface Props {
+  isBurgerMenuOpen: boolean;
+  setIsBurgerMenu: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const BurgerMenu: React.FC<Props> = ({
+  isBurgerMenuOpen,
+  setIsBurgerMenu,
+}) => {
   const chooseActivePage = ({ isActive }: { isActive: boolean }) =>
     isActive ? 'burger__nav_link burger__is-active' : 'burger__nav_link';
 
@@ -10,30 +19,39 @@ export const BurgerMenu = () => {
       'burger__buttons_element burger__is-active'
     : 'burger__buttons_element';
 
+  const onClickNavButton = () => {
+    setIsBurgerMenu(true);
+    console.log('ti pidor');
+  };
+
   return (
-    <section className="burger">
+    <section className={`burger ${isBurgerMenuOpen && 'burger__is-open'}`}>
       <nav className="burger__nav">
         <NavLink
           to="/"
           className={chooseActivePage}
+          onClick={onClickNavButton}
         >
           <div>HOME</div>
         </NavLink>
         <NavLink
           to="/phones"
           className={chooseActivePage}
+          onClick={onClickNavButton}
         >
           <div>PHONES</div>
         </NavLink>
         <NavLink
           to="/talbets"
           className={chooseActivePage}
+          onClick={onClickNavButton}
         >
           <div>TALBETS</div>
         </NavLink>
         <NavLink
           to="/accessories"
           className={chooseActivePage}
+          onClick={onClickNavButton}
         >
           <div>ACCESSORIES</div>
         </NavLink>
@@ -42,6 +60,7 @@ export const BurgerMenu = () => {
         <NavLink
           to="/likes"
           className={chooseActivePageButton}
+          onClick={onClickNavButton}
         >
           <img
             src="img/header_components/Favourites.png"
@@ -51,6 +70,7 @@ export const BurgerMenu = () => {
         <NavLink
           to="/shopbag"
           className={chooseActivePageButton}
+          onClick={onClickNavButton}
         >
           <img
             src="img/header_components/Shopping bag.png"

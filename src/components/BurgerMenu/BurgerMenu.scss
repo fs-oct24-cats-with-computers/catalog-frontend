@@ -14,8 +14,18 @@
   justify-content: center;
   align-items: center;
   background-color: $hover-bg-color;
-  width: 100%;
-  height: calc(100% - $header-height - 24px);
+  right: 20%;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  transition: 1s;
+
+  &__is-open {
+    opacity: 1;
+    right: 0;
+    height: calc(100% - $header-height - 24px);
+    width: 100%;
+  }
 
   &__nav {
     display: flex;
@@ -51,8 +61,7 @@
       bottom: 0;
       width: 100%;
       background-color: $primary-color;
-      animation-duration: 0.5s;
-      animation-name: select;
+      animation: select 0.5s;
     }
   }
 
@@ -79,5 +88,14 @@
   }
   100% {
     width: 100%;
+  }
+}
+
+@keyframes openBur {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: calc(100% - $header-height - 24px);
   }
 }

@@ -123,7 +123,10 @@ export const Header = () => {
           }
         </div>
       </header>
-      {!isBurgerClose && <BurgerMenu />}
+      <BurgerMenu
+        isBurgerMenuOpen={!isBurgerClose}
+        setIsBurgerMenu={checkIsBurgerClose}
+      />
     </>
   );
 };
