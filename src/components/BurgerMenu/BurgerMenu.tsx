@@ -21,7 +21,6 @@ export const BurgerMenu: React.FC<Props> = ({
 
   const onClickNavButton = () => {
     setIsBurgerMenu(true);
-    console.log('ti pidor');
   };
 
   return (
