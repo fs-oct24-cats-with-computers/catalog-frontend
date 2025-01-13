@@ -1,0 +1,48 @@
+.sliderProducts {
+  &__wrapper {
+    position: relative;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+  }
+
+  .swiper-buttons-wrapper {
+    display: flex;
+    gap: 16px;
+    // position: absolute;
+    // right: 0;
+  }
+
+  .swiper-button-prev-new-models,
+  .swiper-button-next-new-models {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+    margin: 0;
+    border: 1px solid grey;
+    background-color: transparent;
+
+    &::after {
+      content: '';
+    }
+
+    &:disabled {
+      cursor: auto;
+      svg {
+        fill: grey;
+      }
+    }
+
+    // @include button;
+
+    // &:not(:disabled) {
+    //   @include hover(border-color, $main-text-color);
+    // }
+  }
+}
