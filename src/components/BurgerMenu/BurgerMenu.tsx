@@ -62,7 +62,7 @@ export const BurgerMenu: React.FC<Props> = ({
           onClick={onClickNavButton}
         >
           <img
-            src="img/header_components/Favourites.png"
+            src="img/header_components/Favourites.svg"
             alt="Favourites"
           />
         </NavLink>
@@ -72,7 +72,7 @@ export const BurgerMenu: React.FC<Props> = ({
           onClick={onClickNavButton}
         >
           <img
-            src="img/header_components/Shopping bag.png"
+            src="img/header_components/Shopping bag.svg"
             alt="Shopping bag"
           />
         </NavLink>

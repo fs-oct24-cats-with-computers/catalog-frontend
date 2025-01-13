@@ -15,12 +15,14 @@
   align-items: center;
   background-color: $hover-bg-color;
   right: 20%;
+  visibility: hidden;
   opacity: 0;
   height: 0;
   width: 0;
   transition: 0.5s;
 
   &__is-open {
+    visibility: visible;
     opacity: 1;
     right: 0;
     height: calc(100% - $header-height - 24px);

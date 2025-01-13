@@ -6,7 +6,7 @@ import { BurgerMenu } from '../BurgerMenu';
 
 export const Header = () => {
   const mobileScreen: number = 640;
-  const [isMobile, checkIsMobile] = useState(true);
+  const [isMobile, checkIsMobile] = useState(window.innerWidth < mobileScreen);
   const [isBurgerClose, checkIsBurgerClose] = useState(true);
 
   const handleResize = () => {
@@ -36,7 +36,7 @@ export const Header = () => {
         <div className="header__logo">
           <NavLink to="/">
             <img
-              src="img/header_components/Logo.png"
+              src="img/header_components/Logo.svg"
               alt="Nice gadgets logo"
               onClick={() => {
                 checkIsBurgerClose(true);
@@ -81,7 +81,7 @@ export const Header = () => {
                 className={chooseActivePageButton}
               >
                 <img
-                  src="img/header_components/Favourites.png"
+                  src="img/header_components/Favourites.svg"
                   alt="Favourites"
                 />
               </NavLink>
@@ -90,7 +90,7 @@ export const Header = () => {
                 className={chooseActivePageButton}
               >
                 <img
-                  src="img/header_components/Shopping bag.png"
+                  src="img/header_components/Shopping bag.svg"
                   alt="Shopping bag"
                 />
               </NavLink>
@@ -104,7 +104,7 @@ export const Header = () => {
               }}
             >
               <img
-                src="img/header_components/Menu.png"
+                src="img/header_components/Menu.svg"
                 alt="Burger menu"
               />
             </NavLink>
@@ -116,7 +116,7 @@ export const Header = () => {
               }}
             >
               <img
-                src="img/header_components/Close.png"
+                src="img/header_components/Close.svg"
                 alt="Close burger menu"
               />
             </NavLink>
