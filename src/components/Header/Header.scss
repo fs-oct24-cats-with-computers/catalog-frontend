@@ -75,6 +75,13 @@
       position: relative;
       display: inline-block;
       border-left: 1px solid $elements-color;
+      transition: 0.5s;
+
+      @include on-desktop {
+        &:hover {
+          background-color: $elements-color;
+        }
+      }
     }
   }
 
