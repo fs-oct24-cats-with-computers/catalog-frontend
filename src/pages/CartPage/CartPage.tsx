@@ -19,7 +19,11 @@ const testProduct: Product = {
 export const CartPage = () => {
   return (
     <>
-      <div className="page container">
+      {/* <div className="page container">
+        <h1 className="page__title">Cart</h1>
+        <CartCard product={testProduct} />
+      </div> */}
+      <div className="container">
         <h1 className="page__title">Cart</h1>
         <CartCard product={testProduct} />
       </div>
