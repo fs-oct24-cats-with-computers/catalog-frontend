@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react';
 import { Product } from '../../types/Product';
 import ReactPaginate from 'react-paginate';
 
-import './ProductList.scss';
-import './Pagination.scss';
+import './ProductListWithPagination.scss';
 // import { ProductCard } from '../ProductCard/ProductCard';
 
 type PropsType = {
