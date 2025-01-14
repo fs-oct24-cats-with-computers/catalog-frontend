@@ -1,0 +1,46 @@
+.card {
+  height: 160px;
+
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e2e6e9;
+  border-radius: 16px;
+  padding: 16px;
+  &__firstRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    &--close {
+      // color: #B4BDC3; on hover
+      margin-right: 16px;
+      &--img {
+      }
+    }
+
+    &--phone {
+      &--img {
+      }
+    }
+
+    &--info {
+    }
+  }
+
+  &__secondRow {
+    &--control {
+      &--minus {
+      }
+
+      &--quantity {
+      }
+
+      &--plus {
+      }
+    }
+
+    &--price {
+    }
+  }
+}
