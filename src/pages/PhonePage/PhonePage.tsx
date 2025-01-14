@@ -1,6 +1,8 @@
 import './PhonePage.scss';
 import { About } from '../../components/About';
 import { Phone } from '../../types/Phone';
+import { TECH_TABLE_KEYS, techSpecsCase } from '../../utils/techSpecsCase';
+import { TechSpecs } from '../../components/TechSpecs';
 
 const testProduct: Phone = {
   id: 'apple-iphone-11-128gb-black',
@@ -52,15 +54,21 @@ const testProduct: Phone = {
 };
 
 export const PhonePage = () => {
+  const testTechSpecs = techSpecsCase(testProduct, TECH_TABLE_KEYS);
+
   return (
-    <>
-      <div className="page container">
-        <section className="product-section product-section--about">
-          <h3 className="product-section__title">About</h3>
-          <div className="product-section__divider"></div>
-          <About description={testProduct.description} />
-        </section>
-      </div>
-    </>
+    <div className="page container">
+      <section className="product-section product-section--about">
+        <h3 className="product-section__title">About</h3>
+        <div className="product-section__divider"></div>
+        <About description={testProduct.description} />
+      </section>
+
+      <section className="product-section product-section--tech-specs">
+        <h3 className="product-section__title">Tech specs</h3>
+        <div className="product-section__divider"></div>
+        <TechSpecs techSpecsObj={testTechSpecs} />
+      </section>
+    </div>
   );
 };
