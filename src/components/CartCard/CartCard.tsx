@@ -28,7 +28,7 @@ export const CartCard: React.FC<Props> = ({ product }) => {
 
       <div className="card__secondRow">
         <div className="card__secondRow--control">
-          {/* add 'disabled' class for disabled button */}
+          {/* add 'disabled' class for disabled buttons */}
           <button className="card__secondRow--control--minus disabled">
             —
           </button>
