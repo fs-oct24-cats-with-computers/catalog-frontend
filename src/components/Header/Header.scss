@@ -1,5 +1,6 @@
 @use '../../styles/utils/mixins.scss' as *;
 @use '../../styles/utils/variables.scss' as *;
+@use '../../styles/utils/animation.scss' as *;
 
 @font-face {
   font-family: 'Mont Bold';
@@ -7,12 +8,15 @@
 }
 
 .header {
+  position: sticky;
+  top: 0;
+  background-color: $hover-bg-color;
   justify-content: left;
   align-items: center;
   display: flex;
   gap: $header-element-gap;
   height: $header-height;
-  box-shadow: 0px 1px 0px 0px $elements-color;
+  border-bottom: 1px solid $elements-color;
 
   &__logo {
     padding: 0 $header-padding;
@@ -55,6 +59,8 @@
       bottom: 0;
       left: 0;
       background-color: $primary-color;
+      animation-duration: 0.5s;
+      animation-name: select;
     }
   }
 
