@@ -29,14 +29,17 @@ const images: string[] = [
   'img/phones/apple-iphone-11/black/03.webp',
   'img/phones/apple-iphone-11/black/04.webp',
 ];
+
 export const App = () => {
   return (
     <>
       <Header />
       <Breadcrumbs />
-      <Outlet />
       <PhotosGallery images={images} />
       <ProductCard product={testProduct} />
+      <main className="main">
+        <Outlet />
+      </main>
       <Footer />
     </>
   );
