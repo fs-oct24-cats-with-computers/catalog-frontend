@@ -57,7 +57,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-grow: 1;
       &--img {
         max-width: 66px;
         max-height: 66px;
@@ -65,6 +64,7 @@
     }
 
     &--info {
+      flex-flow: 1;
       font-family: 'Mont', sans-serif;
       color: $primary-color;
       font-size: 16px;
