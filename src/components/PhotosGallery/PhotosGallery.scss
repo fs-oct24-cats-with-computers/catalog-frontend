@@ -22,13 +22,6 @@
     height: 288px;
     width: 288px;
 
-    @include on-tablet {
-      & {
-        width: 287px;
-        height: 287px;
-      }
-    }
-
     @include on-desktop {
       & {
         width: 464px;
