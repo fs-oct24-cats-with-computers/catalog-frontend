@@ -2,7 +2,7 @@ import './PhonesPage.scss';
 import { useEffect, useState } from 'react';
 import { Product } from '../../types/Product';
 import { getProducts } from '../../api';
-import { ProductsListWithPagination } from '../../components/ProductListWithPagination/ProductListWithPagination';
+import { ProductsListWithPagination } from '../../components/ProductListWithPagination';
 
 export const PhonesPage = () => {
   const [phones, setPhones] = useState<Product[]>([]);

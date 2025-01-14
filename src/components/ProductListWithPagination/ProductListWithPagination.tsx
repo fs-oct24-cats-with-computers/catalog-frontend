@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Product } from '../../types/Product';
 import ReactPaginate from 'react-paginate';
+
+import './ProductList.scss';
+import './Pagination.scss';
 // import { ProductCard } from '../ProductCard/ProductCard';
 
 type PropsType = {
@@ -36,14 +39,14 @@ export const ProductsListWithPagination: React.FC<PropsType> = ({
       {/* filters */}
       <label
         htmlFor="itemsPerPage"
-        className="page__selectionLabel"
+        className="product-list__selectionLabel"
       >
         Items per Page
       </label>
       <select
         id="itemsPerPage"
         value={itemsPerPage}
-        className="page__select"
+        className="product-list__select"
         onChange={(e) => setItemsPerPage(Number(e.target.value))}
       >
         <option value={16}>16</option>
@@ -51,11 +54,11 @@ export const ProductsListWithPagination: React.FC<PropsType> = ({
         <option value={64}>64</option>
       </select>
 
-      {/* <div className="page__productList"> */}
+      {/* <div className="product-list__list"> */}
       {currentItems.map((phone) => (
         <p
           key={phone.id}
-          className="page__item"
+          className="product-list__item"
         >
           {phone.name}
         </p>
@@ -65,11 +68,20 @@ export const ProductsListWithPagination: React.FC<PropsType> = ({
         // />
       ))}
       {/* </div> */}
+
+      {/* <div className="product-list__list">
+        {currentItems.map((product) => (
+          <div className="product-list__card">
+            <ProductCard product={product} />
+          </div>
+        ))}
+      </div> */}
+
       <ReactPaginate
         breakLabel="..."
         nextLabel=">"
         onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
+        pageRangeDisplayed={3}
         pageCount={pageCount}
         previousLabel="<"
         renderOnZeroPageCount={null}
