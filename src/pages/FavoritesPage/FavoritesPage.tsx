@@ -42,8 +42,10 @@ export const FavoritesPage = () => {
 
   return (
     <>
-      <ProductCard product={testProduct1} />
-      <ProductCard product={testProduct2} />
+      <div className="container">
+        <ProductCard product={testProduct1} />
+        <ProductCard product={testProduct2} />
+      </div>
     </>
   );
 };

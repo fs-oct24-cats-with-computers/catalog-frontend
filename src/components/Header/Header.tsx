@@ -2,12 +2,16 @@ import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './Header.scss';
 import { BurgerMenu } from '../BurgerMenu';
+import { useAppSelector } from '../../app/hooks';
 // import classnames from 'classnames';
 
 export const Header = () => {
   const mobileScreen: number = 640;
   const [isMobile, checkIsMobile] = useState(window.innerWidth < mobileScreen);
   const [isBurgerClose, checkIsBurgerClose] = useState(true);
+
+  const favoriteProducts = useAppSelector((state) => state.favoriteProducts);
+  const cartProducts = useAppSelector((state) => state.cartProducts);
 
   const handleResize = () => {
     if (window.innerWidth < mobileScreen) {
@@ -84,6 +88,11 @@ export const Header = () => {
                   src="img/header_components/Favourites.svg"
                   alt="Favourites"
                 />
+                {!!favoriteProducts.length && (
+                  <span className="header__buttons_element--state">
+                    {favoriteProducts.length}
+                  </span>
+                )}
               </NavLink>
               <NavLink
                 to="/cart"
@@ -93,6 +102,11 @@ export const Header = () => {
                   src="img/header_components/Shopping bag.svg"
                   alt="Shopping bag"
                 />
+                {!!cartProducts.length && (
+                  <span className="header__buttons_element--state">
+                    {cartProducts.length}
+                  </span>
+                )}
               </NavLink>
             </>
           : isBurgerClose ?
