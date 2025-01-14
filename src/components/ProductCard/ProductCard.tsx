@@ -10,7 +10,7 @@ type Props = {
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
   return (
-    <div className="product-card">
+    <div className="product-card product-card-slider">
       {/* Image container */}
       <div className="product-card__image">
         <img
