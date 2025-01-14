@@ -1,4 +1,5 @@
 @use './styles/utils/mixins.scss' as *;
+@use './styles/utils/variables.scss' as *;
 * {
   margin: 0;
   scroll-behavior: smooth;
@@ -12,4 +13,8 @@
   @include on-tablet {
     padding-inline: 24px;
   }
+}
+
+.main {
+  background-color: $hover-bg-color;
 }
