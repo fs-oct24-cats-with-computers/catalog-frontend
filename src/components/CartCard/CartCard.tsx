@@ -28,17 +28,9 @@ export const CartCard: React.FC<Props> = ({ product }) => {
 
       <div className="card__secondRow">
         <div className="card__secondRow--control">
-          <img
-            className="card__secondRow--control--minus"
-            src="../../../public/icons/Minus.svg"
-            alt="delete an item"
-          />
+          <button className="card__secondRow--control--minus">—</button>
           <div className="card__secondRow--control--quantity">1</div>
-          <img
-            className="card__secondRow--control--minus"
-            src="../../../public/icons/Plus.svg"
-            alt="add an item"
-          />
+          <button className="card__secondRow--control--plus">+</button>
         </div>
         <div className="card__secondRow--price">$999</div>
       </div>
