@@ -1,5 +1,21 @@
 @use './styles/utils/mixins.scss' as *;
 @use './styles/utils/variables.scss' as *;
+
+@font-face {
+  font-family: 'Mont';
+  src: url(../../../fonts/Mont-Regular.otf);
+}
+
+@font-face {
+  font-family: 'Mont Bold';
+  src: url(../../../fonts/Mont-Bold.otf);
+}
+
+@font-face {
+  font-family: 'Mont SemiBold';
+  src: url(../../../fonts/Mont-SemiBold.otf);
+}
+
 * {
   margin: 0;
   scroll-behavior: smooth;
@@ -17,4 +33,56 @@
 
 .main {
   background-color: $hover-bg-color;
+}
+
+.empty {
+  font-family: 'Mont', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  padding-block: 20px;
+
+  min-height: calc(100vh - 268px - 68px);
+
+  @include on-tablet {
+    gap: 15px;
+    min-height: calc(100vh - 118px - 68px);
+  }
+
+  @include on-desktop {
+    min-height: calc(100vh - 118px - 84px);
+  }
+
+  &__image {
+    min-width: 30%;
+    max-width: 35%;
+  }
+
+  &__title {
+    font-family: 'Mont-Bold', sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      font-size: 22px;
+    }
+
+    @include on-desktop {
+      font-size: 32px;
+    }
+  }
+
+  &__description {
+    font-size: 14px;
+
+    @include on-tablet {
+      font-size: 20px;
+    }
+
+    @include on-desktop {
+      font-size: 22px;
+    }
+  }
 }
