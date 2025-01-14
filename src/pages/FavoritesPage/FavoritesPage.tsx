@@ -1,5 +1,5 @@
-import { useAppSelector } from '../../app/hooks';
-import { FavoritesEmpty } from '../../components/FavoritesEmpty';
+// import { useAppSelector } from '../../app/hooks';
+// import { FavoritesEmpty } from '../../components/FavoritesEmpty';
 import { ProductCard } from '../../components/ProductCard/ProductCard';
 import { Product } from '../../types/Product';
 
@@ -34,11 +34,11 @@ const testProduct2: Product = {
 };
 
 export const FavoritesPage = () => {
-  const favoriteProducts = useAppSelector((state) => state.favoriteProducts);
+  // const favoriteProducts = useAppSelector((state) => state.favoriteProducts);
 
-  if (!favoriteProducts.length) {
-    return <FavoritesEmpty />;
-  }
+  // if (!favoriteProducts.length) {
+  //   return <FavoritesEmpty />;
+  // } <- add this later
 
   return (
     <>
