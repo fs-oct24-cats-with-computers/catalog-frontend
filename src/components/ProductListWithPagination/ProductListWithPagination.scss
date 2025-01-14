@@ -34,6 +34,13 @@
 
     grid-column: 3 / -1;
 
+    appearance: none;
+    background-image: url('../../../public/icons/Chevron\ \(Arrow\ Down\).svg');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    cursor: pointer;
+
     @include on-tablet {
       grid-column: 5 / 8;
     }
@@ -46,13 +53,6 @@
       outline: none;
       border-color: $primary-color;
     }
-
-    appearance: none;
-    background-image: url('../../../public/icons/Chevron\ \(Arrow\ Down\).svg');
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 16px;
-    cursor: pointer;
   }
 
   &__product-list {
