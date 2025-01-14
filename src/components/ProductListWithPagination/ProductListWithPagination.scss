@@ -2,10 +2,7 @@
 @use '../../styles/utils/variables.scss' as *;
 
 .product-list {
-  @include page-grid;
-
   &__selectionLabel {
-    grid-column: 3 / -1;
     font-family: 'Mont', sans-serif;
     font-size: 12px;
     line-height: 15px;
@@ -55,33 +52,22 @@
     }
   }
 
-  &__product-list {
-    grid-column: 1 / -1;
+  &__list {
+    @include page-grid;
     margin: 0 auto;
   }
 
-  // &__product-card {
-  //   grid-column: 1 / -1;
+  &__card {
+    grid-column: 1 / -1;
 
-  //   @include on-tablet {
-  //     grid-column: 1 / 4;
-  //   }
-  // }
+    @include on-tablet {
+      grid-column: span 4;
+    }
 
-  // &__productList {
-  //   // @include page-grid;
-  //   grid-column: 1 / span 4;
-  //   // justify-self: center;
-  //   // grid-template-columns: repeat(1, 1fr);
-
-  //   // @include on-tablet {
-  //   //   grid-template-columns: repeat(2, 1fr);
-  //   // }
-
-  //   // @include on-desktop {
-  //   //   grid-template-columns: repeat(4, 1fr);
-  //   // }
-  // }
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
 }
 
 .pagination {

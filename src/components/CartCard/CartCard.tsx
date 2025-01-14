@@ -11,7 +11,7 @@ export const CartCard: React.FC<Props> = ({ product }) => {
       <div className="card__firstRow">
         <div className="card__firstRow--close">
           <img
-            src="../../../public/icons/Close.svg"
+            src="../icons/Close.svg"
             alt="close icon"
             className="card__firstRow--close--img"
           />
@@ -28,7 +28,9 @@ export const CartCard: React.FC<Props> = ({ product }) => {
 
       <div className="card__secondRow">
         <div className="card__secondRow--control">
-          <button className="card__secondRow--control--minus">—</button>
+          <button className="card__secondRow--control--minus disabled">
+            —
+          </button>
           <div className="card__secondRow--control--quantity">1</div>
           <button className="card__secondRow--control--plus">+</button>
         </div>
