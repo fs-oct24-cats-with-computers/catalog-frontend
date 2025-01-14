@@ -2,10 +2,10 @@ import './NotFoundPage.scss';
 
 export const NotFoundPage = () => {
   return (
-    <div className="notFound">
+    <div className="notFound container">
       <img
         className="notFound__image"
-        src="../../../public/img/page-not-found.png"
+        src="../../../img/page-not-found.png"
         alt="Error-cat for not found page"
       />
       <h2 className="notFound__title">Page not found</h2>

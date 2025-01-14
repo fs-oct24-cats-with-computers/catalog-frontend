@@ -2,7 +2,7 @@ import './PhonesPage.scss';
 import { useEffect, useState } from 'react';
 
 import { getProducts } from '../../api';
-import { Product } from '../../types/Product';
+import { ProductsListWithPagination } from '../../components/ProductListWithPagination';
 
 export const PhonesPage = () => {
   const [phones, setPhones] = useState<Product[]>([]);
@@ -25,6 +25,7 @@ export const PhonesPage = () => {
       <div className="page container">
         <h1 className="page__title">Mobile phones</h1>
         <p className="page__subtitle">{phones.length} models</p>
+        <ProductsListWithPagination products={phones} />
       </div>
     </>
   );
