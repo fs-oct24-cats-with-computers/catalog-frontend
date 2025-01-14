@@ -19,7 +19,6 @@
     font-family: 'Mont SemiBold';
     font-size: 20px;
     line-height: 26px;
-    padding-bottom: 16px;
 
     @include on-tablet {
       font-family: 'Mont Bold';
@@ -30,6 +29,8 @@
 
   &__divider {
     width: 100%;
+    margin-top: 16px;
+    margin-bottom: 32px;
     background-color: $elements-color;
     height: 1px;
   }
