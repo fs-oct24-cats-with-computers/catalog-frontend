@@ -33,7 +33,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
         <span className="product-card__price-current">${product.price}</span>
         {product.price && (
           <span className="product-card__price-no-discount">
-            ${product.price}
+            ${product.fullPrice}
           </span>
         )}
       </div>
