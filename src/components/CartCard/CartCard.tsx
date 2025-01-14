@@ -28,13 +28,14 @@ export const CartCard: React.FC<Props> = ({ product }) => {
 
       <div className="card__secondRow">
         <div className="card__secondRow--control">
+          {/* add 'disabled' class for disabled button */}
           <button className="card__secondRow--control--minus disabled">
             —
           </button>
           <div className="card__secondRow--control--quantity">1</div>
           <button className="card__secondRow--control--plus">+</button>
         </div>
-        <div className="card__secondRow--price">$999</div>
+        <div className="card__secondRow--price">${product.price}</div>
       </div>
     </div>
   );
