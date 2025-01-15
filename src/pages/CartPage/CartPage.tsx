@@ -2,6 +2,7 @@ import { CartEmpty } from '../../components/CartEmpty';
 import { CartCard } from '../../components/CartCard';
 import { Product } from '../../types/Product';
 import './CartPage.scss';
+import { CartTotalPanel } from '../../components/CartTotalPanel/CartTotalPanel';
 
 const products: Product[] = [
   {
@@ -42,9 +43,6 @@ export const CartPage = () => {
 
           <div className="cart-page__content">
             <section className="cart-page__card-holder">
-              {/* <div className='cart-page__temp-price'>212</div>
-          <div className='cart-page__temp-price'>545</div>
-          <div className='cart-page__temp-price'>413</div> */}
               {products.map((product) => (
                 <CartCard
                   product={product}
@@ -53,27 +51,7 @@ export const CartPage = () => {
               ))}
             </section>
 
-            <div className="cart-page__total-panel">
-              <div className="cart-page__total-panel__count">
-                <h2 className="cart-page__total-panel__count__price">
-                  $
-                  {products.reduce(
-                    (count, product) => count + product.price,
-                    0,
-                  )}
-                </h2>
-                <p className="cart-page__total-panel__count__text">
-                  Total for {products.length} items
-                </p>
-              </div>
-
-              <button
-                className="cart-page__total-panel__button"
-                onClick={() => {}}
-              >
-                Checkout
-              </button>
-            </div>
+            <CartTotalPanel products={products} />
           </div>
         </section>
       : <CartEmpty />}

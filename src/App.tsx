@@ -4,7 +4,9 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer/Footer';
 // import { ProductCard } from './components/ProductCard/ProductCard';
 // import { Product } from './types/Product';
-import { Breadcrumbs } from './components/Breadcrumbs/Breadcrumbs';
+
+// import { Breadcrumbs } from './components/Breadcrumbs/Breadcrumbs';
+
 // import { PhotosGallery } from './components/PhotosGallery/PhotosGallery';
 
 // const testProduct: Product = {
@@ -34,9 +36,9 @@ export const App = () => {
   return (
     <>
       <Header />
-      <Breadcrumbs />
-      {/* <PhotosGallery images={images} />
-      <ProductCard product={testProduct} /> */}
+      {/* <Breadcrumbs /> */}
+      {/* <PhotosGallery images={images} /> */}
+      {/* <ProductCard product={testProduct} /> */}
       <main className="main">
         <Outlet />
       </main>
