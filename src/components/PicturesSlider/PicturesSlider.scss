@@ -170,16 +170,6 @@
         color: #000;
       }
     }
-
-    @include on-desktop {
-      &.swiper-button-next {
-        left: 16px;
-      }
-
-      &.swiper-button-prev {
-        right: 16px;
-      }
-    }
   }
 }
 
