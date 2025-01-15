@@ -53,7 +53,6 @@ export const ProductsListWithPagination: React.FC<PropsType> = ({
         <option value={64}>64</option>
       </select>
 
-      {/* <div className="product-list__list"> */}
       {currentItems.map((phone) => (
         <p
           key={phone.id}
@@ -61,12 +60,7 @@ export const ProductsListWithPagination: React.FC<PropsType> = ({
         >
           {phone.name}
         </p>
-        // <ProductCard
-        //   key={phone.id}
-        //   product={phone}
-        // />
       ))}
-      {/* </div> */}
 
       {/* <div className="product-list__list">
         {currentItems.map((product) => (

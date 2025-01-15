@@ -35,6 +35,7 @@
     font-family: 'Mont SemiBold';
     font-size: 20px;
     line-height: 26px;
+    color: $primary-color;
 
     @include on-tablet {
       font-family: 'Mont Bold';
@@ -56,6 +57,15 @@
 
     @include on-desktop {
       grid-column: 1 / 13;
+    }
+  }
+
+  &--tech-specs {
+    font-family: 'Mont';
+    grid-column: 1 / -1;
+
+    @include on-desktop {
+      grid-column: 14 / -1;
     }
   }
 }
