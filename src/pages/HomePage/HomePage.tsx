@@ -1,8 +1,10 @@
 import { PicturesSlider } from '../../components/PicturesSlider';
 import { ProductsSlider } from '../../components/ProductsSlider/ProductsSlider';
+import { Categories } from '../../components/ShopByCategory/ShopByCategory';
+import { Product } from '../../types/Product';
 import './HomePage.scss';
 
-const productsFromApi = [
+const productsFromApi: Product[] = [
   {
     id: 1,
     category: 'phones',
@@ -100,20 +102,33 @@ export const HomePage = () => {
 
   return (
     <>
-      <main className="main">
-        <div className="page-container">
-          <h1 className="page__title">Welcome to Nice Gadgets store!</h1>
-          <PicturesSlider />
-          <ProductsSlider
-            products={hotPricesModels}
-            title={'Hot prices'}
-          />
-          <ProductsSlider
-            products={newModels}
-            title={'Brand new models'}
-          />
-        </div>
-      </main>
+      <div className="page-container-home">
+        <h1 className="page__title">Welcome to Nice Gadgets store!</h1>
+        <PicturesSlider />
+        <ProductsSlider
+          products={hotPricesModels}
+          title={'Hot prices'}
+        />
+        <Categories />
+        <ProductsSlider
+          products={newModels}
+          title={'Brand new models'}
+        />
+      </div>
     </>
   );
 };
+
+// const [products, setProducts] = useState<Product[]>([]);
+// useEffect(() => {
+//   const fetchProducts = async () => {
+//     try {
+//       const productsFromApi = await getProducts('/products.json');
+//       setProducts(productsFromApi);
+//     }
+//     catch (error) {
+//       console.log('error', error);
+//     }
+//   };
+//   fetchProducts();
+// }, []);

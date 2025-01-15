@@ -14,25 +14,30 @@
   src: url('/fonts/Mont-SemiBold.otf');
 }
 
-.BannerContainer {
-  width: 100%;
+.SwiperContainer {
   height: 352px;
   background-color: #fff;
   position: relative;
 
   @include on-tablet {
     height: 221px;
+    margin: 0 24px 64px 24px;
   }
 
   @include on-desktop {
     height: 432px;
+    margin: 0 32px 80px 32px;
+  }
+
+  .Swiper {
+    width: 100%;
   }
 
   .SwiperSlide {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 40px;
   }
 
   .ContentWrapper {
@@ -43,6 +48,7 @@
     position: relative;
 
     @include on-tablet {
+      padding-inline: 19px;
       width: 490px;
       height: 189px;
     }
@@ -171,15 +177,15 @@
       }
     }
 
-    @include on-desktop {
-      &.swiper-button-next {
-        left: 16px;
-      }
+    // @include on-desktop {
+    //   // &.swiper-button-next {
+    //   //   // left: 16px;
+    //   // }
 
-      &.swiper-button-prev {
-        right: 16px;
-      }
-    }
+    //   &.swiper-button-prev {
+    //     right: 16px;
+    //   }
+    // }
   }
 }
 

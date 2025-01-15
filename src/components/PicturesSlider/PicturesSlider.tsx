@@ -13,9 +13,10 @@ const bannerImages = [
 
 export const PicturesSlider = () => {
   return (
-    <section className="BannerContainer">
+    <section className="SwiperContainer">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
+        className="Swiper"
         spaceBetween={0}
         slidesPerView={1}
         loop={true}
