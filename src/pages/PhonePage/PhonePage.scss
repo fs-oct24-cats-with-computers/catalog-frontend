@@ -13,6 +13,11 @@
   font-family: 'Mont SemiBold';
   src: url('/fonts/Mont-SemiBold.otf');
 }
+.product-page {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
 
 .product-section {
   &__title {

@@ -3,6 +3,9 @@ import { About } from '../../components/About';
 import { Phone } from '../../types/Phone';
 import { TECH_TABLE_KEYS, techSpecsCase } from '../../utils/techSpecsCase';
 import { TechSpecs } from '../../components/TechSpecs';
+import { PhotosGallery } from '../../components/PhotosGallery';
+import { Breadcrumbs } from '../../components/Breadcrumbs';
+import { Back } from '../../components/Back';
 
 const testProduct: Phone = {
   id: 'apple-iphone-11-128gb-black',
@@ -57,7 +60,15 @@ export const PhonePage = () => {
   const testTechSpecs = techSpecsCase(testProduct, TECH_TABLE_KEYS);
 
   return (
-    <div className="page container">
+    <div className="product-page container">
+      <Breadcrumbs />
+      <Back />
+      <section className="product-section product-section--gallery">
+        <PhotosGallery images={testProduct.images} />
+      </section>
+      <section className="product-section product-section--variants">
+        <div>Variants Block</div>
+      </section>
       <section className="product-section product-section--about">
         <h3 className="product-section__title">About</h3>
         <div className="product-section__divider"></div>
@@ -68,6 +79,10 @@ export const PhonePage = () => {
         <h3 className="product-section__title">Tech specs</h3>
         <div className="product-section__divider"></div>
         <TechSpecs techSpecsObj={testTechSpecs} />
+      </section>
+
+      <section className="product-section product-section--recommended">
+        <div>Recommended</div>
       </section>
     </div>
   );
