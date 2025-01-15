@@ -1,5 +1,6 @@
 import { Product } from '../../types/Product';
 import './CartCard.scss';
+import CloseIcon from '../../../public/icons/Close.svg?react';
 
 type Props = {
   product: Product;
@@ -10,11 +11,12 @@ export const CartCard: React.FC<Props> = ({ product }) => {
     <div className="card">
       <div className="card__firstRow">
         <div className="card__firstRow--close">
-          <img
+          <CloseIcon className="card__firstRow--close--img" />
+          {/* <img
             src="../icons/Close.svg"
             alt="close icon"
             className="card__firstRow--close--img"
-          />
+          /> */}
         </div>
         <div className="card__firstRow--phone">
           <img

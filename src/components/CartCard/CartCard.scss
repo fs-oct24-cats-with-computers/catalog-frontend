@@ -41,12 +41,15 @@
     }
 
     &--close {
-      // color: #B4BDC3; on hover
       margin-right: 16px;
       cursor: pointer;
       &--img {
         width: 16px;
         height: 16px;
+        color: $icons-color;
+        &:hover {
+          color: $primary-color;
+        }
       }
     }
 
@@ -97,11 +100,11 @@
         height: 32px;
         color: #000000;
         background-color: transparent;
+        cursor: pointer;
 
-        // &--disabled {
-        //   border-color: $elements-color;
-        //   color: $icons-color;
-        // }
+        &:hover {
+          border-color: $primary-color;
+        }
       }
 
       &--quantity {
@@ -121,8 +124,12 @@
         height: 32px;
         font-size: 20px;
         color: #000000;
-        // color: $icons-color;
         background-color: transparent;
+        cursor: pointer;
+
+        &:hover {
+          border-color: $primary-color;
+        }
       }
     }
 
@@ -135,6 +142,11 @@
 }
 
 .disabled {
+  cursor: default;
   border-color: $elements-color;
   color: $icons-color;
+
+  &:hover {
+    border-color: $elements-color;
+  }
 }
