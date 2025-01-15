@@ -22,7 +22,7 @@ export const PhonesPage = () => {
 
   return (
     <>
-      <div className="page container">
+      <div className="container">
         <h1 className="page__title">Mobile phones</h1>
         <p className="page__subtitle">{phones.length} models</p>
         <ProductsListWithPagination products={phones} />
