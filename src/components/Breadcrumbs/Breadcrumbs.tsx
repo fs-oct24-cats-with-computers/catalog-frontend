@@ -10,7 +10,7 @@ export const Breadcrumbs = () => {
     <nav aria-label="breadcrumb">
       <ol className="breadcrumb">
         {location.pathname !== '/' && (
-          <li className="breadcrumb-item">
+          <li className="breadcrumb__item">
             <Link to="/">
               <HomeIcon />
             </Link>
@@ -22,7 +22,7 @@ export const Breadcrumbs = () => {
           return (
             <li
               key={to}
-              className="breadcrumb-item"
+              className="breadcrumb__item"
             >
               <ArrowRight />
               <Link to={to}>{value}</Link>
