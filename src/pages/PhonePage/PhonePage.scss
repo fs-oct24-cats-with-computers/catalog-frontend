@@ -19,6 +19,22 @@
   gap: 56px;
 }
 
+.product-page {
+  font-family: 'Mont Bold', sans-serif;
+
+  @include page-grid;
+
+  &__title {
+    font-size: 48px;
+    line-height: 56px;
+    grid-column: 1 / -1;
+  }
+
+  &__subtitle {
+    grid-column: 1 / -1;
+  }
+}
+
 .product-section {
   &__title {
     font-family: 'Mont SemiBold';

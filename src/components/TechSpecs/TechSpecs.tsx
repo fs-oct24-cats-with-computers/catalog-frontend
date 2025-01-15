@@ -3,7 +3,7 @@ import './TechSpecs.scss';
 import { Phone } from '../../types/Phone';
 
 type Props = {
-  techSpecsObj: Partial<Phone>;
+  techSpecsObj: Partial<Phone> | undefined;
 };
 
 export const TechSpecs: React.FC<Props> = (props) => {
@@ -11,21 +11,22 @@ export const TechSpecs: React.FC<Props> = (props) => {
 
   return (
     <div className="tech-specs">
-      {Object.entries(techSpecsObj).map(([specKey, specValue]) => {
-        const specName = specKey[0].toUpperCase() + specKey.slice(1);
+      {techSpecsObj &&
+        Object.entries(techSpecsObj).map(([specKey, specValue]) => {
+          const specName = specKey[0].toUpperCase() + specKey.slice(1);
 
-        return (
-          <div
-            className="tech-specs__row"
-            key={specKey}
-          >
-            <span className="tech-specs__row-name">{specName}</span>
-            <span className="tech-specs__row-value">
-              {Array.isArray(specValue) ? specValue.join(', ') : specValue}
-            </span>
-          </div>
-        );
-      })}
+          return (
+            <div
+              className="tech-specs__row"
+              key={specKey}
+            >
+              <span className="tech-specs__row-name">{specName}</span>
+              <span className="tech-specs__row-value">
+                {Array.isArray(specValue) ? specValue.join(', ') : specValue}
+              </span>
+            </div>
+          );
+        })}
     </div>
   );
 };
