@@ -11,7 +11,10 @@ export const Breadcrumbs = () => {
       <ol className="breadcrumb">
         {location.pathname !== '/' && (
           <li className="breadcrumb__item">
-            <Link to="/">
+            <Link
+              className="breadcrumb__item--link"
+              to="/"
+            >
               <HomeIcon />
             </Link>
           </li>
@@ -25,7 +28,12 @@ export const Breadcrumbs = () => {
               className="breadcrumb__item"
             >
               <ArrowRight />
-              <Link to={to}>{value}</Link>
+              <Link
+                className="breadcrumb__item--link"
+                to={to}
+              >
+                {value}
+              </Link>
             </li>
           );
         })}
