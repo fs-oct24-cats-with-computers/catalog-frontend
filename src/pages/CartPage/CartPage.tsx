@@ -1,7 +1,7 @@
 import { CartCard } from '../../components/CartCard';
-import { Product } from '../../types/Product';
+import { ProductWithQuantity } from '../../types/ProductWithQuantity';
 
-const testProduct: Product = {
+const testProduct: ProductWithQuantity = {
   id: 1,
   category: 'phones',
   itemId: 'apple-iphone-7-32gb-black',
@@ -14,6 +14,7 @@ const testProduct: Product = {
   ram: '2GB',
   year: 2016,
   image: 'img/phones/apple-iphone-7/black/00.webp',
+  quantity: 1,
 };
 
 export const CartPage = () => {
