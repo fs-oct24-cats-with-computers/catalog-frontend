@@ -3,14 +3,20 @@ import './ProductCard.scss';
 import { Product } from '../../types/Product';
 import Favorite from '../../../public/icons/Favourites Filled (Heart Like).svg?react';
 import '../../styles/utils/variables.scss';
+import classNames from 'classnames';
 
 type Props = {
   product: Product;
+  isSlider: boolean;
 };
 
-export const ProductCard: React.FC<Props> = ({ product }) => {
+export const ProductCard: React.FC<Props> = ({ product, isSlider = false }) => {
   return (
-    <div className="product-card product-card-slider">
+    <div
+      className={classNames('product-card', {
+        'product-card-slider': isSlider === true,
+      })}
+    >
       {/* Image container */}
       <div className="product-card__image">
         <img
