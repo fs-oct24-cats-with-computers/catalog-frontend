@@ -21,13 +21,31 @@
   scroll-behavior: smooth;
 }
 
+h1 {
+  padding: 24px 16px;
+
+  @include on-tablet {
+    padding: 32px, 24px;
+  }
+
+  @include on-desktop {
+    padding: 56px, 32px;
+  }
+}
+
 .container {
+  display: grid;
+  row-gap: 96px;
   max-width: 1136px;
   margin: 0 auto;
   padding-inline: 16px;
 
   @include on-tablet {
     padding-inline: 24px;
+  }
+
+  @include on-desktop {
+    padding-inline: 32px;
   }
 }
 
@@ -84,21 +102,5 @@
     @include on-desktop {
       font-size: 22px;
     }
-  }
-}
-
-.page {
-  font-family: 'Mont Bold', sans-serif;
-
-  @include page-grid;
-
-  &__title {
-    font-size: 48px;
-    line-height: 56px;
-    grid-column: 1 / -1;
-  }
-
-  &__subtitle {
-    grid-column: 1 / -1;
   }
 }
