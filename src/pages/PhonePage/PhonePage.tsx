@@ -8,8 +8,9 @@ import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { Back } from '../../components/Back';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getProductsWithDetails } from '../../api';
+import { getProductById } from '../../api';
 import { NotFoundPage } from '../NotFoundPage';
+import { Category } from '../../types/Category';
 
 export const PhonePage = () => {
   const [currentPhone, setCurrentPhone] = useState<Phone | null>(null);
@@ -26,16 +27,15 @@ export const PhonePage = () => {
 
   useEffect(() => {
     setError('');
-    getProductsWithDetails('phones')
-      .then((phones) => {
-        const foundPhone = phones.find((phone) => phone.id === phoneId);
+    getProductById(Category.phones, phoneId)
+      .then((foundPhone) => {
         if (foundPhone) {
           setCurrentPhone(foundPhone);
         } else {
           setError('Wrong phone id!');
         }
       })
-      .catch((error) => setError(error));
+      .catch((error) => setError(error.message));
   }, [phoneId]);
 
   if (error) {

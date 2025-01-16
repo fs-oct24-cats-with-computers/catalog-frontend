@@ -19,11 +19,11 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
 .container {
-  display: grid;
   max-width: 1136px;
   margin: 0 auto;
   padding-inline: 16px;

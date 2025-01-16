@@ -100,7 +100,7 @@ export const HomePage = () => {
 
   return (
     <>
-      <main className="main">
+      <div className="container">
         <div className="page-container">
           <h1 className="page__title">Welcome to Nice Gadgets store!</h1>
           <PicturesSlider />
@@ -113,7 +113,7 @@ export const HomePage = () => {
             title={'Brand new models'}
           />
         </div>
-      </main>
+      </div>
     </>
   );
 };

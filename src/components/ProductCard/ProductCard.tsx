@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 type Props = {
   product: Product;
-  isSlider: boolean;
+  isSlider?: boolean;
 };
 
 export const ProductCard: React.FC<Props> = ({ product, isSlider = false }) => {
