@@ -3,7 +3,7 @@ import { Product } from '../../types/Product';
 import ReactPaginate from 'react-paginate';
 
 import './ProductListWithPagination.scss';
-// import { ProductCard } from '../ProductCard/ProductCard';
+import { ProductCard } from '../ProductCard/ProductCard';
 
 type PropsType = {
   products: Product[];
@@ -38,14 +38,14 @@ export const ProductsListWithPagination: React.FC<PropsType> = ({
       {/* filters */}
       <label
         htmlFor="itemsPerPage"
-        className="product-list__selectionLabel"
+        className="selectionLabel"
       >
         Items per Page
       </label>
       <select
         id="itemsPerPage"
         value={itemsPerPage}
-        className="product-list__select"
+        className="select"
         onChange={(e) => setItemsPerPage(Number(e.target.value))}
       >
         <option value={16}>16</option>
@@ -53,28 +53,16 @@ export const ProductsListWithPagination: React.FC<PropsType> = ({
         <option value={64}>64</option>
       </select>
 
-      {/* <div className="product-list__list"> */}
-      {currentItems.map((phone) => (
-        <p
-          key={phone.id}
-          className="product-list__item"
-        >
-          {phone.name}
-        </p>
-        // <ProductCard
-        //   key={phone.id}
-        //   product={phone}
-        // />
-      ))}
-      {/* </div> */}
-
-      {/* <div className="product-list__list">
+      <div className="product-list">
         {currentItems.map((product) => (
-          <div className="product-list__card">
+          <div
+            key={product.id}
+            className="product-list__card"
+          >
             <ProductCard product={product} />
           </div>
         ))}
-      </div> */}
+      </div>
 
       <ReactPaginate
         breakLabel="..."

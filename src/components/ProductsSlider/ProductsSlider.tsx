@@ -14,7 +14,6 @@ type Props = {
 };
 
 export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
-  // export const ProductsSlider: React.FC = () => {
   return (
     <section className="sliderProducts__wrapper">
       <div className="sliderProducts__title">
@@ -49,7 +48,10 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
             key={product.id}
             className="ProductWrapper"
           >
-            <ProductCard product={product} />
+            <ProductCard
+              product={product}
+              isSlider={true}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

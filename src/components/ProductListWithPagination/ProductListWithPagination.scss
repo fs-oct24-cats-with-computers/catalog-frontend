@@ -1,87 +1,66 @@
 @use '../../styles/utils/mixins.scss' as *;
 @use '../../styles/utils/variables.scss' as *;
 
+.selectionLabel {
+  font-family: 'Mont', sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.select {
+  height: 40px;
+  border: 1px solid $icons-color;
+  border-radius: 8px;
+  width: 130px;
+
+  font-family: 'Mont', sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  margin: 4px 0 24px;
+  color: $primary-color;
+
+  display: flex;
+  align-items: center;
+
+  padding: 10px 12px 9px;
+
+  appearance: none;
+  background-image: url('../../../public/icons/Chevron\ \(Arrow\ Down\).svg');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $secondary-color;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+  }
+}
+
 .product-list {
+  justify-items: center;
+  align-items: center;
   @include page-grid;
 
-  &__selectionLabel {
-    grid-column: 3 / -1;
-    font-family: 'Mont', sans-serif;
-    font-size: 12px;
-    line-height: 15px;
-
-    @include on-tablet {
-      grid-column: 5 / 8;
-    }
-  }
-
-  &__select {
-    height: 40px;
-    border: 1px solid $icons-color;
-    border-radius: 8px;
-    width: 130px;
-
-    font-family: 'Mont', sans-serif;
-    font-size: 14px;
-    line-height: 21px;
-    margin: 4px 0 24px;
-    color: $primary-color;
-
-    display: flex;
-    align-items: center;
-
-    padding: 10px 12px 9px;
-
-    grid-column: 3 / -1;
-
-    appearance: none;
-    background-image: url('../../../public/icons/Chevron\ \(Arrow\ Down\).svg');
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 16px;
-    cursor: pointer;
-
-    @include on-tablet {
-      grid-column: 5 / 8;
-    }
-
-    &:hover {
-      border-color: $secondary-color;
-    }
-
-    &:focus {
-      outline: none;
-      border-color: $primary-color;
-    }
-  }
-
-  &__product-list {
+  &__card {
     grid-column: 1 / -1;
-    margin: 0 auto;
+
+    @include on-tablet {
+      grid-column: span 6;
+    }
+
+    @include on-tablet-large {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
   }
-
-  // &__product-card {
-  //   grid-column: 1 / -1;
-
-  //   @include on-tablet {
-  //     grid-column: 1 / 4;
-  //   }
-  // }
-
-  // &__productList {
-  //   // @include page-grid;
-  //   grid-column: 1 / span 4;
-  //   // justify-self: center;
-  //   // grid-template-columns: repeat(1, 1fr);
-
-  //   // @include on-tablet {
-  //   //   grid-template-columns: repeat(2, 1fr);
-  //   // }
-
-  //   // @include on-desktop {
-  //   //   grid-template-columns: repeat(4, 1fr);
-  //   // }
-  // }
 }
 
 .pagination {
