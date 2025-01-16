@@ -2,7 +2,7 @@ import React from 'react';
 import './About.scss';
 
 type Props = {
-  description: { title: string; text: string[] }[];
+  description: { title: string; text: string[] }[] | undefined;
 };
 
 export const About: React.FC<Props> = (props) => {
@@ -10,7 +10,7 @@ export const About: React.FC<Props> = (props) => {
 
   return (
     <div className="about">
-      {description.map((part) => (
+      {description?.map((part) => (
         <div
           className="about__part"
           key={part.title}

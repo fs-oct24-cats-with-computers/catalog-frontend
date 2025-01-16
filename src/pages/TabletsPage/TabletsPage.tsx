@@ -1,7 +1,7 @@
 export const TabletsPage = () => {
   return (
     <>
-      <div className="page container">
+      <div className="tablets-page container">
         <h1 className="page__title">Tablets</h1>
       </div>
     </>
