@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ProductWithQuantity } from '../types/ProductWithQuantity';
+import { Product } from '../types/Product';
 
 const initialState = [] as ProductWithQuantity[];
 
@@ -7,7 +8,7 @@ export const cartProductsSlice = createSlice({
   name: 'cartProducts',
   initialState,
   reducers: {
-    addProducts(cartProducts, { payload }: PayloadAction<ProductWithQuantity>) {
+    addProducts(cartProducts, { payload }: PayloadAction<Product>) {
       //parametrs -> product
       return cartProducts.find((product) => product.id === payload.id) ?
           [...cartProducts]

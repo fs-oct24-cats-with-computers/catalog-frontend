@@ -1,6 +1,6 @@
 export type Product = {
   id: number;
-  category: string; //'phones' | 'tablets' | 'accessories';
+  category: 'phones' | 'tablets' | 'accessories';
   itemId: string;
   name: string;
   fullPrice: number;
