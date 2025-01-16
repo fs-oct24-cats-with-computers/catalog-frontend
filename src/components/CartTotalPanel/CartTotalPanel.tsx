@@ -5,13 +5,13 @@ import './CartTotalPanel.scss';
 
 interface Props {
   products: ProductWithQuantity[];
-  deleteProducts: React.Dispatch<React.SetStateAction<ProductWithQuantity[]>>;
+  // deleteProducts: React.Dispatch<React.SetStateAction<ProductWithQuantity[]>>;
   openModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const CartTotalPanel: React.FC<Props> = ({
   products,
-  deleteProducts,
+  // deleteProducts,
   openModal,
 }) => {
   const dispatch = useAppDispatch();
@@ -20,7 +20,7 @@ export const CartTotalPanel: React.FC<Props> = ({
     products.map((product) =>
       dispatch(cartProductsSlice.actions.removeProduct(product.id)),
     );
-    deleteProducts([]);
+    // deleteProducts([]);
     openModal(true);
   };
 

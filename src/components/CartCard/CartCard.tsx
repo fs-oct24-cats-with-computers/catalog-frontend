@@ -7,40 +7,21 @@ import cn from 'classnames';
 
 type Props = {
   product: ProductWithQuantity;
-  products: ProductWithQuantity[];
-  setProducts: React.Dispatch<React.SetStateAction<ProductWithQuantity[]>>;
 };
 
-export const CartCard: React.FC<Props> = ({
-  product,
-  products,
-  setProducts,
-}) => {
+export const CartCard: React.FC<Props> = ({ product }) => {
   const dispatch = useAppDispatch();
   const isQuantityMinimal = product.quantity === 1;
 
   const handleRemove = () => {
-    setProducts(products.filter((tempProduct) => tempProduct.id != product.id));
     dispatch(cartProductsSlice.actions.removeProduct(product.id));
   };
 
   const handleDecrease = () => {
-    if (product.quantity !== undefined) product.quantity--;
-    setProducts([
-      ...products.filter((tempProduct) => tempProduct.id < product.id),
-      product,
-      ...products.filter((tempProduct) => tempProduct.id > product.id),
-    ]);
     dispatch(cartProductsSlice.actions.decreaseQuantity(product.id));
   };
 
   const handleIncrease = () => {
-    if (product.quantity !== undefined) product.quantity++;
-    setProducts([
-      ...products.filter((tempProduct) => tempProduct.id < product.id),
-      product,
-      ...products.filter((tempProduct) => tempProduct.id > product.id),
-    ]);
     dispatch(cartProductsSlice.actions.increaseQuantity(product.id));
   };
 

@@ -2,6 +2,8 @@ import React from 'react';
 import './ProductCard.scss';
 import { Product } from '../../types/Product';
 import Favorite from '../../../public/icons/Favourites Filled (Heart Like).svg?react';
+import { useAppDispatch } from '../../app/hooks';
+import { cartProductsSlice } from '../../features/cart';
 import '../../styles/utils/variables.scss';
 
 type Props = {
@@ -9,6 +11,12 @@ type Props = {
 };
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
+  const dispatch = useAppDispatch();
+
+  const addToCart = () => {
+    dispatch(cartProductsSlice.actions.addProducts(product));
+  };
+
   return (
     <div className="product-card">
       {/* Image container */}
@@ -65,7 +73,10 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
 
       {/* Buttons */}
       <div className="product-card__buttons">
-        <div className="product-card__button product-card__button--add">
+        <div
+          className="product-card__button product-card__button--add"
+          onClick={addToCart}
+        >
           Add to cart
         </div>
         <div className="product-card__button product-card__button--favorite">
