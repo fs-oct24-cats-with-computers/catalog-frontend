@@ -14,15 +14,15 @@
   &__wrapper {
     position: relative;
     margin-bottom: 80px;
-    padding-inline: 16px 0;
+    // padding-inline: 16px 0;
 
-    @include on-tablet {
-      padding-inline: 24px 0;
-    }
+    // @include on-tablet {
+    //   padding-inline: 24px 0;
+    // }
 
-    @include on-desktop {
-      padding-inline: 32px;
-    }
+    // @include on-desktop {
+    //   padding-inline: 32px 0;
+    // }
   }
 
   &__title {
@@ -71,9 +71,6 @@
   height: 100%;
   margin: 0;
 }
-.product-card-slider {
-  margin: 0;
-}
 
 .swiper-buttons-wrapper {
   position: relative;
@@ -103,7 +100,7 @@
 
   &::after {
     font-size: 10px;
-    color: #000;
+    color: $primary-color;
   }
 
   &:disabled {

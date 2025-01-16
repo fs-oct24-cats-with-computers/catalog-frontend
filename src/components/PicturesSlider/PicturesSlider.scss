@@ -15,9 +15,10 @@
 }
 
 .BannerContainer {
+  margin: 0 auto 80px;
   width: 100%;
   height: 352px;
-  background-color: #fff;
+  background-color: transparent;
   position: relative;
 
   @include on-tablet {
@@ -39,7 +40,7 @@
     display: flex;
     width: 100%;
     height: 320px;
-    background-color: #000;
+    background-color: $primary-color;
     position: relative;
 
     @include on-tablet {
@@ -73,7 +74,7 @@
         height: 400px;
       }
 
-      h2 {
+      .TextContent_title {
         font-family: 'Mont Bold';
         font-size: 24px;
         margin-bottom: 5px;
@@ -81,14 +82,14 @@
         line-height: 1;
       }
 
-      p {
+      .TextContent_text {
         font-family: 'Mont', sans-serif;
         font-size: 10px;
         margin-bottom: 50px;
         color: $white-color;
       }
 
-      button {
+      .TextContent_button {
         font-family: 'Mont Bold';
         padding: 10px 20px;
         color: $white-color;
@@ -136,7 +137,7 @@
   }
 
   .swiper-pagination-bullet-active {
-    background-color: #000;
+    background-color: $primary-color;
   }
 
   .swiper-button-next,
@@ -158,11 +159,11 @@
       }
 
       &.swiper-button-next {
-        right: 19px;
+        right: 0;
       }
 
       &.swiper-button-prev {
-        left: 19px;
+        left: 0;
       }
 
       &::after {

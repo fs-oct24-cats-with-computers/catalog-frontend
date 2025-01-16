@@ -40,9 +40,11 @@ export const PicturesSlider = () => {
           >
             <div className="ContentWrapper">
               <div className="TextContent">
-                <h2>Now available in our store! 👌</h2>
-                <p>Be the first!</p>
-                <button>ORDER NOW</button>
+                <h2 className="TextContent_title">
+                  Now available in our store! 👌
+                </h2>
+                <p className="TextContent_text">Be the first!</p>
+                <button className="TextContent_button">ORDER NOW</button>
               </div>
               <div className="ImgWrapper">
                 <img
