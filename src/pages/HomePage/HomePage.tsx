@@ -101,7 +101,7 @@ export const HomePage = () => {
     .sort((a, b) => b.fullPrice - a.fullPrice);
 
   return (
-    <>
+    <div className="container">
       <div className="page-container">
         <h1 className="page__title">Welcome to Nice Gadgets store!</h1>
         <PicturesSlider />
@@ -115,7 +115,7 @@ export const HomePage = () => {
           title={'Brand new models'}
         />
       </div>
-    </>
+    </div>
   );
 };
 

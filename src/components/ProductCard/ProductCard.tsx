@@ -3,17 +3,15 @@ import './ProductCard.scss';
 import { Product } from '../../types/Product';
 import Favorite from '../../../public/icons/Favourites Filled (Heart Like).svg?react';
 import '../../styles/utils/variables.scss';
-import classNames from 'classnames';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { favoriteProductsSlice } from '../../features/favorites';
 import cn from 'classnames';
 
 type Props = {
   product: Product;
-  isSlider: boolean;
 };
 
-export const ProductCard: React.FC<Props> = ({ product, isSlider = false }) => {
+export const ProductCard: React.FC<Props> = ({ product }) => {
   const favoriteProducts = useAppSelector((state) => state.favoriteProducts);
   const dispatch = useAppDispatch();
 
@@ -25,11 +23,7 @@ export const ProductCard: React.FC<Props> = ({ product, isSlider = false }) => {
     dispatch(favoriteProductsSlice.actions.toggleProducts(product));
 
   return (
-    <div
-      className={classNames('product-card', {
-        'product-card-slider': isSlider === true,
-      })}
-    >
+    <div className="product-card">
       {/* Image container */}
       <div className="product-card__image">
         <img
