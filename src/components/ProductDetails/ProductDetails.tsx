@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './ProductDetails.scss';
 import { ProductExpand } from '../../types/ProductExpand';
 import Favorite from '../../../public/icons/Favourites Filled (Heart Like).svg?react';
+import { DESC_TABLE_KEYS, techSpecsCase } from '../../utils/techSpecsCase';
+import { TechSpecs } from '../TechSpecs';
 
 type Props = {
   product: ProductExpand;
@@ -10,25 +12,28 @@ type Props = {
 export const ProductDetails: React.FC<Props> = ({ product }) => {
   const [selectedColor, setSelectedColor] = useState(product.color);
   const [selectedCapacity, setSelectedCapacity] = useState(product.capacity);
-
+  const description = techSpecsCase(product, DESC_TABLE_KEYS);
   return (
     <div className="product-details">
       <div className="product-details__info">
         {/* Вибір кольору */}
-        <p className="product-details__color-available">Available colors</p>
+
         <div className="product-details__color-options">
-          {product.colorsAvailable.map((color) => (
-            <button
-              key={color}
-              className={`product-details__color-options-button ${
-                selectedColor === color ?
-                  'product-details__color-options-button--active'
-                : ''
-              }`}
-              style={{ backgroundColor: color }}
-              onClick={() => setSelectedColor(color)}
-            />
-          ))}
+          <p className="product-details__color-title">Available colors</p>
+          <div className="product-details__color-list">
+            {product.colorsAvailable.map((color) => (
+              <button
+                key={color}
+                className={`product-details__color-button ${
+                  selectedColor === color ?
+                    'product-details__color-button--active'
+                  : ''
+                }`}
+                style={{ backgroundColor: color }}
+                onClick={() => setSelectedColor(color)}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Вибір об'єму пам'яті */}
@@ -68,6 +73,9 @@ export const ProductDetails: React.FC<Props> = ({ product }) => {
           <div className="product-details__button product-details__button--favorite">
             <Favorite className="product-details__icon" />
           </div>
+        </div>
+        <div className="product-details__specs">
+          <TechSpecs techSpecsObj={description} />
         </div>
       </div>
     </div>
