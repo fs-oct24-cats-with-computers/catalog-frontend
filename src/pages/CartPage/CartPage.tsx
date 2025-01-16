@@ -1,8 +1,32 @@
+import { CartCard } from '../../components/CartCard';
+import { ProductWithQuantity } from '../../types/ProductWithQuantity';
+
+const testProduct: ProductWithQuantity = {
+  id: 1,
+  category: 'phones',
+  itemId: 'apple-iphone-7-32gb-black',
+  name: 'Apple iPhone 7 32GB Black',
+  fullPrice: 400,
+  price: 375,
+  screen: "4.7' IPS",
+  capacity: '32GB',
+  color: 'black',
+  ram: '2GB',
+  year: 2016,
+  image: 'img/phones/apple-iphone-7/black/00.webp',
+  quantity: 1,
+};
+
 export const CartPage = () => {
   return (
     <>
-      <div className="page container">
+      {/* <div className="page container">
         <h1 className="page__title">Cart</h1>
+        <CartCard product={testProduct} />
+      </div> */}
+      <div className="container">
+        <h1 className="page__title">Cart</h1>
+        <CartCard product={testProduct} />
       </div>
     </>
   );

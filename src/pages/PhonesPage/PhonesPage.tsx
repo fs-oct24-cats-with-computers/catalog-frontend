@@ -1,8 +1,10 @@
 import './PhonesPage.scss';
 import { useEffect, useState } from 'react';
-import { Product } from '../../types/Product';
+
 import { getProducts } from '../../api';
 import { ProductsListWithPagination } from '../../components/ProductListWithPagination';
+import { Product } from '../../types/Product';
+import { Breadcrumbs } from '../../components/Breadcrumbs';
 
 export const PhonesPage = () => {
   const [phones, setPhones] = useState<Product[]>([]);
@@ -23,6 +25,7 @@ export const PhonesPage = () => {
   return (
     <>
       <div className="page container">
+        <Breadcrumbs />
         <h1 className="page__title">Mobile phones</h1>
         <p className="page__subtitle">{phones.length} models</p>
         <ProductsListWithPagination products={phones} />

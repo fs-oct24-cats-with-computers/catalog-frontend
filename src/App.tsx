@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 import './App.scss';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer/Footer';
+
 import { ProductCard } from './components/ProductCard/ProductCard';
 import { Product } from './types/Product';
 import { Breadcrumbs } from './components/Breadcrumbs/Breadcrumbs';
@@ -38,10 +39,15 @@ export const App = () => {
   return (
     <>
       <Header />
+
       <Breadcrumbs />
       <ProductDetails product={phone} />
       <PhotosGallery images={images} />
-      <ProductCard product={testProduct} />
+      <ProductCard
+        product={testProduct}
+        isSlider={false}
+      />
+
       <main className="main">
         <Outlet />
       </main>

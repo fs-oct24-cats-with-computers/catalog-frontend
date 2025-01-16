@@ -12,7 +12,7 @@ export const Breadcrumbs = () => {
         {location.pathname !== '/' && (
           <li className="breadcrumb__item">
             <Link
-              className="breadcrumb__item-link"
+              className="breadcrumb__item--link"
               to="/"
             >
               <HomeIcon />
@@ -29,7 +29,7 @@ export const Breadcrumbs = () => {
             >
               <ArrowRight />
               <Link
-                className="breadcrumb__item-link"
+                className="breadcrumb__item--link"
                 to={to}
               >
                 {value}
