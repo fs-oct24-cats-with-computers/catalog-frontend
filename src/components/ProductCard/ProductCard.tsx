@@ -4,13 +4,27 @@ import { Product } from '../../types/Product';
 import Favorite from '../../../public/icons/Favourites Filled (Heart Like).svg?react';
 import '../../styles/utils/variables.scss';
 import classNames from 'classnames';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { favoriteProductsSlice } from '../../features/favorites';
+import cn from 'classnames';
 
 type Props = {
   product: Product;
   isSlider: boolean;
 };
 
+
 export const ProductCard: React.FC<Props> = ({ product, isSlider = false }) => {
+  const favoriteProducts = useAppSelector((state) => state.favoriteProducts);
+  const dispatch = useAppDispatch();
+
+  const isProductInFavorites = favoriteProducts.find(
+    (favProduct) => favProduct.id === product.id,
+  );
+
+  const handleFavoriteToggle = () =>
+    dispatch(favoriteProductsSlice.actions.toggleProducts(product));
+
   return (
     <div
       className={classNames('product-card', {
@@ -39,7 +53,7 @@ export const ProductCard: React.FC<Props> = ({ product, isSlider = false }) => {
         <span className="product-card__price-current">${product.price}</span>
         {product.price && (
           <span className="product-card__price-no-discount">
-            ${product.price}
+            ${product.fullPrice}
           </span>
         )}
       </div>
@@ -74,8 +88,15 @@ export const ProductCard: React.FC<Props> = ({ product, isSlider = false }) => {
         <div className="product-card__button product-card__button--add">
           Add to cart
         </div>
-        <div className="product-card__button product-card__button--favorite">
-          <Favorite className="product-card__icon" />
+        <div
+          className="product-card__button product-card__button--favorite"
+          onClick={handleFavoriteToggle}
+        >
+          <Favorite
+            className={cn('product-card__icon', {
+              'product-card__icon--active': isProductInFavorites,
+            })}
+          />
         </div>
       </div>
     </div>

@@ -1,0 +1,97 @@
+@use '../../styles/utils/variables.scss' as *;
+@use '../../styles/utils/mixins.scss' as *;
+
+.photos-gallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  margin: 5px;
+
+  @include on-tablet {
+    & {
+      flex-direction: row-reverse;
+      justify-content: left;
+    }
+  }
+
+  .large-image-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 288px;
+    width: 288px;
+
+    @include on-desktop {
+      & {
+        width: 464px;
+        height: 464px;
+      }
+    }
+  }
+
+  .large-image {
+    display: flex;
+    object-fit: contain;
+  }
+
+  .thumbnails-container {
+    display: flex;
+    flex-direction: row;
+    width: 288px;
+    height: 49px;
+    justify-content: space-between;
+    gap: 8px;
+
+    @include on-tablet {
+      & {
+        flex-direction: column;
+        width: 35px;
+        height: 207px;
+      }
+    }
+
+    @include on-desktop {
+      & {
+        flex-direction: column;
+        width: 80px;
+        height: 464px;
+      }
+    }
+  }
+
+  .thumbnail {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    padding: 4px;
+    cursor: pointer;
+    border: 1px solid $icons-color;
+    border-radius: 4px;
+
+    @include on-tablet {
+      & {
+        width: 35px;
+        height: 35px;
+      }
+    }
+    @include on-desktop {
+      & {
+        width: 80px;
+        height: 80px;
+        border-radius: 0px;
+      }
+    }
+  }
+
+  .thumbnail.active {
+    transform: scale(1.1);
+    border-color: $primary-color;
+
+    @include on-desktop {
+      & {
+        border-radius: 0px;
+      }
+    }
+  }
+}
