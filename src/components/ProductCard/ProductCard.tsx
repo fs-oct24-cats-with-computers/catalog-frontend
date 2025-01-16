@@ -1,4 +1,3 @@
-import React from 'react';
 import './ProductCard.scss';
 import { Product } from '../../types/Product';
 import Favorite from '../../../public/icons/Favourites Filled (Heart Like).svg?react';
@@ -16,14 +15,19 @@ type Props = {
 
 export const ProductCard: React.FC<Props> = ({ product, isSlider = false }) => {
   const favoriteProducts = useAppSelector((state) => state.favoriteProducts);
+  const cart = useAppSelector((state) => state.cartProducts);
   const dispatch = useAppDispatch();
 
   const isProductInFavorites = favoriteProducts.find(
     (favProduct) => favProduct.id === product.id,
   );
 
-  const addToCart = () => {
-    dispatch(cartProductsSlice.actions.addProducts(product));
+  const isProductInCart = cart.find(
+    (cartProduct) => cartProduct.id === product.id,
+  );
+
+  const toggleToCart = () => {
+    dispatch(cartProductsSlice.actions.toggleProducts(product));
   };
 
   const handleFavoriteToggle = () =>
@@ -90,13 +94,15 @@ export const ProductCard: React.FC<Props> = ({ product, isSlider = false }) => {
       {/* Buttons */}
       <div className="product-card__buttons">
         <div
-          className="product-card__button product-card__button--add"
-          onClick={addToCart}
+          className={cn('product-card__button product-card__button--add', {
+            'product-card__button--added': isProductInCart,
+          })}
+          onClick={toggleToCart}
         >
-          Add to cart
+          {isProductInCart ? 'Added' : 'Add to cart'}
         </div>
         <div
-          className="product-card__button product-card__button--favorite"
+          className={'product-card__button product-card__button--favorite'}
           onClick={handleFavoriteToggle}
         >
           <Favorite

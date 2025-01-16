@@ -8,10 +8,10 @@ export const cartProductsSlice = createSlice({
   name: 'cartProducts',
   initialState,
   reducers: {
-    addProducts(cartProducts, { payload }: PayloadAction<Product>) {
+    toggleProducts(cartProducts, { payload }: PayloadAction<Product>) {
       //parametrs -> product
       return cartProducts.find((product) => product.id === payload.id) ?
-          [...cartProducts]
+          cartProducts.filter((product) => product.id !== payload.id)
         : [...cartProducts, { ...payload, quantity: 1 }];
     },
     removeProduct(cartProducts, { payload }: PayloadAction<number>) {
