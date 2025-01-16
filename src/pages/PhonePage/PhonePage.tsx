@@ -8,7 +8,7 @@ import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { Back } from '../../components/Back';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getProductDetails } from '../../api';
+import { getProductsWithDetails } from '../../api';
 import { NotFoundPage } from '../NotFoundPage';
 
 export const PhonePage = () => {
@@ -26,7 +26,7 @@ export const PhonePage = () => {
 
   useEffect(() => {
     setError('');
-    getProductDetails('phones')
+    getProductsWithDetails('phones')
       .then((phones) => {
         const foundPhone = phones.find((phone) => phone.id === phoneId);
         if (foundPhone) {
@@ -45,28 +45,28 @@ export const PhonePage = () => {
   return (
     <>
       {currentPhone && (
-        <div className="product-page container">
+        <div className="product container">
           <Breadcrumbs />
           <Back />
-          <h2 className="product-page__title">{currentPhone.name}</h2>
-          <section className="product-page__section">
-            <div className="section-first">
-              <div className="section-first__gallery">
+          <h2 className="product__title">{currentPhone.name}</h2>
+          <section className="product__section">
+            <div className="section section--first">
+              <div className="section__gallery">
                 <PhotosGallery images={currentImages} />
               </div>
-              <div className="section-first__variants">
+              <div className="section__variants">
                 <div className="variants">Variants Block</div>
               </div>
             </div>
 
-            <div className="section-second">
-              <div className="section-second__about">
+            <div className="section section--second">
+              <div className="section__about">
                 <h3 className="section__title">About</h3>
                 <div className="section__divider"></div>
                 <About description={currentPhone.description} />
               </div>
 
-              <div className="section-second__tech">
+              <div className="section__tech">
                 <h3 className="section__title">Tech specs</h3>
                 <div className="section__divider"></div>
                 <TechSpecs techSpecsObj={currentTechSpecs} />
@@ -74,7 +74,7 @@ export const PhonePage = () => {
             </div>
           </section>
 
-          <div className="product-page__slider">
+          <div className="product__slider">
             <div>Recommended</div>
           </div>
         </div>

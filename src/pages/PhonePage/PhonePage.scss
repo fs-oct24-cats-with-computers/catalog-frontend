@@ -13,7 +13,7 @@
   font-family: 'Mont SemiBold';
   src: url('/fonts/Mont-SemiBold.otf');
 }
-.product-page {
+.product {
   font-family: 'Mont', sans-serif;
 
   &__title {
@@ -42,9 +42,20 @@
       gap: 80px;
     }
   }
+
+  &__slider {
+    padding-block: 80px;
+  }
 }
 
 .section {
+  display: flex;
+  flex-direction: column;
+
+  @include on-tablet {
+    flex-direction: row;
+  }
+
   &__title {
     font-family: 'Mont SemiBold';
     font-size: 20px;
@@ -66,29 +77,28 @@
     height: 1px;
   }
 
-  &-first {
-    display: flex;
-    flex-direction: column;
+  &--first {
     gap: 40px;
 
     @include on-tablet {
-      flex-direction: row;
       gap: 18px;
     }
 
     @include on-desktop {
       gap: 64px;
     }
+
+    > * {
+      @include on-tablet {
+        width: calc(50% - 8px);
+      }
+    }
   }
 
-  &-second {
-    display: flex;
-    flex-direction: column;
+  &--second {
     gap: 56px;
-    width: 100%;
 
     @include on-tablet {
-      display: flex;
       flex-direction: column;
       gap: 64px;
     }
@@ -96,15 +106,12 @@
     @include on-desktop {
       flex-direction: row;
     }
+  }
 
-    &__about {
+  > * {
+    flex-shrink: 0;
+    @include on-desktop {
       width: calc(50% - 32px);
-      flex-shrink: 0;
-    }
-
-    &__tech {
-      width: calc(50% - 32px);
-      flex-shrink: 0;
     }
   }
 }
