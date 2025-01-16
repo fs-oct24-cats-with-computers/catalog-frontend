@@ -23,6 +23,12 @@ export const BurgerMenu: React.FC<Props> = ({
     setIsBurgerMenu(true);
   };
 
+  if (isBurgerMenuOpen) {
+    document.body.classList.add('set-overflow');
+  } else {
+    document.body.classList.remove('set-overflow');
+  }
+
   return (
     <section className={`burger ${isBurgerMenuOpen && 'burger__is-open'}`}>
       <nav className="burger__nav">
