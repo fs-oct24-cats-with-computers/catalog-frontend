@@ -5,16 +5,16 @@ import { getProducts } from '../../api';
 import { ProductsListWithPagination } from '../../components/ProductListWithPagination';
 import { Product } from '../../types/Product';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
-import { Dropdown } from '../../components/Dropdown';
-import { useSortParams } from '../../hooks/useSortParams';
+// import { Dropdown } from '../../components/Dropdown';
+// import { useSortParams } from '../../hooks/useSortParams';
 
-const sortByOptions = [
-  { label: 'newest', value: 'newest' },
-  { label: 'price ⬇️', value: 'price-desc' },
-  { label: 'price ⬆️', value: 'price-asc' },
-  { label: 'alphabet ⬇️', value: 'alph-desc' },
-  { label: 'alphabet ⬆️', value: 'alph-asc' },
-];
+// const sortByOptions = [
+//   { label: 'newest', value: 'newest' },
+//   { label: 'price ⬇️', value: 'price-desc' },
+//   { label: 'price ⬆️', value: 'price-asc' },
+//   { label: 'alphabet ⬇️', value: 'alph-desc' },
+//   { label: 'alphabet ⬆️', value: 'alph-asc' },
+// ];
 
 // const itemsPerPageOptions = [
 //   { label: '16', value: '16' },
@@ -26,7 +26,7 @@ export const PhonesPage = () => {
   const [phones, setPhones] = useState<Product[]>([]);
   const [error, setError] = useState('');
 
-  const { sortedProducts, sortBy, handleSortBy } = useSortParams(phones);
+  // const { sortedProducts, sortBy, handleSortBy } = useSortParams(phones);
   // const { sortedProducts, sortBy, handleSortBy, itemsPerPage } = useSortParams(phones);
 
   useEffect(() => {
@@ -55,14 +55,17 @@ export const PhonesPage = () => {
             >
               Sort by
             </label>
-            <Dropdown
+            {/* <Dropdown
               options={sortByOptions}
               sortBy={sortBy}
               handleSortBy={handleSortBy}
-            />
+            /> */}
           </div>
         </div>
-        <ProductsListWithPagination products={sortedProducts} />
+        <ProductsListWithPagination
+          products={phones}
+          // products={sortedProducts}
+        />
       </div>
     </>
   );
