@@ -55,6 +55,7 @@ export const Categories = () => {
           <Link
             to={`/${category.name}`}
             key={category.name}
+            className="categories__link"
           >
             <img
               src={category.img}

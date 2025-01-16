@@ -1,4 +1,5 @@
-@import '../../styles/index';
+@use '../../styles/utils/mixins.scss' as *;
+@use '../../styles/utils/variables.scss' as *;
 
 .categories {
   margin-bottom: 80px;
@@ -10,7 +11,43 @@
   &__wrapper {
     display: flex;
     flex-direction: column;
+    text-align: center;
     gap: 32px;
     justify-content: space-between;
+    max-width: 1136px;
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__link {
+    display: block;
+    width: 100%;
+
+    @include on-tablet {
+      width: 187px;
+    }
+
+    @include on-desktop {
+      width: 368px;
+    }
+
+    &_img {
+      width: 100%; // Зображення заповнює весь доступний простір.
+      height: auto; // Зберігає пропорції зображення.
+      object-fit: cover; // Адаптує зображення до контейнера, обрізаючи його, якщо потрібно.
+      display: block;
+
+      // width: 100%;
+
+      // @include on-tablet {
+      //   width: 170px;
+      // }
+
+      // @include on-desktop {
+      //   width: 368px;
+      // }
+    }
   }
 }

@@ -16,7 +16,6 @@
 
 .PicturesSlider {
   margin: 0 0 80px;
-  max-width: 1040px;
   height: 352px;
   background-color: transparent;
   position: relative;
@@ -43,12 +42,12 @@
     position: relative;
 
     @include on-tablet {
-      width: 490px;
+      width: calc(100% - 99px);
       height: 189px;
     }
 
     @include on-desktop {
-      width: 1040px;
+      width: calc(100% - 96px);
       height: 400px;
     }
 
@@ -64,8 +63,7 @@
         align-items: flex-start;
         width: 490px;
         height: 189px;
-        border-radius: 8px;
-        background-color: rgb(37, 35, 35);
+        background-color: $primary-color;
       }
 
       @include on-desktop {
@@ -73,10 +71,16 @@
         height: 400px;
       }
 
+      .TextContent_wrapper {
+        background-color: rgb(37, 35, 35);
+        border-radius: 10px;
+      }
+
       .TextContent_title {
         font-family: 'Mont Bold';
         font-size: 24px;
         margin-bottom: 5px;
+        padding: 10px 0 0 10px;
         color: $secondary-accent-color;
         line-height: 1;
       }
@@ -85,6 +89,7 @@
         font-family: 'Mont', sans-serif;
         font-size: 10px;
         margin-bottom: 50px;
+        padding-right: 10px;
         color: $white-color;
       }
 

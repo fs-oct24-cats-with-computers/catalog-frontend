@@ -28,10 +28,10 @@ export const PicturesSlider = () => {
           el: '.swiper-pagination',
           clickable: true,
         }}
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
+        // autoplay={{
+        //   delay: 5000,
+        //   disableOnInteraction: false,
+        // }}
       >
         {bannerImages.map((image, index) => (
           <SwiperSlide
@@ -40,11 +40,13 @@ export const PicturesSlider = () => {
           >
             <div className="ContentWrapper">
               <div className="TextContent">
-                <h2 className="TextContent_title">
-                  Now available in our store! 👌
-                </h2>
-                <p className="TextContent_text">Be the first!</p>
-                <button className="TextContent_button">ORDER NOW</button>
+                <div className="TextContent_wrapper">
+                  <h2 className="TextContent_title">
+                    Now available in our store! 👌
+                  </h2>
+                  <p className="TextContent_text">Be the first!</p>
+                  <button className="TextContent_button">ORDER NOW</button>
+                </div>
               </div>
               <div className="ImgWrapper">
                 <img
