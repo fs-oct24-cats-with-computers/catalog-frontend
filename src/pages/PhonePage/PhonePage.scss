@@ -14,28 +14,37 @@
   src: url('/fonts/Mont-SemiBold.otf');
 }
 .product-page {
-  display: flex;
-  flex-direction: column;
-  gap: 56px;
-}
-
-.product-page {
-  font-family: 'Mont Bold', sans-serif;
-
-  @include page-grid;
+  font-family: 'Mont', sans-serif;
 
   &__title {
-    font-size: 48px;
-    line-height: 56px;
-    grid-column: 1 / -1;
+    font-family: 'Mont Bold', sans-serif;
+    font-size: 22px;
+    line-height: 31px;
+    padding: 16px 0px 32px;
+
+    @include on-tablet {
+      font-size: 32px;
+      line-height: 41px;
+      letter-spacing: -0.01em;
+    }
   }
 
-  &__subtitle {
-    grid-column: 1 / -1;
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+
+    @include on-tablet {
+      gap: 64px;
+    }
+
+    @include on-desktop {
+      gap: 80px;
+    }
   }
 }
 
-.product-section {
+.section {
   &__title {
     font-family: 'Mont SemiBold';
     font-size: 20px;
@@ -57,20 +66,49 @@
     height: 1px;
   }
 
-  &--about {
-    grid-column: 1 / -1;
+  &-first {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 18px;
+    }
 
     @include on-desktop {
-      grid-column: 1 / 13;
+      gap: 64px;
     }
   }
 
-  &--tech-specs {
-    font-family: 'Mont';
-    grid-column: 1 / -1;
+  &-second {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    width: 100%;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+    }
 
     @include on-desktop {
-      grid-column: 14 / -1;
+      flex-direction: row;
+    }
+
+    &__about {
+      width: calc(50% - 32px);
+      flex-shrink: 0;
+    }
+
+    &__tech {
+      width: calc(50% - 32px);
+      flex-shrink: 0;
     }
   }
+}
+
+.variants {
+  background-color: #000;
 }

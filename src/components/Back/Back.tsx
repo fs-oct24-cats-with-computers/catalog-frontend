@@ -1,3 +1,4 @@
+import './Back.scss';
 import ArrowLeft from '../../../public/icons/Chevron (Arrow Left).svg?react';
 import { useNavigate } from 'react-router-dom';
 

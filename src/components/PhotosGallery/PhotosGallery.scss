@@ -33,6 +33,7 @@
   .large-image {
     display: flex;
     object-fit: contain;
+    overflow: hidden;
   }
 
   .thumbnails-container {

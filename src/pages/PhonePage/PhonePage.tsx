@@ -14,11 +14,14 @@ import { NotFoundPage } from '../NotFoundPage';
 export const PhonePage = () => {
   const [currentPhone, setCurrentPhone] = useState<Phone | null>(null);
   const [error, setError] = useState('');
-
   const { phoneId } = useParams();
-  let testTechSpecs;
+
+  let currentTechSpecs;
+  let currentImages;
+
   if (currentPhone) {
-    testTechSpecs = techSpecsCase(currentPhone, TECH_TABLE_KEYS);
+    currentTechSpecs = techSpecsCase(currentPhone, TECH_TABLE_KEYS);
+    currentImages = currentPhone?.images.map((image) => '../' + image);
   }
 
   useEffect(() => {
@@ -40,30 +43,42 @@ export const PhonePage = () => {
   }
 
   return (
-    <div className="product-page container">
-      <Breadcrumbs />
-      <Back />
-      <section className="product-section product-section--gallery">
-        <PhotosGallery images={testProduct.images} />
-      </section>
-      <section className="product-section product-section--variants">
-        <div>Variants Block</div>
-      </section>
-      <section className="product-section product-section--about">
-        <h3 className="product-section__title">About</h3>
-        <div className="product-section__divider"></div>
-        <About description={currentPhone?.description} />
-      </section>
+    <>
+      {currentPhone && (
+        <div className="product-page container">
+          <Breadcrumbs />
+          <Back />
+          <h2 className="product-page__title">{currentPhone.name}</h2>
+          <section className="product-page__section">
+            <div className="section-first">
+              <div className="section-first__gallery">
+                <PhotosGallery images={currentImages} />
+              </div>
+              <div className="section-first__variants">
+                <div className="variants">Variants Block</div>
+              </div>
+            </div>
 
-      <section className="product-section product-section--tech-specs">
-        <h3 className="product-section__title">Tech specs</h3>
-        <div className="product-section__divider"></div>
-        <TechSpecs techSpecsObj={testTechSpecs} />
-      </section>
+            <div className="section-second">
+              <div className="section-second__about">
+                <h3 className="section__title">About</h3>
+                <div className="section__divider"></div>
+                <About description={currentPhone.description} />
+              </div>
 
-      <section className="product-section product-section--recommended">
-        <div>Recommended</div>
-      </section>
-    </div>
+              <div className="section-second__tech">
+                <h3 className="section__title">Tech specs</h3>
+                <div className="section__divider"></div>
+                <TechSpecs techSpecsObj={currentTechSpecs} />
+              </div>
+            </div>
+          </section>
+
+          <div className="product-page__slider">
+            <div>Recommended</div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
