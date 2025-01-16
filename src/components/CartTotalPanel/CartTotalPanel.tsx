@@ -1,11 +1,29 @@
 import { ProductWithQuantity } from '../../types/ProductWithQuantity';
+import { useAppDispatch } from '../../app/hooks';
+import { cartProductsSlice } from '../../features/cart';
 import './CartTotalPanel.scss';
 
 interface Props {
   products: ProductWithQuantity[];
+  deleteProducts: React.Dispatch<React.SetStateAction<ProductWithQuantity[]>>;
+  openModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const CartTotalPanel: React.FC<Props> = ({ products }) => {
+export const CartTotalPanel: React.FC<Props> = ({
+  products,
+  deleteProducts,
+  openModal,
+}) => {
+  const dispatch = useAppDispatch();
+
+  const applyOrder = () => {
+    products.map((product) =>
+      dispatch(cartProductsSlice.actions.removeProduct(product.id)),
+    );
+    deleteProducts([]);
+    openModal(true);
+  };
+
   return (
     <div className="total-panel">
       <div className="total-panel__count">
@@ -24,7 +42,7 @@ export const CartTotalPanel: React.FC<Props> = ({ products }) => {
 
       <button
         className="total-panel__button"
-        onClick={() => {}}
+        onClick={applyOrder}
       >
         Checkout
       </button>

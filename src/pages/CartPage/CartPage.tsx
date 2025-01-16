@@ -1,10 +1,11 @@
 import { CartEmpty } from '../../components/CartEmpty';
 import { CartCard } from '../../components/CartCard';
-import { CartTotalPanel } from '../../components/CartTotalPanel/CartTotalPanel';
+import { CartTotalPanel } from '../../components/CartTotalPanel';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { ProductWithQuantity } from '../../types/ProductWithQuantity';
 import { useState } from 'react';
-// import { cartProductsSlice } from '../../features/cart';
+import { ModalMessage } from '../../components/ModalMessage';
+import { useNavigate } from 'react-router-dom';
 import './CartPage.scss';
 
 // use when we can add here information
@@ -74,8 +75,16 @@ const productsFromRedux: ProductWithQuantity[] = [
 ];
 
 export const CartPage = () => {
-  const [products, setProducts] =
-    useState<ProductWithQuantity[]>(productsFromRedux);
+  const navigate = useNavigate();
+  const [isModalMessage, setIsModalMessage] = useState(false);
+  const [products, setProducts] = useState<ProductWithQuantity[]>([
+    ...productsFromRedux,
+  ]);
+
+  const onClickModal = () => {
+    setIsModalMessage(false);
+    navigate('/home');
+  };
 
   return (
     <>
@@ -96,10 +105,15 @@ export const CartPage = () => {
               ))}
             </section>
 
-            <CartTotalPanel products={products} />
+            <CartTotalPanel
+              products={products}
+              deleteProducts={setProducts}
+              openModal={setIsModalMessage}
+            />
           </div>
         </section>
       : <CartEmpty />}
+      {isModalMessage && <ModalMessage closeMessage={onClickModal} />}
     </>
   );
 };

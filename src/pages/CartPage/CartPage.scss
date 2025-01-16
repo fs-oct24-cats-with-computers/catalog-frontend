@@ -11,20 +11,15 @@
   src: url(../../../public/fonts/Mont-Regular.otf);
 }
 
-@font-face {
-  font-family: 'Mont SemiBold';
-  src: url(../../../public/fonts/Mont-SemiBold.otf);
-}
-
 .cart-page {
-  margin-bottom: 56px;
+  padding-bottom: 56px;
 
   @include on-tablet {
-    margin-bottom: 64px;
+    padding-bottom: 64px;
   }
 
   @include on-desktop {
-    margin-bottom: 80px;
+    padding-bottom: 80px;
   }
 
   &__content {
@@ -36,12 +31,12 @@
   &__card-holder {
     display: flex;
     flex-direction: column;
-    padding-bottom: 32px;
+    // padding-bottom: 32px;
     gap: 16px;
     grid-column: 1 / -1;
 
     @include on-desktop {
-      grid-column: 1 / 16;
+      grid-column: 1 / 17;
       padding-bottom: 0;
     }
   }

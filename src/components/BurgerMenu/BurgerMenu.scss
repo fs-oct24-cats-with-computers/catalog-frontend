@@ -24,7 +24,6 @@
   &__is-open {
     visibility: visible;
     opacity: 3;
-    overflow-y: hidden;
     right: 0;
     height: calc(100% - $header-height);
     width: 100%;
@@ -85,4 +84,8 @@
       width: 50%;
     }
   }
+}
+
+.set-overflow {
+  overflow-y: hidden;
 }
