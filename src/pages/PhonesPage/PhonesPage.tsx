@@ -38,7 +38,7 @@ export const PhonesPage = () => {
   }, []);
 
   if (error) {
-    <p>{error}</p>;
+    return <p>{error}</p>;
   }
 
   return (
