@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ProductWithQuantity } from '../types/ProductWithQuantity';
+// import { Product } from '../types/Product';
 
 const initialState = [] as ProductWithQuantity[];
 
