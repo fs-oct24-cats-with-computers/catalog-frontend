@@ -161,6 +161,11 @@
       & .product-card__icon {
         color: $primary-color;
         width: 90%;
+
+        &--active {
+          color: $secondary-accent-color;
+          fill: $secondary-accent-color;
+        }
       }
 
       &:hover {
