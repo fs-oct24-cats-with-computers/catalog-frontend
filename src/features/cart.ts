@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ProductWithQuantity } from '../types/ProductWithQuantity';
-import { Product } from '../types/Product';
+// import { Product } from '../types/Product';
 
 const initialState = [] as ProductWithQuantity[];
 
@@ -8,7 +8,10 @@ export const cartProductsSlice = createSlice({
   name: 'cartProducts',
   initialState,
   reducers: {
-    toggleProducts(cartProducts, { payload }: PayloadAction<Product>) {
+    toggleProducts(
+      cartProducts,
+      { payload }: PayloadAction<ProductWithQuantity>,
+    ) {
       //parametrs -> product
       return cartProducts.find((product) => product.id === payload.id) ?
           cartProducts.filter((product) => product.id !== payload.id)
