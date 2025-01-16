@@ -2,23 +2,39 @@ import React from 'react';
 import './ProductCard.scss';
 import { Product } from '../../types/Product';
 import Favorite from '../../../public/icons/Favourites Filled (Heart Like).svg?react';
-import { useAppDispatch } from '../../app/hooks';
 import { cartProductsSlice } from '../../features/cart';
 import '../../styles/utils/variables.scss';
+import classNames from 'classnames';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { favoriteProductsSlice } from '../../features/favorites';
+import cn from 'classnames';
 
 type Props = {
   product: Product;
+  isSlider?: boolean;
 };
 
-export const ProductCard: React.FC<Props> = ({ product }) => {
+export const ProductCard: React.FC<Props> = ({ product, isSlider = false }) => {
+  const favoriteProducts = useAppSelector((state) => state.favoriteProducts);
   const dispatch = useAppDispatch();
+
+  const isProductInFavorites = favoriteProducts.find(
+    (favProduct) => favProduct.id === product.id,
+  );
 
   const addToCart = () => {
     dispatch(cartProductsSlice.actions.addProducts(product));
   };
 
+  const handleFavoriteToggle = () =>
+    dispatch(favoriteProductsSlice.actions.toggleProducts(product));
+
   return (
-    <div className="product-card">
+    <div
+      className={classNames('product-card', {
+        'product-card-slider': isSlider === true,
+      })}
+    >
       {/* Image container */}
       <div className="product-card__image">
         <img
@@ -79,8 +95,15 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
         >
           Add to cart
         </div>
-        <div className="product-card__button product-card__button--favorite">
-          <Favorite className="product-card__icon" />
+        <div
+          className="product-card__button product-card__button--favorite"
+          onClick={handleFavoriteToggle}
+        >
+          <Favorite
+            className={cn('product-card__icon', {
+              'product-card__icon--active': isProductInFavorites,
+            })}
+          />
         </div>
       </div>
     </div>

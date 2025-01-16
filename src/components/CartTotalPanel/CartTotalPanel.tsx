@@ -9,18 +9,13 @@ interface Props {
   openModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const CartTotalPanel: React.FC<Props> = ({
-  products,
-  // deleteProducts,
-  openModal,
-}) => {
+export const CartTotalPanel: React.FC<Props> = ({ products, openModal }) => {
   const dispatch = useAppDispatch();
 
   const applyOrder = () => {
     products.map((product) =>
       dispatch(cartProductsSlice.actions.removeProduct(product.id)),
     );
-    // deleteProducts([]);
     openModal(true);
   };
 

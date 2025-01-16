@@ -3,6 +3,11 @@
 @use '../../styles/utils/animation.scss' as *;
 
 @font-face {
+  font-family: 'Mont';
+  src: url(../../../fonts/Mont.otf);
+}
+
+@font-face {
   font-family: 'Mont Bold';
   src: url(../../../fonts/Mont-Bold.otf);
 }
@@ -76,6 +81,33 @@
       position: relative;
       display: inline-block;
       border-left: 1px solid $elements-color;
+
+      &--state {
+        box-sizing: border-box;
+        position: absolute;
+        top: 9px;
+        right: 9px;
+        height: 14px;
+        width: 14px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-family: 'Mont', sans-serif;
+        font-size: 9px;
+        line-height: 12px;
+
+        background-color: $secondary-accent-color;
+        color: $white-color;
+        border: 1px solid $white-color;
+        border-radius: 50%;
+
+        @include on-desktop {
+          top: 17px;
+          right: 17px;
+        }
+      }
     }
   }
 

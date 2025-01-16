@@ -1,8 +1,9 @@
 import './PhonesPage.scss';
 import { useEffect, useState } from 'react';
-import { Product } from '../../types/Product';
+
 import { getProducts } from '../../api';
 import { ProductsListWithPagination } from '../../components/ProductListWithPagination';
+import { Product } from '../../types/Product';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 
 export const PhonesPage = () => {

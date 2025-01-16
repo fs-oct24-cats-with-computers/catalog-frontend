@@ -13,17 +13,14 @@ export const CartCard: React.FC<Props> = ({ product }) => {
   const dispatch = useAppDispatch();
   const isQuantityMinimal = product.quantity === 1;
 
-  const handleRemove = () => {
+  const handleRemove = () =>
     dispatch(cartProductsSlice.actions.removeProduct(product.id));
-  };
 
-  const handleDecrease = () => {
+  const handleDecrease = () =>
     dispatch(cartProductsSlice.actions.decreaseQuantity(product.id));
-  };
 
-  const handleIncrease = () => {
+  const handleIncrease = () =>
     dispatch(cartProductsSlice.actions.increaseQuantity(product.id));
-  };
 
   return (
     <div className="card">

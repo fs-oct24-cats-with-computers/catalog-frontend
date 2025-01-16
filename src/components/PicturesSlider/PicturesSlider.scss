@@ -1,0 +1,179 @@
+@use '../../styles/utils/mixins.scss' as *;
+@use '../../styles/utils/variables.scss' as *;
+
+@font-face {
+  font-family: 'Mont';
+  src: url('/fonts/Mont-Regular.otf');
+}
+@font-face {
+  font-family: 'Mont-Bold';
+  src: url('/fonts/Mont-Bold.otf');
+}
+@font-face {
+  font-family: 'Mont-SemiBold';
+  src: url('/fonts/Mont-SemiBold.otf');
+}
+
+.PicturesSlider {
+  margin: 0 auto 80px;
+  width: 100%;
+  height: 352px;
+  background-color: transparent;
+  position: relative;
+
+  @include on-tablet {
+    height: 221px;
+  }
+
+  @include on-desktop {
+    height: 432px;
+  }
+
+  .SwiperSlide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ContentWrapper {
+    display: flex;
+    width: 100%;
+    height: 320px;
+    background-color: $primary-color;
+    position: relative;
+
+    @include on-tablet {
+      width: 490px;
+      height: 189px;
+    }
+
+    @include on-desktop {
+      width: 1040px;
+      height: 400px;
+    }
+
+    .TextContent {
+      padding: 20px;
+      flex: 1;
+      display: none;
+
+      @include on-tablet {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: 490px;
+        height: 189px;
+        border-radius: 8px;
+        background-color: rgb(37, 35, 35);
+      }
+
+      @include on-desktop {
+        width: 1040px;
+        height: 400px;
+      }
+
+      .TextContent_title {
+        font-family: 'Mont Bold';
+        font-size: 24px;
+        margin-bottom: 5px;
+        color: $secondary-accent-color;
+        line-height: 1;
+      }
+
+      .TextContent_text {
+        font-family: 'Mont', sans-serif;
+        font-size: 10px;
+        margin-bottom: 50px;
+        color: $white-color;
+      }
+
+      .TextContent_button {
+        font-family: 'Mont Bold';
+        padding: 10px 20px;
+        color: $white-color;
+        border-radius: 30px;
+        border: 1px solid $secondary-color;
+        cursor: pointer;
+        background-color: rgb(37, 35, 35);
+
+        &:hover {
+          background-color: $secondary-accent-color;
+        }
+      }
+    }
+
+    .ImgWrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+
+      img {
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .swiper-pagination {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 24px;
+    background-color: #fff;
+  }
+
+  .swiper-pagination-bullet {
+    width: 14px;
+    height: 4px;
+    border-radius: 2px;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: $primary-color;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      width: 32px;
+      height: 189px;
+      top: 0;
+      margin: 0;
+      border: 1px solid gray;
+      border-radius: 48px;
+      background-color: transparent;
+
+      @include on-desktop {
+        height: 400px;
+      }
+
+      &.swiper-button-next {
+        right: 0;
+      }
+
+      &.swiper-button-prev {
+        left: 0;
+      }
+
+      &::after {
+        font-size: 16px;
+        color: #000;
+      }
+    }
+  }
+}
+
+.button-pagination {
+  border: 0;
+  bottom: 0;
+}

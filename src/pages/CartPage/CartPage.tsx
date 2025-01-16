@@ -2,85 +2,15 @@ import { CartEmpty } from '../../components/CartEmpty';
 import { CartCard } from '../../components/CartCard';
 import { CartTotalPanel } from '../../components/CartTotalPanel';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
-// import { ProductWithQuantity } from '../../types/ProductWithQuantity';
 import { useState } from 'react';
 import { ModalMessage } from '../../components/ModalMessage';
 import { useNavigate } from 'react-router-dom';
 import './CartPage.scss';
 import { useAppSelector } from '../../app/hooks';
 
-// use when we can add here information
-// const prdcs: ProductWithQuantity[] = cartProductsSlice.getInitialState();
-
-// const productsFromRedux: ProductWithQuantity[] = [
-//   {
-//     id: 1,
-//     category: 'phones',
-//     itemId: 'apple-iphone-7-32gb-black',
-//     name: 'Apple iPhone 7 32GB Black',
-//     fullPrice: 400,
-//     price: 375,
-//     screen: "4.7' IPS",
-//     capacity: '32GB',
-//     color: 'black',
-//     ram: '2GB',
-//     year: 2016,
-//     image: 'img/phones/apple-iphone-7/black/00.webp',
-//     quantity: 2,
-//   },
-//   {
-//     id: 2,
-//     category: 'phones',
-//     itemId: 'apple-iphone-7-32gb-black',
-//     name: 'Apple iPhone 7 32GB Black',
-//     fullPrice: 400,
-//     price: 375,
-//     screen: "4.7' IPS",
-//     capacity: '32GB',
-//     color: 'black',
-//     ram: '2GB',
-//     year: 2016,
-//     image: 'img/phones/apple-iphone-7/black/00.webp',
-//     quantity: 1,
-//   },
-//   {
-//     id: 3,
-//     category: 'phones',
-//     itemId: 'apple-iphone-7-32gb-black',
-//     name: 'Apple iPhone 7 32GB Black',
-//     fullPrice: 400,
-//     price: 375,
-//     screen: "4.7' IPS",
-//     capacity: '32GB',
-//     color: 'black',
-//     ram: '2GB',
-//     year: 2016,
-//     image: 'img/phones/apple-iphone-7/black/00.webp',
-//     quantity: 1,
-//   },
-//   {
-//     id: 4,
-//     category: 'phones',
-//     itemId: 'apple-iphone-7-32gb-black',
-//     name: 'Apple iPhone 7 32GB Black',
-//     fullPrice: 400,
-//     price: 375,
-//     screen: "4.7' IPS",
-//     capacity: '32GB',
-//     color: 'black',
-//     ram: '2GB',
-//     year: 2016,
-//     image: 'img/phones/apple-iphone-7/black/00.webp',
-//     quantity: 1,
-//   },
-// ];
-
 export const CartPage = () => {
   const navigate = useNavigate();
   const [isModalMessage, setIsModalMessage] = useState(false);
-  // const [products, setProducts] = useState<ProductWithQuantity[]>([
-  //   ...productsFromRedux,
-  // ]);
 
   const products = useAppSelector((state) => state.cartProducts);
 
@@ -101,8 +31,6 @@ export const CartPage = () => {
               {products.map((product) => (
                 <CartCard
                   product={product}
-                  // products={products}
-                  // setProducts={setProducts}
                   key={product.id}
                 />
               ))}
@@ -110,7 +38,6 @@ export const CartPage = () => {
 
             <CartTotalPanel
               products={products}
-              // deleteProducts={setProducts}
               openModal={setIsModalMessage}
             />
           </div>

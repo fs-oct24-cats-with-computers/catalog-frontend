@@ -14,17 +14,9 @@
   src: url('/fonts/Mont-SemiBold.otf');
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .product-card {
   font-family: 'Mont', sans-serif;
-  width: 288px;
-  height: 440px;
-  // margin: 16px;
+  width: 100%;
   padding: 32px;
   border: 1px solid $elements-color;
   border-radius: 8px;
@@ -33,14 +25,6 @@
   flex-direction: column;
   gap: 8px;
   overflow: hidden;
-
-  @include on-tablet {
-    height: 506px;
-  }
-  @include on-desktop {
-    width: 272px;
-    height: 506px;
-  }
 
   &:hover {
     box-shadow: 0px 3px 13px 0 #17203166;
@@ -161,6 +145,11 @@
       & .product-card__icon {
         color: $primary-color;
         width: 90%;
+
+        &--active {
+          color: $secondary-accent-color;
+          fill: $secondary-accent-color;
+        }
       }
 
       &:hover {

@@ -18,6 +18,8 @@
 
 * {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
@@ -28,6 +30,10 @@
 
   @include on-tablet {
     padding-inline: 24px;
+  }
+
+  @include on-desktop {
+    padding-inline: 32px;
   }
 }
 
