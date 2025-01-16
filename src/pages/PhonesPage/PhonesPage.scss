@@ -37,4 +37,15 @@
       margin-bottom: 40px;
     }
   }
+
+  &__dropdown--wrapper {
+    &--first {
+      &--label {
+        font-family: 'Mont SemiBold', sans-serif;
+        color: $secondary-color;
+        font-size: 12px;
+        line-height: 15px;
+      }
+    }
+  }
 }
