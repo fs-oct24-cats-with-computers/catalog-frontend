@@ -6,6 +6,8 @@ import { ProductCard } from './components/ProductCard/ProductCard';
 import { Product } from './types/Product';
 import { Breadcrumbs } from './components/Breadcrumbs/Breadcrumbs';
 import { PhotosGallery } from './components/PhotosGallery/PhotosGallery';
+import { ProductDetails } from './components/ProductDetails/ProductDetails';
+import phones from '../public/api/phones.json';
 
 const testProduct: Product = {
   id: 1,
@@ -30,11 +32,14 @@ const images: string[] = [
   'img/phones/apple-iphone-11/black/04.webp',
 ];
 
+const phone = phones[77];
+
 export const App = () => {
   return (
     <>
       <Header />
       <Breadcrumbs />
+      <ProductDetails product={phone} />
       <PhotosGallery images={images} />
       <ProductCard product={testProduct} />
       <main className="main">

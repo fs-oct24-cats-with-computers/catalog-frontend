@@ -8,23 +8,23 @@
   list-style: none;
   display: flex;
   gap: 5px;
-}
 
-.breadcrumb-item {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
+  &__item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 
-.breadcrumb-item a {
-  text-transform: capitalize;
-  padding: 8px;
-  text-decoration: none;
-  color: $secondary-color;
-  font-family: 'Mont', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  vertical-align: middle;
+    &-link {
+      text-transform: capitalize;
+      padding: 8px;
+      text-decoration: none;
+      color: $secondary-color;
+      font-family: 'Mont', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      vertical-align: middle;
+    }
+  }
 }
