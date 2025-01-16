@@ -10,9 +10,8 @@ import cn from 'classnames';
 
 type Props = {
   product: Product;
-  isSlider: boolean;
+  isSlider?: boolean;
 };
-
 
 export const ProductCard: React.FC<Props> = ({ product, isSlider = false }) => {
   const favoriteProducts = useAppSelector((state) => state.favoriteProducts);
