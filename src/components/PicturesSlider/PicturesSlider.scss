@@ -21,12 +21,12 @@
 
   @include on-tablet {
     height: 221px;
-    margin: 0 24px 64px 24px;
+    // margin: 0 24px 64px 24px;
   }
 
   @include on-desktop {
     height: 432px;
-    margin: 0 32px 80px 32px;
+    // margin: 0 32px 80px 32px;
   }
 
   .Swiper {
@@ -48,7 +48,7 @@
     position: relative;
 
     @include on-tablet {
-      padding-inline: 19px;
+      // padding-inline: 19px;
       width: 490px;
       height: 189px;
     }
@@ -176,16 +176,6 @@
         color: #000;
       }
     }
-
-    // @include on-desktop {
-    //   // &.swiper-button-next {
-    //   //   // left: 16px;
-    //   // }
-
-    //   &.swiper-button-prev {
-    //     right: 16px;
-    //   }
-    // }
   }
 }
 

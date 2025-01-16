@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { getProducts } from '../../api';
 import { ProductsListWithPagination } from '../../components/ProductListWithPagination';
+import { Product } from '../../types/Product';
 
 export const PhonesPage = () => {
   const [phones, setPhones] = useState<Product[]>([]);
