@@ -24,7 +24,7 @@
   &__is-open {
     visibility: visible;
     opacity: 3;
-    overflow: hidden;
+    overflow-y: hidden;
     right: 0;
     height: calc(100% - $header-height);
     width: 100%;

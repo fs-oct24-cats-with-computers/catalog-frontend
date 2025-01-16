@@ -1,8 +1,8 @@
-import { Product } from '../../types/Product';
+import { ProductWithQuantity } from '../../types/ProductWithQuantity';
 import './CartTotalPanel.scss';
 
 interface Props {
-  products: Product[];
+  products: ProductWithQuantity[];
 }
 
 export const CartTotalPanel: React.FC<Props> = ({ products }) => {
@@ -10,7 +10,12 @@ export const CartTotalPanel: React.FC<Props> = ({ products }) => {
     <div className="total-panel">
       <div className="total-panel__count">
         <h2 className="total-panel__count__price">
-          ${products.reduce((count, product) => count + product.price, 0)}
+          $
+          {products.reduce(
+            (count, product) =>
+              product.quantity ? count + product.price * product.quantity : 0,
+            0,
+          )}
         </h2>
         <p className="total-panel__count__text">
           Total for {products.length} items

@@ -1,11 +1,16 @@
 import { CartEmpty } from '../../components/CartEmpty';
 import { CartCard } from '../../components/CartCard';
-import { Product } from '../../types/Product';
-import './CartPage.scss';
 import { CartTotalPanel } from '../../components/CartTotalPanel/CartTotalPanel';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
+import { ProductWithQuantity } from '../../types/ProductWithQuantity';
+import { useState } from 'react';
+// import { cartProductsSlice } from '../../features/cart';
+import './CartPage.scss';
 
-const products: Product[] = [
+// use when we can add here information
+// const prdcs: ProductWithQuantity[] = cartProductsSlice.getInitialState();
+
+const productsFromRedux: ProductWithQuantity[] = [
   {
     id: 1,
     category: 'phones',
@@ -19,9 +24,10 @@ const products: Product[] = [
     ram: '2GB',
     year: 2016,
     image: 'img/phones/apple-iphone-7/black/00.webp',
+    quantity: 2,
   },
   {
-    id: 1,
+    id: 2,
     category: 'phones',
     itemId: 'apple-iphone-7-32gb-black',
     name: 'Apple iPhone 7 32GB Black',
@@ -33,9 +39,10 @@ const products: Product[] = [
     ram: '2GB',
     year: 2016,
     image: 'img/phones/apple-iphone-7/black/00.webp',
+    quantity: 1,
   },
   {
-    id: 1,
+    id: 3,
     category: 'phones',
     itemId: 'apple-iphone-7-32gb-black',
     name: 'Apple iPhone 7 32GB Black',
@@ -47,9 +54,10 @@ const products: Product[] = [
     ram: '2GB',
     year: 2016,
     image: 'img/phones/apple-iphone-7/black/00.webp',
+    quantity: 1,
   },
   {
-    id: 1,
+    id: 4,
     category: 'phones',
     itemId: 'apple-iphone-7-32gb-black',
     name: 'Apple iPhone 7 32GB Black',
@@ -61,9 +69,14 @@ const products: Product[] = [
     ram: '2GB',
     year: 2016,
     image: 'img/phones/apple-iphone-7/black/00.webp',
+    quantity: 1,
   },
 ];
+
 export const CartPage = () => {
+  const [products, setProducts] =
+    useState<ProductWithQuantity[]>(productsFromRedux);
+
   return (
     <>
       {products !== undefined && products.length > 0 ?
@@ -76,6 +89,8 @@ export const CartPage = () => {
               {products.map((product) => (
                 <CartCard
                   product={product}
+                  products={products}
+                  setProducts={setProducts}
                   key={product.id}
                 />
               ))}
