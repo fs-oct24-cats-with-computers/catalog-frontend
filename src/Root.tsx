@@ -6,17 +6,16 @@ import {
   Navigate,
 } from 'react-router-dom';
 import { App } from './App';
-import { PhonesPage } from './pages/PhonesPage/PhonesPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { Provider } from 'react-redux';
 import { persistor, store } from './app/store';
 import { PersistGate } from 'redux-persist/integration/react';
-import { TabletsPage } from './pages/TabletsPage';
-import { AccessoriesPage } from './pages/AccessoriesPage';
 import { FavoritesPage } from './pages/FavoritesPage';
 import { CartPage } from './pages/CartPage';
 import { HomePage } from './pages/HomePage';
 import { PhonePage } from './pages/PhonePage';
+import { ProductsPage } from './pages/ProductsPage/ProductsPage';
+import { Category } from './types/Category';
 
 export const Root = () => (
   <StrictMode>
@@ -52,7 +51,7 @@ export const Root = () => (
               <Route path="phones">
                 <Route
                   index
-                  element={<PhonesPage />}
+                  element={<ProductsPage type={Category.phones} />}
                 />
                 {/* replace with <PhonePage /> component after implement it */}
                 <Route
@@ -63,7 +62,7 @@ export const Root = () => (
               <Route path="tablets">
                 <Route
                   index
-                  element={<TabletsPage />}
+                  element={<ProductsPage type={Category.tablets} />}
                 />
                 {/* replace with <TabletPage /> component after implement it*/}
                 <Route
@@ -74,7 +73,7 @@ export const Root = () => (
               <Route path="accessories">
                 <Route
                   index
-                  element={<AccessoriesPage />}
+                  element={<ProductsPage type={Category.accessories} />}
                 />
                 {/* replace with <AccessoryPage /> component after implement it*/}
                 <Route
