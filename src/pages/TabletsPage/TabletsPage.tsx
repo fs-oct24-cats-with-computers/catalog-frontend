@@ -29,7 +29,10 @@ export const TabletsPage = () => {
         <Breadcrumbs />
         <h1 className="page__title">Tablets</h1>
         <p className="page__subtitle">{tablets.length} models</p>
-        <ProductsListWithPagination products={tablets} />
+        <ProductsListWithPagination
+          itemsPerPage={16}
+          products={tablets}
+        />
       </div>
     </>
   );

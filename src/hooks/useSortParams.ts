@@ -6,7 +6,7 @@ import { useMemo } from 'react';
 export const useSortParams = (products: Product[]) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const sortBy = searchParams.get('sortBy') || '';
-  const itemsPerPage = Number(searchParams.get('itemsPerPage')) || 0;
+  const itemsPerPage = Number(searchParams.get('itemsPerPage')) || 16;
 
   const handleSortBy = (sortOption: string) => {
     const updatedParams = getSearchWith(searchParams, { sortBy: sortOption });

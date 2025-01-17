@@ -1,17 +1,8 @@
 import ArrowDown from '../../../public/icons/Chevron (Arrow Down).svg?react';
 import cn from 'classnames';
 import './Dropdown.scss';
-import { useState } from 'react';
-
-type SortByOption = {
-  label: string;
-  value: string;
-};
-
-type ItemsPerPageOptions = {
-  label: number;
-  value: number;
-};
+import { useEffect, useRef, useState } from 'react';
+import { ItemsPerPageOptions, SortByOption } from '../../types/SortingOptions';
 
 type Props = {
   options: SortByOption[] | ItemsPerPageOptions[];
@@ -25,6 +16,7 @@ type Props = {
 export const Dropdown: React.FC<Props> = (props) => {
   const { options, sort, handleSortBy, handleItemsPerPage } = props;
   const [isListOpen, setIsListOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleList = () => {
     setIsListOpen(!isListOpen);
@@ -32,10 +24,29 @@ export const Dropdown: React.FC<Props> = (props) => {
 
   const currentLabel =
     options.find((option) => option.value === sort)?.label || 'Select';
+
+  useEffect(() => {
+    const handleClickOutsideList = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsListOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutsideList);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutsideList);
+    };
+  }, []);
+
   return (
     <div
       id="dropdown"
       className="dropdown"
+      ref={dropdownRef}
     >
       <section
         onClick={toggleList}
@@ -48,41 +59,40 @@ export const Dropdown: React.FC<Props> = (props) => {
           className={cn('dropdown__current--icon', { open: isListOpen })}
         />
       </section>
-      {isListOpen && (
-        <section className="dropdown__menu">
-          {options.map(({ label, value }) => (
-            <div
-              onClick={() => {
-                if (handleSortBy) {
-                  handleSortBy(value.toString());
-                } else if (handleItemsPerPage) {
-                  handleItemsPerPage(Number(value));
-                }
-                setIsListOpen(false);
-              }}
-              key={value}
-              className="dropdown__menu--option"
-            >
-              {label}
-            </div>
-          ))}
-          {currentLabel !== 'Select' && (
-            <div
-              onClick={() => {
-                if (handleSortBy) {
-                  handleSortBy('none');
-                } else if (handleItemsPerPage) {
-                  handleItemsPerPage(0);
-                }
-                setIsListOpen(false);
-              }}
-              className="dropdown__menu--option"
-            >
-              none
-            </div>
-          )}
-        </section>
-      )}
+      <section className={cn('dropdown__menu', { opened: isListOpen })}>
+        {options.map(({ label, value }) => (
+          <div
+            onClick={() => {
+              if (handleSortBy) {
+                handleSortBy(value.toString());
+              } else if (handleItemsPerPage) {
+                handleItemsPerPage(Number(value));
+              }
+              setIsListOpen(false);
+            }}
+            key={value}
+            className={cn('dropdown__menu--option', {
+              selected: sort === value,
+            })}
+            // className="dropdown__menu--option"
+          >
+            {label}
+          </div>
+        ))}
+        {currentLabel !== 'Select' && !handleItemsPerPage && (
+          <div
+            onClick={() => {
+              if (handleSortBy) {
+                handleSortBy('none');
+              }
+              setIsListOpen(false);
+            }}
+            className="dropdown__menu--option"
+          >
+            none
+          </div>
+        )}
+      </section>
     </div>
   );
 };
