@@ -16,9 +16,8 @@ import { AccessoriesPage } from './pages/AccessoriesPage';
 import { FavoritesPage } from './pages/FavoritesPage';
 import { CartPage } from './pages/CartPage';
 import { HomePage } from './pages/HomePage';
-import { PhoneDetailsPage } from './pages/PhoneDetailsPage';
-import { TabletDetailsPage } from './pages/TabletDetailsPage';
-import { AccessoryDetailsPage } from './pages/AccessoryDetailsPage';
+import { ProductDetailsPage } from './pages/ProductDetailsPage';
+import { Category } from './types/Category';
 
 export const Root = () => (
   <StrictMode>
@@ -56,10 +55,9 @@ export const Root = () => (
                   index
                   element={<PhonesPage />}
                 />
-                {/* replace with <PhoneDetailsPage /> component after implement it */}
                 <Route
-                  path=":phoneId"
-                  element={<PhoneDetailsPage />}
+                  path=":productId"
+                  element={<ProductDetailsPage type={Category.phones} />}
                 />
               </Route>
               <Route path="tablets">
@@ -67,10 +65,9 @@ export const Root = () => (
                   index
                   element={<TabletsPage />}
                 />
-                {/* replace with <TabletDetailsPage /> component after implement it*/}
                 <Route
-                  path=":tabletId"
-                  element={<TabletDetailsPage />}
+                  path=":productId"
+                  element={<ProductDetailsPage type={Category.tablets} />}
                 />
               </Route>
               <Route path="accessories">
@@ -78,10 +75,9 @@ export const Root = () => (
                   index
                   element={<AccessoriesPage />}
                 />
-                {/* replace with <AccessoryDetailsPage /> component after implement it*/}
                 <Route
-                  path=":accessoryId"
-                  element={<AccessoryDetailsPage />}
+                  path=":productId"
+                  element={<ProductDetailsPage type={Category.accessories} />}
                 />
               </Route>
               <Route

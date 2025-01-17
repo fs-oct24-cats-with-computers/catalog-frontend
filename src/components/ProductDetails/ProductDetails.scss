@@ -147,6 +147,12 @@
       }
     }
 
+    &--added {
+      color: $accent-color;
+      background-color: $white-color;
+      border: 1px solid $elements-color;
+    }
+
     &--favorite {
       display: flex;
       justify-content: center;
@@ -160,6 +166,11 @@
       & .product-details__icon {
         color: $primary-color;
         width: 90%;
+
+        &--active {
+          color: $secondary-accent-color;
+          fill: $secondary-accent-color;
+        }
       }
 
       &:hover {

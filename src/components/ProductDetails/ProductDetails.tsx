@@ -1,19 +1,51 @@
-import React, { useState } from 'react';
 import './ProductDetails.scss';
+import React, { useState } from 'react';
+import cn from 'classnames';
 import { ProductExpand } from '../../types/ProductExpand';
 import Favorite from '../../../public/icons/Favourites Filled (Heart Like).svg?react';
 import { DESC_TABLE_KEYS, techSpecsCase } from '../../utils/techSpecsCase';
 import { TechSpecs } from '../TechSpecs';
 import { Link } from 'react-router-dom';
+import { Product } from '../../types/Product';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { cartProductsSlice } from '../../features/cart';
+import { favoriteProductsSlice } from '../../features/favorites';
 
 type Props = {
   product: ProductExpand;
+  products: Product[];
 };
 
-export const ProductDetails: React.FC<Props> = ({ product }) => {
+export const ProductDetails: React.FC<Props> = ({ product, products }) => {
   const [selectedColor, setSelectedColor] = useState(product.color);
   const [selectedCapacity, setSelectedCapacity] = useState(product.capacity);
   const description = techSpecsCase(product, DESC_TABLE_KEYS);
+
+  const favoriteProducts = useAppSelector((state) => state.favoriteProducts);
+  const cart = useAppSelector((state) => state.cartProducts);
+  const dispatch = useAppDispatch();
+
+  const isProductInFavorites = favoriteProducts.find(
+    (favProduct: Product) => favProduct.itemId === product.id,
+  );
+  const isProductInCart = cart.find(
+    (cartProduct: Product) => cartProduct.itemId === product.id,
+  );
+
+  const handleCartToggle = () => {
+    dispatch(
+      cartProductsSlice.actions.toggleProducts(
+        products.find((item) => item.itemId === product.id)!,
+      ),
+    );
+  };
+  const handleFavoriteToggle = () =>
+    dispatch(
+      favoriteProductsSlice.actions.toggleProducts(
+        products.find((item) => item.itemId === product.id)!,
+      ),
+    );
+
   return (
     <div className="product-details">
       <div className="product-details__info">
@@ -68,13 +100,28 @@ export const ProductDetails: React.FC<Props> = ({ product }) => {
             ${product.priceRegular}
           </p>
         </div>
-        {/* Конпки */}
+        {/* Кнопки */}
         <div className="product-details__buttons">
-          <div className="product-details__button product-details__button--add">
-            Add to cart
+          <div
+            className={cn(
+              'product-details__button product-details__button--add',
+              {
+                'product-details__button--added': isProductInCart,
+              },
+            )}
+            onClick={handleCartToggle}
+          >
+            {isProductInCart ? 'Added' : 'Add to cart'}
           </div>
-          <div className="product-details__button product-details__button--favorite">
-            <Favorite className="product-details__icon" />
+          <div
+            className="product-details__button product-details__button--favorite"
+            onClick={handleFavoriteToggle}
+          >
+            <Favorite
+              className={cn('product-details__icon', {
+                'product-details__icon--active': isProductInFavorites,
+              })}
+            />
           </div>
         </div>
         <div className="product-details__specs">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import './PhotosGallery.scss';
 
@@ -7,9 +7,17 @@ type Props = {
 };
 
 export const PhotosGallery: React.FC<Props> = ({ images }) => {
-  const currentImages = images!.map((image) => '../' + image);
+  const [currentImages, setCurrentImages] = useState(
+    images!.map((image) => '../' + image),
+  );
   const [selectedImage, setSelectedImage] = useState(currentImages[0]); // Велике зображення за замовчуванням
   const [bigImageIndex, setBigImageIndex] = useState(0); // Індекс великого зображення
+
+  useEffect(() => {
+    const newImages = images!.map((image) => '../' + image);
+    setCurrentImages(newImages);
+    setSelectedImage(newImages[0]);
+  }, [images]);
 
   const handleThumbnailClick = (image: string, index: number) => {
     setSelectedImage(image); // Змінюємо велике зображення при натисканні на мініатюру
