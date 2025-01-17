@@ -1,0 +1,176 @@
+@use '../../styles/utils/variables.scss' as *;
+@use '../../styles/utils/mixins.scss' as *;
+
+@font-face {
+  font-family: 'Mont';
+  src: url('/fonts/Mont-Regular.otf');
+}
+@font-face {
+  font-family: 'Mont-Bold';
+  src: url('/fonts/Mont-Bold.otf');
+}
+@font-face {
+  font-family: 'Mont-SemiBold';
+  src: url('/fonts/Mont-SemiBold.otf');
+}
+
+.product-details {
+  font-family: 'Mont', sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @include on-tablet {
+    width: 100%;
+  }
+
+  @include on-desktop {
+    width: 100%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__color-options {
+    border-bottom: 1px solid $elements-color;
+    display: flex;
+    flex-direction: column;
+    height: 70px;
+  }
+
+  &__color-title {
+    font-family: 'Mont-SemiBold', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    color: $secondary-color;
+    padding-bottom: 8px;
+  }
+
+  &__color-list {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__color-button {
+    width: 32px;
+    height: 32px;
+    border: 2px solid $white-color;
+    box-shadow: 0 0 0 1px $elements-color;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &--active {
+      outline: 1px solid $primary-color;
+    }
+  }
+
+  &__capacity-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 70px;
+    border-bottom: 1px solid $elements-color;
+  }
+
+  &__capacity-title {
+    font-family: 'Mont-SemiBold', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    color: $secondary-color;
+    padding-bottom: 8px;
+  }
+
+  &__capacity-list {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__capacity-button {
+    padding: 5px 10px;
+    border: 1px solid $icons-color;
+    background-color: $hover-bg-color;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &--active {
+      background-color: $primary-color;
+      border-color: $primary-color;
+      color: $white-color;
+    }
+  }
+
+  &__pricing {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    height: fit-content;
+  }
+
+  &__price-discount {
+    font-size: 32px;
+    font-weight: 800;
+    font-family: 'Mont-Bold', sans-serif;
+    color: $primary-color;
+  }
+
+  &__price-regular {
+    font-family: 'Mont', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    color: $secondary-color;
+    text-decoration: line-through;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__specs {
+    font-family: 'Mont-SemiBold', sans-serif;
+  }
+
+  &__button {
+    height: 40px;
+    color: $white-color;
+    background-color: $accent-color;
+    border-radius: 8px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+
+    &--add {
+      width: 80%;
+      &:hover {
+        cursor: pointer;
+        box-shadow: 0px 3px 13px 0 $primary-color;
+      }
+    }
+
+    &--favorite {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $secondary-color;
+      background: $white-color;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+
+      & .product-details__icon {
+        color: $primary-color;
+        width: 90%;
+      }
+
+      &:hover {
+        cursor: pointer;
+        border: 1px solid $primary-color;
+      }
+    }
+  }
+}
