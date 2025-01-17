@@ -22,8 +22,8 @@ export const App = () => {
     <>
       <Header />
 
-      {/* <Breadcrumbs />
-      <ProductDetails product={phone} />
+      {/* <Breadcrumbs /> */}
+      {/* <ProductDetails product={phone} />
       <PhotosGallery images={images} /> */}
       <main className="main">
         <Outlet />
