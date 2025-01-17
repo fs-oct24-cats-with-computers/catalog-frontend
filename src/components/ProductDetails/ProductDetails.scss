@@ -89,6 +89,8 @@
   }
 
   &__capacity-button {
+    color: $primary-color;
+    text-decoration: none;
     padding: 5px 10px;
     border: 1px solid $icons-color;
     background-color: $hover-bg-color;
@@ -145,7 +147,7 @@
     font-size: 14px;
 
     &--add {
-      width: 80%;
+      width: 90%;
       &:hover {
         cursor: pointer;
         box-shadow: 0px 3px 13px 0 $primary-color;

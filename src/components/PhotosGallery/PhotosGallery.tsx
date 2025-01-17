@@ -3,11 +3,12 @@ import classNames from 'classnames';
 import './PhotosGallery.scss';
 
 type Props = {
-  images: string[] | undefined;
+  images: string[] | null;
 };
 
 export const PhotosGallery: React.FC<Props> = ({ images }) => {
-  const [selectedImage, setSelectedImage] = useState(images![0]); // Велике зображення за замовчуванням
+  const currentImages = images!.map((image) => '../' + image);
+  const [selectedImage, setSelectedImage] = useState(currentImages[0]); // Велике зображення за замовчуванням
   const [bigImageIndex, setBigImageIndex] = useState(0); // Індекс великого зображення
 
   const handleThumbnailClick = (image: string, index: number) => {
@@ -26,18 +27,17 @@ export const PhotosGallery: React.FC<Props> = ({ images }) => {
       </div>
 
       <div className="thumbnails-container">
-        {images &&
-          images.slice(0, 5).map((image, index) => (
-            <img
-              key={index}
-              src={image}
-              alt={`Thumbnail ${index}`}
-              className={classNames('thumbnail', {
-                active: index === bigImageIndex,
-              })}
-              onClick={() => handleThumbnailClick(image, index)}
-            />
-          ))}
+        {currentImages.slice(0, 5).map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt={`Thumbnail ${index}`}
+            className={classNames('thumbnail', {
+              active: index === bigImageIndex,
+            })}
+            onClick={() => handleThumbnailClick(image, index)}
+          />
+        ))}
       </div>
     </div>
   );

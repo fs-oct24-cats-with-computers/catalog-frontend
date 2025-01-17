@@ -16,7 +16,9 @@ import { AccessoriesPage } from './pages/AccessoriesPage';
 import { FavoritesPage } from './pages/FavoritesPage';
 import { CartPage } from './pages/CartPage';
 import { HomePage } from './pages/HomePage';
-import { PhonePage } from './pages/PhonePage';
+import { PhoneDetailsPage } from './pages/PhoneDetailsPage';
+import { TabletDetailsPage } from './pages/TabletDetailsPage';
+import { AccessoryDetailsPage } from './pages/AccessoryDetailsPage';
 
 export const Root = () => (
   <StrictMode>
@@ -54,10 +56,10 @@ export const Root = () => (
                   index
                   element={<PhonesPage />}
                 />
-                {/* replace with <PhonePage /> component after implement it */}
+                {/* replace with <PhoneDetailsPage /> component after implement it */}
                 <Route
                   path=":phoneId"
-                  element={<PhonePage />}
+                  element={<PhoneDetailsPage />}
                 />
               </Route>
               <Route path="tablets">
@@ -65,10 +67,10 @@ export const Root = () => (
                   index
                   element={<TabletsPage />}
                 />
-                {/* replace with <TabletPage /> component after implement it*/}
+                {/* replace with <TabletDetailsPage /> component after implement it*/}
                 <Route
                   path=":tabletId"
-                  element={<div>Tablet Page</div>}
+                  element={<TabletDetailsPage />}
                 />
               </Route>
               <Route path="accessories">
@@ -76,10 +78,10 @@ export const Root = () => (
                   index
                   element={<AccessoriesPage />}
                 />
-                {/* replace with <AccessoryPage /> component after implement it*/}
+                {/* replace with <AccessoryDetailsPage /> component after implement it*/}
                 <Route
                   path=":accessoryId"
-                  element={<div>Accessory Page</div>}
+                  element={<AccessoryDetailsPage />}
                 />
               </Route>
               <Route

@@ -44,7 +44,15 @@
   }
 
   &__slider {
-    padding-block: 80px;
+    padding-block: 56px;
+
+    @include on-tablet {
+      padding-block: 64px;
+    }
+
+    @include on-desktop {
+      padding-block: 80px;
+    }
   }
 }
 
@@ -114,8 +122,4 @@
       width: calc(50% - 32px);
     }
   }
-}
-
-.variants {
-  background-color: #000;
 }

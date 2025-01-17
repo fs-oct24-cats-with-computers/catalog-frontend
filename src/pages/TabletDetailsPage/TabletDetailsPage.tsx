@@ -1,6 +1,5 @@
-import './PhonePage.scss';
 import { About } from '../../components/About';
-import { Phone } from '../../types/Phone';
+import { ProductExpand } from '../../types/ProductExpand';
 import { TECH_TABLE_KEYS, techSpecsCase } from '../../utils/techSpecsCase';
 import { TechSpecs } from '../../components/TechSpecs';
 import { PhotosGallery } from '../../components/PhotosGallery';
@@ -11,32 +10,32 @@ import { useEffect, useState } from 'react';
 import { getProductById } from '../../api';
 import { NotFoundPage } from '../NotFoundPage';
 import { Category } from '../../types/Category';
+import { Loader } from '../../components/Loader';
+import { ProductDetails } from '../../components/ProductDetails';
 
-export const PhonePage = () => {
-  const [currentPhone, setCurrentPhone] = useState<Phone | null>(null);
+export const TabletDetailsPage = () => {
+  const [currentTablet, setCurrentPhone] = useState<ProductExpand | null>(null);
   const [error, setError] = useState('');
-  const { phoneId } = useParams();
+  const { tabletId } = useParams();
 
   let currentTechSpecs;
-  let currentImages;
 
-  if (currentPhone) {
-    currentTechSpecs = techSpecsCase(currentPhone, TECH_TABLE_KEYS);
-    currentImages = currentPhone?.images.map((image) => '../' + image);
+  if (currentTablet) {
+    currentTechSpecs = techSpecsCase(currentTablet, TECH_TABLE_KEYS);
   }
 
   useEffect(() => {
     setError('');
-    getProductById(Category.phones, phoneId)
-      .then((foundPhone) => {
-        if (foundPhone) {
-          setCurrentPhone(foundPhone);
+    getProductById(Category.tablets, tabletId)
+      .then((foundTablet) => {
+        if (foundTablet) {
+          setCurrentPhone(foundTablet);
         } else {
           setError('Wrong phone id!');
         }
       })
       .catch((error) => setError(error.message));
-  }, [phoneId]);
+  }, [tabletId]);
 
   if (error) {
     return <NotFoundPage />;
@@ -44,18 +43,19 @@ export const PhonePage = () => {
 
   return (
     <>
-      {currentPhone && (
-        <div className="product container">
+      {!currentTablet ?
+        <Loader />
+      : <div className="product container">
           <Breadcrumbs />
           <Back />
-          <h2 className="product__title">{currentPhone.name}</h2>
+          <h2 className="product__title">{currentTablet.name}</h2>
           <section className="product__section">
             <div className="section section--first">
               <div className="section__gallery">
-                <PhotosGallery images={currentImages} />
+                <PhotosGallery images={currentTablet.images} />
               </div>
-              <div className="section__variants">
-                <div className="variants">Variants Block</div>
+              <div className="section__details">
+                <ProductDetails product={currentTablet} />
               </div>
             </div>
 
@@ -63,7 +63,7 @@ export const PhonePage = () => {
               <div className="section__about">
                 <h3 className="section__title">About</h3>
                 <div className="section__divider"></div>
-                <About description={currentPhone.description} />
+                <About description={currentTablet.description} />
               </div>
 
               <div className="section__tech">
@@ -78,7 +78,7 @@ export const PhonePage = () => {
             <div>Recommended</div>
           </div>
         </div>
-      )}
+      }
     </>
   );
 };

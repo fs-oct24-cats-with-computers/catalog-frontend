@@ -4,6 +4,7 @@ import { ProductExpand } from '../../types/ProductExpand';
 import Favorite from '../../../public/icons/Favourites Filled (Heart Like).svg?react';
 import { DESC_TABLE_KEYS, techSpecsCase } from '../../utils/techSpecsCase';
 import { TechSpecs } from '../TechSpecs';
+import { Link } from 'react-router-dom';
 
 type Props = {
   product: ProductExpand;
@@ -22,7 +23,8 @@ export const ProductDetails: React.FC<Props> = ({ product }) => {
           <p className="product-details__color-title">Available colors</p>
           <div className="product-details__color-list">
             {product.colorsAvailable.map((color) => (
-              <button
+              <Link
+                to={`../${product.namespaceId}-${selectedCapacity.toLowerCase()}-${color}`}
                 key={color}
                 className={`product-details__color-button ${
                   selectedColor === color ?
@@ -41,7 +43,8 @@ export const ProductDetails: React.FC<Props> = ({ product }) => {
           <p className="product-details__capacity-title">Select capacity:</p>
           <div className="product-details__capacity-list">
             {product.capacityAvailable.map((capacity) => (
-              <button
+              <Link
+                to={`../${product.namespaceId}-${capacity.toLowerCase()}-${selectedColor}`}
                 key={capacity}
                 className={`product-details__capacity-button ${
                   selectedCapacity === capacity ?
@@ -51,7 +54,7 @@ export const ProductDetails: React.FC<Props> = ({ product }) => {
                 onClick={() => setSelectedCapacity(capacity)}
               >
                 {capacity}
-              </button>
+              </Link>
             ))}
           </div>
         </div>

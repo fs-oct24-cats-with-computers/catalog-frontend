@@ -1,5 +1,5 @@
 import { Category } from './types/Category';
-import { Phone } from './types/Phone';
+import { ProductExpand } from './types/ProductExpand';
 import { Product } from './types/Product';
 
 export async function getProducts(): Promise<Product[]> {
@@ -9,7 +9,7 @@ export async function getProducts(): Promise<Product[]> {
 
 export async function getProductsWithDetails(
   category: Category,
-): Promise<Phone[]> {
+): Promise<ProductExpand[]> {
   const response = await fetch(`../api/${category}.json`);
   return response.json();
 }
@@ -17,11 +17,11 @@ export async function getProductsWithDetails(
 export async function getProductById(
   category: Category,
   id: string | undefined,
-): Promise<Phone | null> {
+): Promise<ProductExpand | null> {
   try {
-    const phones = await getProductsWithDetails(category);
-    const foundPhone = phones.find((phone) => phone.id === id);
-    return foundPhone || null;
+    const products = await getProductsWithDetails(category);
+    const foundProduct = products.find((product) => product.id === id);
+    return foundProduct || null;
   } catch (error) {
     console.error(`Error fetching product from category ${category}:`, error);
     throw new Error('Failed to fetch product.');
