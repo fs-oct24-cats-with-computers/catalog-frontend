@@ -9,11 +9,6 @@
   list-style: none;
   display: flex;
   gap: 5px;
-  padding: 24px 0;
-
-  @include on-tablet {
-    padding-bottom: 40px;
-  }
 
   &__item {
     display: flex;

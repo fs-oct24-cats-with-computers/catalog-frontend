@@ -1,8 +1,9 @@
 import { PicturesSlider } from '../../components/PicturesSlider';
 import { ProductsSlider } from '../../components/ProductsSlider/ProductsSlider';
+import { Product } from '../../types/Product';
 import './HomePage.scss';
 
-const productsFromApi = [
+const productsFromApi: Product[] = [
   {
     id: 1,
     category: 'phones',
