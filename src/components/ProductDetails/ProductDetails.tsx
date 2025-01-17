@@ -10,6 +10,7 @@ import { Product } from '../../types/Product';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { cartProductsSlice } from '../../features/cart';
 import { favoriteProductsSlice } from '../../features/favorites';
+import { Colors } from '../../types/Colors';
 
 type Props = {
   product: ProductExpand;
@@ -54,19 +55,23 @@ export const ProductDetails: React.FC<Props> = ({ product, products }) => {
         <div className="product-details__color-options">
           <p className="product-details__color-title">Available colors</p>
           <div className="product-details__color-list">
-            {product.colorsAvailable.map((color) => (
-              <Link
-                to={`../${product.namespaceId}-${selectedCapacity.toLowerCase()}-${color}`}
-                key={color}
-                className={`product-details__color-button ${
-                  selectedColor === color ?
-                    'product-details__color-button--active'
-                  : ''
-                }`}
-                style={{ backgroundColor: color }}
-                onClick={() => setSelectedColor(color)}
-              />
-            ))}
+            {product.colorsAvailable.map((color) => {
+              const bgColor = Colors[color as keyof typeof Colors];
+
+              return (
+                <Link
+                  to={`../${product.namespaceId}-${selectedCapacity.toLowerCase()}-${color}`}
+                  key={color}
+                  className={`product-details__color-button ${
+                    selectedColor === color ?
+                      'product-details__color-button--active'
+                    : ''
+                  }`}
+                  style={{ backgroundColor: bgColor }}
+                  onClick={() => setSelectedColor(color)}
+                />
+              );
+            })}
           </div>
         </div>
 
