@@ -22,6 +22,7 @@
   gap: $header-element-gap;
   height: $header-height;
   border-bottom: 1px solid $elements-color;
+  z-index: 1000;
 
   &__logo {
     padding: 0 $header-padding;

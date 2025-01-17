@@ -1,0 +1,47 @@
+@use '../../styles/utils/variables.scss' as *;
+@use '../../styles/utils/mixins.scss' as *;
+
+@font-face {
+  font-family: 'Mont Bold';
+  src: url(../../../public/fonts/Mont-Bold.otf);
+}
+
+@font-face {
+  font-family: 'Mont';
+  src: url(../../../public/fonts/Mont-Regular.otf);
+}
+
+.cart-page {
+  padding-bottom: 56px;
+
+  @include on-tablet {
+    padding-bottom: 64px;
+  }
+
+  @include on-desktop {
+    padding-bottom: 80px;
+  }
+
+  &__content {
+    @include page-grid;
+    flex-direction: column;
+    padding-top: 32px;
+  }
+
+  &__card-holder {
+    display: flex;
+    flex-direction: column;
+    // padding-bottom: 32px;
+    gap: 16px;
+    grid-column: 1 / -1;
+
+    @include on-desktop {
+      grid-column: 1 / 17;
+      padding-bottom: 0;
+    }
+  }
+
+  &__temp-price {
+    border: 1px solid $elements-color;
+  }
+}
