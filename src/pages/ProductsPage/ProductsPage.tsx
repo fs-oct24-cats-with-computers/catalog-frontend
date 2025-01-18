@@ -57,7 +57,7 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
             />
           </div>
           <div className="page__dropdown--items">
-            <p className="page__dropdown--items--label">Sort by</p>
+            <p className="page__dropdown--items--label">Items per Page</p>
             <Dropdown
               sort={itemsPerPage}
               options={itemsPerPageOptions}
