@@ -15,16 +15,18 @@
 }
 
 .PicturesSlider {
-  margin: 0 0 80px;
+  margin: 0 -16px 56px;
   height: 352px;
   background-color: transparent;
   position: relative;
 
   @include on-tablet {
+    margin: 0 0 64px;
     height: 221px;
   }
 
   @include on-desktop {
+    margin: 0 0 80px;
     height: 432px;
   }
 
@@ -154,7 +156,7 @@
       height: 189px;
       top: 0;
       margin: 0;
-      border: 1px solid gray;
+      border: 1px solid $secondary-color;
       border-radius: 48px;
       background-color: transparent;
 

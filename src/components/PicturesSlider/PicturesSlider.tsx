@@ -28,10 +28,10 @@ export const PicturesSlider = () => {
           el: '.swiper-pagination',
           clickable: true,
         }}
-        // autoplay={{
-        //   delay: 5000,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
       >
         {bannerImages.map((image, index) => (
           <SwiperSlide

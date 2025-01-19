@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import './ShopByCategory.scss';
-// import { getProductsQuantityByCategory } from '///';
-// import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { getProducts } from '../../api';
+import { Product } from '../../types/Product';
 
 const phonesImg = 'public/img/categories/phones-category.png';
 
@@ -9,41 +10,50 @@ const tabletsImg = 'public/img/categories/tablets-category.png';
 const accessoriesImg = 'public/img/categories/accessories-category.png';
 
 export const Categories = () => {
-  // const [phonesQuantity, setPhonesQuantity] = useState<number>(0);
-  // const [tabletsQuantity, setTabletsQuantity] = useState<number>(0);
-  // const [accessoriesQuantity, setAccessoriesQuantity] = useState<number>(0);
+  const [phonesQuantity, setPhonesQuantity] = useState<number>(0);
+  const [tabletsQuantity, setTabletsQuantity] = useState<number>(0);
+  const [accessoriesQuantity, setAccessoriesQuantity] = useState<number>(0);
+  const [error, setError] = useState('');
 
-  // useEffect(() => {
-  //   const getProductQuantities = async () => {
-  //     const { phones, tablets, accessories } =
-  //       await getProductsQuantityByCategory();
+  useEffect(() => {
+    getProducts()
+      .then((products: Product[]) => {
+        setPhonesQuantity(
+          products.filter((product) => product.category === 'phones').length,
+        );
+        setTabletsQuantity(
+          products.filter((product) => product.category === 'tablets').length,
+        );
+        setAccessoriesQuantity(
+          products.filter((product) => product.category === 'accessories')
+            .length,
+        );
+      })
+      .catch(() => setError('Something went wrong'));
+  }, []);
 
-  //     setPhonesQuantity(phones);
-  //     setTabletsQuantity(tablets);
-  //     setAccessoriesQuantity(accessories);
-  //   };
-
-  //   getProductQuantities();
-  // });
+  if (error) {
+    <p>{error}</p>;
+  }
 
   const categories = [
     {
       name: 'phones',
       img: phonesImg,
       title: 'Mobile phones',
-      quantity: 1, //phonesQuantity,
+      quantity: phonesQuantity,
     },
     {
       name: 'tablets',
       img: tabletsImg,
       title: 'Tablets',
-      quantity: 1, //tabletsQuantity,
+      quantity: tabletsQuantity,
     },
     {
       name: 'accessories',
       img: accessoriesImg,
       title: 'Accessories',
-      quantity: 1, //accessoriesQuantity,
+      quantity: accessoriesQuantity,
     },
   ];
 
@@ -62,10 +72,8 @@ export const Categories = () => {
               alt={category.name}
               className="categories__img"
             />
-            <h4>{category.title}</h4>
-            <p className="body-text categories__text">
-              {category.quantity} models
-            </p>
+            <h4 className="categories__link-title">{category.title}</h4>
+            <p className="categories__link-text">{category.quantity} models</p>
           </Link>
         ))}
       </div>
