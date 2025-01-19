@@ -9,10 +9,6 @@
   font-family: 'Mont-Bold';
   src: url('/fonts/Mont-Bold.otf');
 }
-@font-face {
-  font-family: 'Mont-SemiBold';
-  src: url('/fonts/Mont-SemiBold.otf');
-}
 
 .PicturesSlider {
   margin: 0 -16px 56px;
@@ -91,7 +87,7 @@
         font-family: 'Mont', sans-serif;
         font-size: 10px;
         margin-bottom: 50px;
-        padding-right: 10px;
+        padding: 0 0 0 10px;
         color: $white-color;
       }
 

@@ -13,7 +13,7 @@
 .sliderProducts {
   &__wrapper {
     margin: 0 -16px 56px 0;
-    height: 577px;
+    height: 526px;
     width: 100%;
 
     @include on-tablet {
@@ -56,6 +56,23 @@
     display: flex;
     gap: 8px;
   }
+
+  .swiper-slide-productcard {
+    box-sizing: border-box;
+    // margin: 3px;
+    width: auto;
+    max-height: 439px;
+
+    @include on-tablet {
+      // width: 237px;
+      max-height: 512px;
+    }
+
+    @include on-desktop {
+      // width: 272px;
+      max-height: 506px;
+    }
+  }
 }
 
 .prevButton,
@@ -66,17 +83,43 @@
   width: 32px;
   height: 32px;
   border-radius: 48px;
-  border: 1px solid $secondary-color;
+  border: 1px solid $elements-color;
   background-color: transparent;
+  // cursor: pointer;
+  // z-index: 10;
 
-  cursor: pointer;
-  z-index: 10;
-
-  &:not(.disabled):hover svg path {
+  &:not(.disabled) svg path {
     fill: $primary-color;
   }
 
   &.disabled svg path {
-    fill: $secondary-color;
+    border-color: light rgb(247, 234, 234);
+    cursor: not-allowed;
+    svg path {
+      fill: $secondary-color;
+    }
   }
 }
+
+// .prevButton,
+// .nextButton {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 32px;
+//   height: 32px;
+//   border-radius: 48px;
+//   border: 1px solid $secondary-color;
+//   background-color: transparent;
+
+//   cursor: pointer;
+//   z-index: 10;
+
+//   &:not(.disabled):hover svg path {
+//     fill: $primary-color;
+//   }
+
+//   &.disabled svg path {
+//     fill: $secondary-color;
+//   }
+// }
