@@ -9,7 +9,10 @@ export const ProductCardSkeleton = () => {
         <Skeleton height={180} />
       </div>
       <div className="card-skeleton__title">
-        <Skeleton height={20} />
+        <Skeleton
+          height={20}
+          count={2}
+        />
       </div>
       <div className="card-skeleton__price">
         <Skeleton
