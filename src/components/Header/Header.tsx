@@ -4,6 +4,7 @@ import './Header.scss';
 import { BurgerMenu } from '../BurgerMenu';
 import { useAppSelector } from '../../app/hooks';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Logo from '../../../public/img/header_components/Logo.svg?react';
 import Favourites from '../../../public/img/header_components/Favourites.svg?react';
 import ShoppingBag from '../../../public/img/header_components/Shopping bag.svg?react';
@@ -16,6 +17,12 @@ import Logo from '../../../public/img/header_components/Logo.svg?react';
 import Favourites from '../../../public/img/header_components/Favourites.svg?react';
 import ShoppingBag from '../../../public/img/header_components/Shopping bag.svg?react';
 >>>>>>> baebbf5 (implemented dark mode)
+||||||| parent of 6a66b8c (implemented dark mode)
+=======
+import Logo from '../../../public/img/header_components/Logo.svg?react';
+import Favourites from '../../../public/img/header_components/Favourites.svg?react';
+import ShoppingBag from '../../../public/img/header_components/Shopping bag.svg?react';
+>>>>>>> 6a66b8c (implemented dark mode)
 // import classnames from 'classnames';
 
 export const Header = () => {
