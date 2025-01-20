@@ -33,7 +33,7 @@ export const Footer = () => {
               </li>
               <li className="Footer__nav-item">
                 <Link
-                  to="/rigths"
+                  to="/rights"
                   className="Footer__nav-link"
                 >
                   Rights

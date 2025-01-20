@@ -50,16 +50,7 @@
   text-align: center;
   padding-block: 20px;
 
-  min-height: calc(100vh - 268px - 68px);
-
-  @include on-tablet {
-    gap: 15px;
-    min-height: calc(100vh - 118px - 68px);
-  }
-
-  @include on-desktop {
-    min-height: calc(100vh - 118px - 84px);
-  }
+  @include page-min-height;
 
   &__image {
     min-width: 30%;

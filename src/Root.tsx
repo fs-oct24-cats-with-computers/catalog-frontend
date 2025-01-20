@@ -16,6 +16,7 @@ import { HomePage } from './pages/HomePage';
 import { ProductDetailsPage } from './pages/ProductDetailsPage';
 import { ProductsPage } from './pages/ProductsPage/ProductsPage';
 import { Category } from './types/Category';
+import { RightsPage } from './pages/RightsPage';
 
 export const Root = () => (
   <StrictMode>
@@ -85,6 +86,10 @@ export const Root = () => (
               <Route
                 path="cart"
                 element={<CartPage />}
+              />
+              <Route
+                path="rights"
+                element={<RightsPage />}
               />
 
               <Route
