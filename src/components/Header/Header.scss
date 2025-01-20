@@ -44,14 +44,8 @@
       position: relative;
       text-decoration: none;
       align-content: center;
-<<<<<<< HEAD
 
       color: var(--secondaryText);
-||||||| parent of 6a66b8c (implemented dark mode)
-      color: $secondary-color;
-=======
-      color: var(--secondaryText);
->>>>>>> 6a66b8c (implemented dark mode)
       font-size: 12px;
       font-weight: 800;
       line-height: 11px;
@@ -92,16 +86,10 @@
       padding: $header-padding;
       position: relative;
       display: inline-block;
-<<<<<<< HEAD
+
       border-left: 1px solid var(--cardBorder);
       color: var(--iconsColor);
       cursor: pointer;
-||||||| parent of 6a66b8c (implemented dark mode)
-      border-left: 1px solid $elements-color;
-=======
-      border-left: 1px solid var(--cardBorder);
-      color: var(--iconsColor);
->>>>>>> 6a66b8c (implemented dark mode)
 
       &--state {
         box-sizing: border-box;
