@@ -10,6 +10,7 @@ import { useSortParams } from '../../hooks/useSortParams';
 import { itemsPerPageOptions, sortByOptions } from '../../utils/sortingArrays';
 import { Category } from '../../types/Category';
 import { pageTitle } from '../../utils/titleHelper';
+import { ProductsListSkeleton } from '../../components/ProductsListSkeleton';
 
 type Props = {
   type: Category;
@@ -18,6 +19,7 @@ type Props = {
 export const ProductsPage: React.FC<Props> = ({ type }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   const title = pageTitle(type);
 
@@ -30,11 +32,15 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
   } = useSortParams(products);
 
   useEffect(() => {
+    setIsLoading(true);
     getProducts()
       .then((allProducts) =>
         setProducts(allProducts.filter((product) => product.category === type)),
       )
-      .catch(() => setError('Something went wrong'));
+      .catch(() => setError('Something went wrong'))
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, [type]);
 
   if (error) {
@@ -65,10 +71,13 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
             />
           </div>
         </div>
-        <ProductsListWithPagination
-          itemsPerPage={itemsPerPage}
-          products={sortedProducts}
-        />
+        {isLoading ?
+          <ProductsListSkeleton cards={8} />
+        : <ProductsListWithPagination
+            itemsPerPage={itemsPerPage}
+            products={sortedProducts}
+          />
+        }
       </div>
     </>
   );
