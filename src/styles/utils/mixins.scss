@@ -38,17 +38,13 @@
 }
 
 $themes: (
-  // backgroundGradient: (
-  //   darkTheme: $icons-color,
-  //   lightTheme: $green-color,
-  // ),
   pageBackground: (
-      darkTheme: $hover-bg-color-dark,
-      lightTheme: $hover-bg-color,
-    ),
+    darkTheme: $hover-bg-color-dark,
+    lightTheme: $hover-bg-color,
+  ),
 
   cardBackGround: (
-    darkTheme: $icons-color,
+    darkTheme: #71797e,
     lightTheme: $white-color,
   ),
   cardBoxShadow: (
@@ -89,6 +85,10 @@ $themes: (
   iconsBorderHover: (
     darkTheme: $secondary-color,
     lightTheme: $primary-color,
+  ),
+  iconHeartBorder: (
+    darkTheme: $elements-color,
+    lightTheme: $secondary-color,
   ),
 
   minusPlusDisabled: (
@@ -156,7 +156,28 @@ $themes: (
   headerBackground: (
     darkTheme: #161618,
     lightTheme: $hover-bg-color,
-  )
+  ),
+
+  galleryBorderColor: (
+    darkTheme: $primary-color,
+    lightTheme: $icons-color,
+  ),
+  galleryBorderColorActive: (
+    darkTheme: $icons-color,
+    lightTheme: $primary-color,
+  ),
+  capacityActiveText: (
+    darkTheme: $primary-color,
+    lightTheme: $white-color,
+  ),
+  capacityActiveBackground: (
+    darkTheme: $white-color,
+    lightTheme: $primary-color,
+  ),
+  // chooseColorButton: (
+  //   darkTheme: $primary-color,
+  //   lightTheme: $white-color,
+   // ),
 );
 
 @mixin styles($mode) {

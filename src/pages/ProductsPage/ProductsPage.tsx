@@ -10,7 +10,6 @@ import { useSortParams } from '../../hooks/useSortParams';
 import { itemsPerPageOptions, sortByOptions } from '../../utils/sortingArrays';
 import { Category } from '../../types/Category';
 import { pageTitle } from '../../utils/titleHelper';
-import { useTheme } from '../../hooks/useTheme';
 
 type Props = {
   type: Category;
@@ -19,8 +18,6 @@ type Props = {
 export const ProductsPage: React.FC<Props> = ({ type }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [error, setError] = useState('');
-
-  const { theme, setTheme } = useTheme();
 
   const title = pageTitle(type);
 
@@ -40,10 +37,6 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
       .catch(() => setError('Something went wrong'));
   }, [type]);
 
-  const handleThemeClick = () => {
-    setTheme(theme === 'light-mode' ? 'dark-mode' : 'light-mode');
-  };
-
   if (error) {
     return <p>{error}</p>;
   }
@@ -52,9 +45,6 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
     <>
       <div className="page container">
         <Breadcrumbs />
-        <div onClick={handleThemeClick}>
-          {theme === 'light-mode' ? '🌃' : '🌅'}
-        </div>
         <h1 className="page__title">{title}</h1>
         <p className="page__subtitle">{products.length} models</p>
         <div className="page__dropdown">
