@@ -50,7 +50,6 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
           >
             <ProductCard
               product={product}
-              isSlider={true}
             />
           </SwiperSlide>
         ))}
