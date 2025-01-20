@@ -5,7 +5,7 @@ export const RightsPage = () => {
     <div className="rights container">
       <img
         className="rights__image"
-        src="../../../public/img/rights-page.png"
+        src="../../img/rights-page.png"
         alt="Rights cats"
       />
       <p className="rights__text">
