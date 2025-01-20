@@ -4,10 +4,9 @@ import { useEffect, useState } from 'react';
 import { getProducts } from '../../api';
 import { Product } from '../../types/Product';
 
-const phonesImg = 'public/img/categories/phones-category.png';
-
-const tabletsImg = 'public/img/categories/tablets-category.png';
-const accessoriesImg = 'public/img/categories/accessories-category.png';
+const phonesImg = '/img/categories/phones-category.png';
+const tabletsImg = '/img/categories/tablets-category.png';
+const accessoriesImg = '/img/categories/accessories-category.png';
 
 export const Categories = () => {
   const [phonesQuantity, setPhonesQuantity] = useState<number>(0);
