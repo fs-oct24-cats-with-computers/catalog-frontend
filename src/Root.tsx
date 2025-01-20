@@ -16,7 +16,6 @@ import { HomePage } from './pages/HomePage';
 import { ProductDetailsPage } from './pages/ProductDetailsPage';
 import { ProductsPage } from './pages/ProductsPage/ProductsPage';
 import { Category } from './types/Category';
-import { Category } from './types/Category';
 
 export const Root = () => (
   <StrictMode>
