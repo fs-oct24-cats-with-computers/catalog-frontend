@@ -38,7 +38,8 @@
 }
 
 .main {
-  background-color: $hover-bg-color;
+  background-color: var(--pageBackground);
+  // background-color: $hover-bg-color;
 }
 
 .empty {

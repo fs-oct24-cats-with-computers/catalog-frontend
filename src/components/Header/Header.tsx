@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react';
 import './Header.scss';
 import { BurgerMenu } from '../BurgerMenu';
 import { useAppSelector } from '../../app/hooks';
+import Logo from '../../../public/img/header_components/Logo.svg?react';
+import Favourites from '../../../public/img/header_components/Favourites.svg?react';
+import ShoppingBag from '../../../public/img/header_components/Shopping bag.svg?react';
 // import classnames from 'classnames';
 
 export const Header = () => {
@@ -39,13 +42,19 @@ export const Header = () => {
       <header className="header">
         <div className="header__logo">
           <NavLink to="/">
-            <img
+            <Logo
+              className="header__logo--img"
+              onClick={() => {
+                checkIsBurgerClose(true);
+              }}
+            />
+            {/* <img
               src="img/header_components/Logo.svg"
               alt="Nice gadgets logo"
               onClick={() => {
                 checkIsBurgerClose(true);
               }}
-            />
+            /> */}
           </NavLink>
         </div>
         {!isMobile && (
@@ -84,10 +93,11 @@ export const Header = () => {
                 to="/favorites"
                 className={chooseActivePageButton}
               >
-                <img
+                <Favourites />
+                {/* <img
                   src="img/header_components/Favourites.svg"
                   alt="Favourites"
-                />
+                /> */}
                 {!!favoriteProducts.length && (
                   <span className="header__buttons_element--state">
                     {favoriteProducts.length}
@@ -98,10 +108,11 @@ export const Header = () => {
                 to="/cart"
                 className={chooseActivePageButton}
               >
-                <img
+                <ShoppingBag />
+                {/* <img
                   src="img/header_components/Shopping bag.svg"
                   alt="Shopping bag"
-                />
+                /> */}
                 {!!cartProducts.length && (
                   <span className="header__buttons_element--state">
                     {cartProducts.length}
