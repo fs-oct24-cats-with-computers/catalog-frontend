@@ -10,6 +10,7 @@
   padding: 0;
   width: 100%;
   box-shadow: 0px -1px 0px 0px $elements-color;
+  background-color: var(--footerBackGround);
 
   &__content {
     display: flex;
@@ -62,7 +63,7 @@
     font-size: 12px;
     font-weight: 700;
     line-height: 11px;
-    color: $secondary-color;
+    color: var(--footerLinks);
   }
 
   &__button {
@@ -81,7 +82,7 @@
     font-weight: 600;
     line-height: 15.34px;
     text-align: right;
-    color: $secondary-color;
+    color: var(--footerLinks);
   }
 }
 
@@ -92,5 +93,7 @@
   width: 32px;
   height: 32px;
   border-radius: 48%;
-  border: 1px solid $secondary-color;
+  border: 1px solid var(--footerLinks);
+  color: var(--iconsColor);
+  // border: 1px solid $secondary-color;
 }
