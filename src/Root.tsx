@@ -13,7 +13,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { FavoritesPage } from './pages/FavoritesPage';
 import { CartPage } from './pages/CartPage';
 import { HomePage } from './pages/HomePage';
-import { PhonePage } from './pages/PhonePage';
+import { ProductDetailsPage } from './pages/ProductDetailsPage';
 import { ProductsPage } from './pages/ProductsPage/ProductsPage';
 import { Category } from './types/Category';
 
@@ -53,10 +53,9 @@ export const Root = () => (
                   index
                   element={<ProductsPage type={Category.phones} />}
                 />
-                {/* replace with <PhonePage /> component after implement it */}
                 <Route
-                  path=":phoneId"
-                  element={<PhonePage />}
+                  path=":productId"
+                  element={<ProductDetailsPage type={Category.phones} />}
                 />
               </Route>
               <Route path="tablets">
@@ -64,10 +63,9 @@ export const Root = () => (
                   index
                   element={<ProductsPage type={Category.tablets} />}
                 />
-                {/* replace with <TabletPage /> component after implement it*/}
                 <Route
-                  path=":tabletId"
-                  element={<div>Tablet Page</div>}
+                  path=":productId"
+                  element={<ProductDetailsPage type={Category.tablets} />}
                 />
               </Route>
               <Route path="accessories">
@@ -75,10 +73,9 @@ export const Root = () => (
                   index
                   element={<ProductsPage type={Category.accessories} />}
                 />
-                {/* replace with <AccessoryPage /> component after implement it*/}
                 <Route
-                  path=":accessoryId"
-                  element={<div>Accessory Page</div>}
+                  path=":productId"
+                  element={<ProductDetailsPage type={Category.accessories} />}
                 />
               </Route>
               <Route

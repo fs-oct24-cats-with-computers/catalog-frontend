@@ -1,9 +1,9 @@
 import React from 'react';
 import './TechSpecs.scss';
-import { Phone } from '../../types/Phone';
+import { ProductExpand } from '../../types/ProductExpand';
 
 type Props = {
-  techSpecsObj: Partial<Phone> | undefined;
+  techSpecsObj: Partial<ProductExpand> | undefined;
 };
 
 export const TechSpecs: React.FC<Props> = (props) => {

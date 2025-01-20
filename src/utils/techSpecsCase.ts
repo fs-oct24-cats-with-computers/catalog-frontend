@@ -1,6 +1,6 @@
-import { Phone } from '../types/Phone';
+import { ProductExpand } from '../types/ProductExpand';
 
-export const TECH_TABLE_KEYS: Array<keyof Phone> = [
+export const TECH_TABLE_KEYS: Array<keyof ProductExpand> = [
   'screen',
   'resolution',
   'processor',
@@ -10,14 +10,14 @@ export const TECH_TABLE_KEYS: Array<keyof Phone> = [
   'cell',
 ];
 
-export const DESC_TABLE_KEYS: Array<keyof Phone> = [
+export const DESC_TABLE_KEYS: Array<keyof ProductExpand> = [
   'screen',
   'resolution',
   'processor',
   'ram',
 ];
 
-export const CARD_TABLE_KEYS: Array<keyof Phone> = [
+export const CARD_TABLE_KEYS: Array<keyof ProductExpand> = [
   'screen',
   'capacity',
   'ram',

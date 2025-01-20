@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { favoriteProductsSlice } from '../../features/favorites';
 import cn from 'classnames';
+import { Link } from 'react-router-dom';
 
 type Props = {
   product: Product;
@@ -49,12 +50,12 @@ export const ProductCard: React.FC<Props> = ({ product, isSlider = false }) => {
       </div>
 
       {/* Title */}
-      <a
-        href="#"
+      <Link
+        to={`/${product.category}/${product.itemId}`}
         className="product-card__title"
       >
         {product.name}
-      </a>
+      </Link>
 
       {/* Prices */}
       <div className="product-card__price">
