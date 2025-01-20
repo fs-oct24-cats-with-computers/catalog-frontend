@@ -48,10 +48,7 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
             key={product.id}
             className="ProductWrapper"
           >
-            <ProductCard
-              product={product}
-              isSlider={true}
-            />
+            <ProductCard product={product} />
           </SwiperSlide>
         ))}
       </Swiper>

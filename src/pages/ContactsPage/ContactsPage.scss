@@ -1,0 +1,10 @@
+@use '../../styles/utils/mixins.scss' as *;
+@use '../../styles/utils/variables.scss' as *;
+
+.contact-page {
+  padding-top: 30px;
+  padding-bottom: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
