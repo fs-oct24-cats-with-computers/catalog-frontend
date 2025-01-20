@@ -47,6 +47,10 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
       });
   }, [type]);
 
+  const handleThemeClick = () => {
+    setTheme(theme === 'light-mode' ? 'dark-mode' : 'light-mode');
+  };
+
   if (error) {
     return <p>{error}</p>;
   }
