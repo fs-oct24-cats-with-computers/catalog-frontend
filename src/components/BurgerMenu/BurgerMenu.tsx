@@ -1,15 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import './BurgerMenu.scss';
 import React from 'react';
-<<<<<<< HEAD
+import Favorites from '../../../public/img/header_components/Favourites.svg?react';
+import ShoppingBag from '../../../public/img/header_components/Shopping bag.svg?react';
 import { useAppSelector } from '../../app/hooks';
-import Favorites from '../../../public/img/header_components/Favourites.svg?react';
-import ShoppingBag from '../../../public/img/header_components/Shopping bag.svg?react';
-||||||| parent of 5af9c42 (implemented dark mode for empty pages, burger menu, productDetails, Back)
-=======
-import Favorites from '../../../public/img/header_components/Favourites.svg?react';
-import ShoppingBag from '../../../public/img/header_components/Shopping bag.svg?react';
->>>>>>> 5af9c42 (implemented dark mode for empty pages, burger menu, productDetails, Back)
 
 interface Props {
   isBurgerMenuOpen: boolean;
@@ -83,18 +77,12 @@ export const BurgerMenu: React.FC<Props> = ({
           {/* <img
             src="img/header_components/Favourites.svg"
             alt="Favourites"
-<<<<<<< HEAD
           /> */}
           {!!favoriteProducts.length && (
             <span className="header__buttons_element--state">
               {favoriteProducts.length}
             </span>
           )}
-||||||| parent of 5af9c42 (implemented dark mode for empty pages, burger menu, productDetails, Back)
-          />
-=======
-          /> */}
->>>>>>> 5af9c42 (implemented dark mode for empty pages, burger menu, productDetails, Back)
         </NavLink>
         <NavLink
           to="/cart"
@@ -105,18 +93,12 @@ export const BurgerMenu: React.FC<Props> = ({
           {/* <img
             src="img/header_components/Shopping bag.svg"
             alt="Shopping bag"
-<<<<<<< HEAD
           /> */}
           {!!cartProducts.length && (
             <span className="header__buttons_element--state">
               {cartProducts.length}
             </span>
           )}
-||||||| parent of 5af9c42 (implemented dark mode for empty pages, burger menu, productDetails, Back)
-          />
-=======
-          /> */}
->>>>>>> 5af9c42 (implemented dark mode for empty pages, burger menu, productDetails, Back)
         </NavLink>
       </div>
     </section>
