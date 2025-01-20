@@ -4,6 +4,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { Link } from 'react-router-dom';
 
 const bannerImages = [
   '../../../../public/img/banner-accessories.png',
@@ -45,7 +46,12 @@ export const PicturesSlider = () => {
                     Now available in our store! 👌
                   </h2>
                   <p className="TextContent_text">Be the first!</p>
-                  <button className="TextContent_button">ORDER NOW</button>
+                  <Link
+                    to="/phones"
+                    className="TextContent_button"
+                  >
+                    ORDER NOW
+                  </Link>
                 </div>
               </div>
               <div className="ImgWrapper">

@@ -85,8 +85,8 @@
   border-radius: 48px;
   border: 1px solid $elements-color;
   background-color: transparent;
-  // cursor: pointer;
-  // z-index: 10;
+  cursor: pointer;
+  z-index: 10;
 
   &:not(.disabled) svg path {
     fill: $primary-color;
