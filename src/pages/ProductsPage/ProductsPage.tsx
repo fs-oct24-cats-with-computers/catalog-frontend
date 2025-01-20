@@ -12,7 +12,7 @@ import { Category } from '../../types/Category';
 import { pageTitle } from '../../utils/titleHelper';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { useTheme } from '../../hooks/useTheme';
+import { NotFoundPage } from '../NotFoundPage';
 
 type Props = {
   type: Category;
@@ -22,8 +22,6 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
-
-  const { theme, setTheme } = useTheme();
 
   const title = pageTitle(type);
 
@@ -47,12 +45,8 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
       });
   }, [type]);
 
-  const handleThemeClick = () => {
-    setTheme(theme === 'light-mode' ? 'dark-mode' : 'light-mode');
-  };
-
   if (error) {
-    return <p>{error}</p>;
+    return <NotFoundPage />;
   }
 
   return (
@@ -65,9 +59,6 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
             height={20}
           />
         : <Breadcrumbs />}
-        <div onClick={handleThemeClick}>
-          {theme === 'light-mode' ? '🌃' : '🌅'}
-        </div>
         <h1 className="page__title">
           {isLoading ?
             <Skeleton />
