@@ -29,7 +29,9 @@ export const HomePage = () => {
   return (
     <div className="container">
       <div className="page-container">
-        <h1 className="page__title">Welcome to Nice Gadgets store!</h1>
+        <h1 className="page__title home-page">
+          Welcome to Nice Gadgets store!
+        </h1>
         <PicturesSlider />
         <ProductsSlider
           products={hotPricesModels}
