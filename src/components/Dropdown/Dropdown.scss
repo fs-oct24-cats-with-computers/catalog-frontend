@@ -12,10 +12,10 @@
 }
 
 .dropdown {
-  background-color: transparent;
+  background-color: var(--dropdownBackground);
   width: 136px;
   height: 40px;
-  border: 1px solid $icons-color;
+  border: 1px solid var(--dropdownBorder);
   border-radius: 8px;
   font-size: 14px;
   line-height: 21px;

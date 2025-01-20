@@ -27,7 +27,7 @@ export const Breadcrumbs = () => {
               key={to}
               className="breadcrumb__item"
             >
-              <ArrowRight />
+              <ArrowRight className="breadcrumb__item--icon" />
               <Link
                 className="breadcrumb__item--link"
                 to={to}
