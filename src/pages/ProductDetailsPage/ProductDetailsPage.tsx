@@ -14,6 +14,7 @@ import { NotFoundPage } from '../NotFoundPage';
 import { Category } from '../../types/Category';
 import { Loader } from '../../components/Loader';
 import { ProductDetails } from '../../components/ProductDetails';
+import { ProductsSlider } from '../../components/ProductsSlider/ProductsSlider';
 
 type Props = {
   type: Category;
@@ -26,6 +27,7 @@ export const ProductDetailsPage: React.FC<Props> = ({ type }) => {
   );
   const [error, setError] = useState('');
   const { productId } = useParams();
+  const [otherProducts, setOtherProducts] = useState<Product[]>([]);
 
   let currentTechSpecs;
 
@@ -36,7 +38,14 @@ export const ProductDetailsPage: React.FC<Props> = ({ type }) => {
   useEffect(() => {
     setError('');
 
-    getProducts().then(setProducts);
+    getProducts().then((allProducts) => {
+      setProducts(allProducts);
+
+      setOtherProducts(
+        allProducts.sort(() => Math.random() - 0.5).slice(0, 10),
+      );
+    });
+
     getProductById(type, productId)
       .then((foundProduct) => {
         if (foundProduct) {
@@ -86,11 +95,13 @@ export const ProductDetailsPage: React.FC<Props> = ({ type }) => {
                 <TechSpecs techSpecsObj={currentTechSpecs} />
               </div>
             </div>
+            <div className="product__slider">
+              <ProductsSlider
+                products={otherProducts}
+                title={'You may also like'}
+              />
+            </div>
           </section>
-
-          <div className="product__slider">
-            <div>Recommended</div>
-          </div>
         </div>
       }
     </>

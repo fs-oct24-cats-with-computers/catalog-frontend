@@ -5,6 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const bannerImages = [
   '/img/banner-accessories.png',
@@ -40,26 +41,54 @@ export const PicturesSlider = () => {
             key={index}
           >
             <div className="ContentWrapper">
-              <div className="TextContent">
+              <motion.div
+                className="TextContent"
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
                 <div className="TextContent_wrapper">
-                  <h2 className="TextContent_title">
-                    Now available in our store! 👌
-                  </h2>
-                  <p className="TextContent_text">Be the first!</p>
-                  <Link
-                    to="/phones"
-                    className="TextContent_button"
+                  <motion.h2
+                    className="TextContent_title"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
                   >
-                    ORDER NOW
-                  </Link>
+                    Now available in our store! 👌
+                  </motion.h2>
+                  <motion.p
+                    className="TextContent_text"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                  >
+                    Be the first!
+                  </motion.p>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                  >
+                    <Link
+                      to="/phones"
+                      className="TextContent_button"
+                    >
+                      ORDER NOW
+                    </Link>
+                  </motion.div>
                 </div>
-              </div>
-              <div className="ImgWrapper">
+              </motion.div>
+              <motion.div
+                className="ImgWrapper"
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
                 <img
                   src={image}
                   alt={`Slide ${index + 1}`}
                 />
-              </div>
+              </motion.div>
             </div>
           </SwiperSlide>
         ))}

@@ -31,9 +31,9 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
 
   useEffect(() => {
     getProducts()
-      .then((allProducts) =>
-        setProducts(allProducts.filter((product) => product.category === type)),
-      )
+      .then((allProducts) => {
+        setProducts(allProducts.filter((product) => product.category === type));
+      })
       .catch(() => setError('Something went wrong'));
   }, [type]);
 

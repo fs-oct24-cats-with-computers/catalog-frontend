@@ -3,6 +3,7 @@ import './ShopByCategory.scss';
 import { useEffect, useState } from 'react';
 import { getProducts } from '../../api';
 import { Product } from '../../types/Product';
+import { motion } from 'framer-motion';
 
 const phonesImg = '/img/categories/phones-category.png';
 const tabletsImg = '/img/categories/tablets-category.png';
@@ -32,7 +33,7 @@ export const Categories = () => {
   }, []);
 
   if (error) {
-    <p>{error}</p>;
+    return <p>{error}</p>;
   }
 
   const categories = [
@@ -66,13 +67,30 @@ export const Categories = () => {
             key={category.name}
             className="categories__link"
           >
-            <img
+            <motion.img
               src={category.img}
               alt={category.name}
               className="categories__img"
+              initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
             />
-            <h4 className="categories__link-title">{category.title}</h4>
-            <p className="categories__link-text">{category.quantity} models</p>
+            <motion.h4
+              className="categories__link-title"
+              initial={{ opacity: 0, y: 50, color: '#ff0000' }}
+              animate={{ opacity: 1, y: 0, color: '#000000' }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              {category.title}
+            </motion.h4>
+            <motion.p
+              className="categories__link-text"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              {category.quantity} models
+            </motion.p>
           </Link>
         ))}
       </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+import { motion } from 'framer-motion';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -29,7 +30,12 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
 
   return (
     <section className="sliderProducts__wrapper">
-      <div className="sliderProducts__title">
+      <motion.div
+        className="sliderProducts__title"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <h2 className="sliderProducts__title-content">{title}</h2>
         <div className="sliderProducts-buttons-wrapper">
           <button
@@ -50,7 +56,7 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
             />
           </button>
         </div>
-      </div>
+      </motion.div>
 
       <Swiper
         modules={[Navigation]}
@@ -90,7 +96,13 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
             key={product.id}
             className="swiper-slide-productcard"
           >
-            <ProductCard product={product} />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <ProductCard product={product} />
+            </motion.div>
           </SwiperSlide>
         ))}
       </Swiper>

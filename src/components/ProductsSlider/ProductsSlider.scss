@@ -12,12 +12,13 @@
 
 .sliderProducts {
   &__wrapper {
-    margin: 0 -16px 56px 0;
+    margin: 3px;
+    margin: 0 0 56px;
     height: 526px;
     width: 100%;
 
     @include on-tablet {
-      margin: 0 -24px 64px 0;
+      margin: 0 0 64px;
       height: 577px;
     }
 
