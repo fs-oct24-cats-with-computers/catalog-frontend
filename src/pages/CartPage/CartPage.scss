@@ -1,16 +1,6 @@
 @use '../../styles/utils/variables.scss' as *;
 @use '../../styles/utils/mixins.scss' as *;
 
-@font-face {
-  font-family: 'Mont Bold';
-  src: url(../../../public/fonts/Mont-Bold.otf);
-}
-
-@font-face {
-  font-family: 'Mont';
-  src: url(../../../public/fonts/Mont-Regular.otf);
-}
-
 .cart-page {
   padding-bottom: 56px;
 
@@ -31,7 +21,6 @@
   &__card-holder {
     display: flex;
     flex-direction: column;
-    // padding-bottom: 32px;
     gap: 16px;
     grid-column: 1 / -1;
 

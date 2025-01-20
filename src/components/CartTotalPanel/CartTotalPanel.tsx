@@ -1,23 +1,15 @@
 import { ProductWithQuantity } from '../../types/ProductWithQuantity';
-import { useAppDispatch } from '../../app/hooks';
-import { cartProductsSlice } from '../../features/cart';
 import './CartTotalPanel.scss';
+import { SubmitForm } from '../SubmitForm';
+import { useState } from 'react';
 
 interface Props {
   products: ProductWithQuantity[];
-  // deleteProducts: React.Dispatch<React.SetStateAction<ProductWithQuantity[]>>;
   openModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const CartTotalPanel: React.FC<Props> = ({ products, openModal }) => {
-  const dispatch = useAppDispatch();
-
-  const applyOrder = () => {
-    products.map((product) =>
-      dispatch(cartProductsSlice.actions.removeProduct(product.id)),
-    );
-    openModal(true);
-  };
+  const [isSubmitOpen, setIsSubmitOpen] = useState(false);
 
   return (
     <div className="total-panel">
@@ -35,12 +27,18 @@ export const CartTotalPanel: React.FC<Props> = ({ products, openModal }) => {
         </p>
       </div>
 
-      <button
-        className="total-panel__button"
-        onClick={applyOrder}
-      >
-        Checkout
-      </button>
+      {isSubmitOpen ?
+        <SubmitForm
+          openModal={openModal}
+          openForm={setIsSubmitOpen}
+        />
+      : <button
+          className="total-panel__button"
+          onClick={() => setIsSubmitOpen(true)}
+        >
+          Checkout
+        </button>
+      }
     </div>
   );
 };
