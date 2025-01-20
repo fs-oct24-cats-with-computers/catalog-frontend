@@ -37,7 +37,7 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
             onClick={() => swiperRef.current?.slidePrev()}
             disabled={isBeginning}
           >
-            <ArrowIcon color={isBeginning ? 'grey' : 'black'} />
+            <ArrowIcon color={isBeginning ? 'lightgrey' : 'black'} />
           </button>
           <button
             className={`nextButton ${isEnd ? 'disabled' : ''}`}
@@ -45,7 +45,7 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
             disabled={isEnd}
           >
             <ArrowIcon
-              color={isEnd ? 'grey' : 'black'}
+              color={isEnd ? 'lightgrey' : 'black'}
               rotate="180deg"
             />
           </button>
