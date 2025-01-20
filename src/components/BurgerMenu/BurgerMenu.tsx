@@ -2,6 +2,8 @@ import { NavLink } from 'react-router-dom';
 import './BurgerMenu.scss';
 import React from 'react';
 import { useAppSelector } from '../../app/hooks';
+import Favorites from '../../../public/img/header_components/Favourites.svg?react';
+import ShoppingBag from '../../../public/img/header_components/Shopping bag.svg?react';
 
 interface Props {
   isBurgerMenuOpen: boolean;
@@ -71,10 +73,11 @@ export const BurgerMenu: React.FC<Props> = ({
           className={chooseActivePageButton}
           onClick={onClickNavButton}
         >
-          <img
+          <Favorites />
+          {/* <img
             src="img/header_components/Favourites.svg"
             alt="Favourites"
-          />
+          /> */}
           {!!favoriteProducts.length && (
             <span className="header__buttons_element--state">
               {favoriteProducts.length}
@@ -86,10 +89,11 @@ export const BurgerMenu: React.FC<Props> = ({
           className={chooseActivePageButton}
           onClick={onClickNavButton}
         >
-          <img
+          <ShoppingBag />
+          {/* <img
             src="img/header_components/Shopping bag.svg"
             alt="Shopping bag"
-          />
+          /> */}
           {!!cartProducts.length && (
             <span className="header__buttons_element--state">
               {cartProducts.length}

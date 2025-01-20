@@ -87,6 +87,7 @@
       display: inline-block;
       border-left: 1px solid var(--cardBorder);
       color: var(--iconsColor);
+      cursor: pointer;
 
       &--state {
         box-sizing: border-box;
@@ -143,4 +144,8 @@
       padding: $header-padding;
     }
   }
+}
+
+.theme {
+  line-height: 20px;
 }
