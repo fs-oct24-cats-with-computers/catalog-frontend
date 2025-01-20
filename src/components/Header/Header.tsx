@@ -9,6 +9,7 @@ import ShoppingBag from '../../../public/img/header_components/Shopping bag.svg?
 import Menu from '../../../public/img/header_components/Menu.svg?react';
 import CloseIcon from '../../../public/img/header_components/Close.svg?react';
 import { useTheme } from '../../hooks/useTheme';
+
 // import classnames from 'classnames';
 
 export const Header = () => {

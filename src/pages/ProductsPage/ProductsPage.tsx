@@ -23,6 +23,7 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+
   const title = pageTitle(type);
 
   const {
