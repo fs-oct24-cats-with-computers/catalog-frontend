@@ -70,7 +70,8 @@
     object-fit: contain;
     padding: 4px;
     cursor: pointer;
-    border: 1px solid $icons-color;
+    border: 1px solid var(--galleryBorderColor);
+    // border: 1px solid $icons-color;
     border-radius: 4px;
 
     @include on-tablet {
@@ -90,7 +91,8 @@
 
   .thumbnail.active {
     transform: scale(1.1);
-    border-color: $primary-color;
+    // border-color: $primary-color;
+    border-color: var(--galleryBorderColorActive);
 
     @include on-desktop {
       & {

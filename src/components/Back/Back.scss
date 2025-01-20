@@ -14,17 +14,20 @@
   &__icon {
     height: 16px;
     width: 16px;
+    color: var(--arrowsColor);
     // display: block;
   }
   &__text {
     display: block;
     font-family: 'Mont SemiBold';
-    color: $secondary-color;
+    color: var(--secondaryText);
+    // color: $secondary-color;
     font-size: 12px;
     line-height: 15px;
 
     &:hover {
-      color: $primary-color;
+      color: var(--secondaryTextHoverAndActive);
+      // color: $primary-color;
     }
   }
 }
