@@ -17,7 +17,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
   const dispatch = useAppDispatch();
 
   const isProductInFavorites = favoriteProducts.find(
-    (favProduct) => favProduct.id === product.id,
+    (favProduct: Product) => favProduct.id === product.id,
   );
 
   const isProductInCart = cart.find(

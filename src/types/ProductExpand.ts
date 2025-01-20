@@ -1,4 +1,4 @@
-export type ProductDetails = {
+export type ProductExpand = {
   id: string;
   category: string;
   namespaceId: string;
