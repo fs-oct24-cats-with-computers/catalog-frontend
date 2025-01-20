@@ -14,6 +14,7 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { ProductsListSkeleton } from '../../components/ProductsListSkeleton';
 import { NotFoundPage } from '../NotFoundPage';
+
 type Props = {
   type: Category;
 };
@@ -22,7 +23,6 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
-
   const title = pageTitle(type);
 
   const {
