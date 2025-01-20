@@ -15,7 +15,7 @@ export const Footer = () => {
             <ul className="Footer__nav-list">
               <li className="Footer__nav-item">
                 <Link
-                  to="https://github.com"
+                  to="https://github.com/fs-oct24-cats-with-computers/catalog-frontend"
                   target="_blank"
                   rel="noreferrer noopener"
                   className="Footer__nav-link"
