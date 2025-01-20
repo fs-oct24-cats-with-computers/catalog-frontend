@@ -36,11 +36,13 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
     <div className="product-card">
       {/* Image container */}
       <div className="product-card__image">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="product-card__image-img"
-        />
+        <Link to={`/${product.category}/${product.itemId}`}>
+          <img
+            src={product.image}
+            alt={product.name}
+            className="product-card__image-img"
+          />
+        </Link>
       </div>
 
       {/* Title */}
