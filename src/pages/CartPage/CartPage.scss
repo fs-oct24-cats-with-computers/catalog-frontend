@@ -1,6 +1,16 @@
 @use '../../styles/utils/variables.scss' as *;
 @use '../../styles/utils/mixins.scss' as *;
 
+@font-face {
+  font-family: 'Mont Bold';
+  src: url(/fonts/Mont-Bold.otf);
+}
+
+@font-face {
+  font-family: 'Mont';
+  src: url(/fonts/Mont-Regular.otf);
+}
+
 .cart-page {
   padding-bottom: 56px;
 
