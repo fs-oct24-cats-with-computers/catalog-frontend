@@ -4,6 +4,7 @@ import { ProductWithQuantity } from '../../types/ProductWithQuantity';
 import { useAppDispatch } from '../../app/hooks';
 import { cartProductsSlice } from '../../features/cart';
 import cn from 'classnames';
+import { Link } from 'react-router-dom';
 
 type Props = {
   product: ProductWithQuantity;
@@ -38,7 +39,12 @@ export const CartCard: React.FC<Props> = ({ product }) => {
             className="card__firstRow--phone--img"
           />
         </div>
-        <div className="card__firstRow--info">{product.name}</div>
+        <Link
+          to={`/${product.category}/${product.itemId}`}
+          className="card__firstRow--info"
+        >
+          {product.name}
+        </Link>
       </div>
 
       <div className="card__secondRow">

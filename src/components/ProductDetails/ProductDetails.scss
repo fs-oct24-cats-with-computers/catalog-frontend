@@ -20,14 +20,6 @@
   flex-direction: column;
   width: 100%;
 
-  @include on-tablet {
-    width: 100%;
-  }
-
-  @include on-desktop {
-    width: 100%;
-  }
-
   &__info {
     display: flex;
     flex-direction: column;
@@ -38,7 +30,7 @@
     border-bottom: 1px solid $elements-color;
     display: flex;
     flex-direction: column;
-    height: 70px;
+    padding-bottom: 24px;
   }
 
   &__color-title {
@@ -71,7 +63,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 70px;
+    padding-bottom: 24px;
     border-bottom: 1px solid $elements-color;
   }
 
@@ -85,10 +77,13 @@
 
   &__capacity-list {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
   }
 
   &__capacity-button {
+    color: $primary-color;
+    text-decoration: none;
     padding: 5px 10px;
     border: 1px solid $icons-color;
     background-color: $hover-bg-color;
@@ -145,11 +140,17 @@
     font-size: 14px;
 
     &--add {
-      width: 80%;
+      width: 90%;
       &:hover {
         cursor: pointer;
         box-shadow: 0px 3px 13px 0 $primary-color;
       }
+    }
+
+    &--added {
+      color: $accent-color;
+      background-color: $white-color;
+      border: 1px solid $elements-color;
     }
 
     &--favorite {
@@ -165,6 +166,11 @@
       & .product-details__icon {
         color: $primary-color;
         width: 90%;
+
+        &--active {
+          color: $secondary-accent-color;
+          fill: $secondary-accent-color;
+        }
       }
 
       &:hover {
