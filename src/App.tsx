@@ -4,6 +4,7 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer/Footer';
 
 export const App = () => {
+  // const { theme, setTheme } = useTheme();
   return (
     <>
       <Header />
@@ -14,3 +15,4 @@ export const App = () => {
     </>
   );
 };
+// 🌙, 🌑🌕
