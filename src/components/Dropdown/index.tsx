@@ -1,2 +1,2 @@
 /* eslint-disable react-refresh/only-export-components */
-export * from './AccessoriesPage';
+export * from './Dropdown';

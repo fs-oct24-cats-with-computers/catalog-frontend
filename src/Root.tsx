@@ -6,17 +6,16 @@ import {
   Navigate,
 } from 'react-router-dom';
 import { App } from './App';
-import { PhonesPage } from './pages/PhonesPage/PhonesPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { Provider } from 'react-redux';
 import { persistor, store } from './app/store';
 import { PersistGate } from 'redux-persist/integration/react';
-import { TabletsPage } from './pages/TabletsPage';
-import { AccessoriesPage } from './pages/AccessoriesPage';
 import { FavoritesPage } from './pages/FavoritesPage';
 import { CartPage } from './pages/CartPage';
 import { HomePage } from './pages/HomePage';
 import { ProductDetailsPage } from './pages/ProductDetailsPage';
+import { ProductsPage } from './pages/ProductsPage/ProductsPage';
+import { Category } from './types/Category';
 import { Category } from './types/Category';
 
 export const Root = () => (
@@ -53,7 +52,7 @@ export const Root = () => (
               <Route path="phones">
                 <Route
                   index
-                  element={<PhonesPage />}
+                  element={<ProductsPage type={Category.phones} />}
                 />
                 <Route
                   path=":productId"
@@ -63,7 +62,7 @@ export const Root = () => (
               <Route path="tablets">
                 <Route
                   index
-                  element={<TabletsPage />}
+                  element={<ProductsPage type={Category.tablets} />}
                 />
                 <Route
                   path=":productId"
@@ -73,7 +72,7 @@ export const Root = () => (
               <Route path="accessories">
                 <Route
                   index
-                  element={<AccessoriesPage />}
+                  element={<ProductsPage type={Category.accessories} />}
                 />
                 <Route
                   path=":productId"

@@ -37,4 +37,24 @@
       margin-bottom: 40px;
     }
   }
+
+  &__dropdown {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    padding-bottom: 24px;
+    &--sortBy,
+    .page__dropdown--items {
+      display: flex;
+      flex-direction: column;
+      &--label,
+      .page__dropdown--items--label {
+        font-family: 'Mont', sans-serif;
+        font-size: 12px;
+        line-height: 15.34px;
+        color: $secondary-color;
+        padding-bottom: 4px;
+      }
+    }
+  }
 }
