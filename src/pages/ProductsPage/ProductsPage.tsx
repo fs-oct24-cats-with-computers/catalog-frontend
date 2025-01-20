@@ -10,10 +10,15 @@ import { useSortParams } from '../../hooks/useSortParams';
 import { itemsPerPageOptions, sortByOptions } from '../../utils/sortingArrays';
 import { Category } from '../../types/Category';
 import { pageTitle } from '../../utils/titleHelper';
+<<<<<<< HEAD
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { ProductsListSkeleton } from '../../components/ProductsListSkeleton';
 import { NotFoundPage } from '../NotFoundPage';
+||||||| parent of baebbf5 (implemented dark mode)
+=======
+import { useTheme } from '../../hooks/useTheme';
+>>>>>>> baebbf5 (implemented dark mode)
 
 type Props = {
   type: Category;
@@ -23,6 +28,8 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+
+  const { theme, setTheme } = useTheme();
 
   const title = pageTitle(type);
 
@@ -46,6 +53,10 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
       });
   }, [type]);
 
+  const handleThemeClick = () => {
+    setTheme(theme === 'light-mode' ? 'dark-mode' : 'light-mode');
+  };
+
   if (error) {
     return <NotFoundPage />;
   }
@@ -53,6 +64,7 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
   return (
     <>
       <div className="page container">
+<<<<<<< HEAD
         {isLoading ?
           <Skeleton
             className="breadcrumb-skeleton"
@@ -70,6 +82,18 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
             <Skeleton />
           : `${products.length} models`}
         </p>
+||||||| parent of baebbf5 (implemented dark mode)
+        <Breadcrumbs />
+        <h1 className="page__title">{title}</h1>
+        <p className="page__subtitle">{products.length} models</p>
+=======
+        <Breadcrumbs />
+        <div onClick={handleThemeClick}>
+          {theme === 'light-mode' ? '🌃' : '🌅'}
+        </div>
+        <h1 className="page__title">{title}</h1>
+        <p className="page__subtitle">{products.length} models</p>
+>>>>>>> baebbf5 (implemented dark mode)
         <div className="page__dropdown">
           <div className="page__dropdown--sortBy">
             <p className="page__dropdown--sortBy--label">

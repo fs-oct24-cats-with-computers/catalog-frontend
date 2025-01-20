@@ -3,12 +3,19 @@ import { useState, useEffect } from 'react';
 import './Header.scss';
 import { BurgerMenu } from '../BurgerMenu';
 import { useAppSelector } from '../../app/hooks';
+<<<<<<< HEAD
 import Logo from '../../../public/img/header_components/Logo.svg?react';
 import Favourites from '../../../public/img/header_components/Favourites.svg?react';
 import ShoppingBag from '../../../public/img/header_components/Shopping bag.svg?react';
 import Menu from '../../../public/img/header_components/Menu.svg?react';
 import CloseIcon from '../../../public/img/header_components/Close.svg?react';
 import { useTheme } from '../../hooks/useTheme';
+||||||| parent of baebbf5 (implemented dark mode)
+=======
+import Logo from '../../../public/img/header_components/Logo.svg?react';
+import Favourites from '../../../public/img/header_components/Favourites.svg?react';
+import ShoppingBag from '../../../public/img/header_components/Shopping bag.svg?react';
+>>>>>>> baebbf5 (implemented dark mode)
 // import classnames from 'classnames';
 
 export const Header = () => {
