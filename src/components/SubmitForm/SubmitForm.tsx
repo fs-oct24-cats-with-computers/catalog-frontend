@@ -34,7 +34,6 @@ export const SubmitForm: React.FC<Props> = ({ openModal, openForm }) => {
   useEffect(() => {
     if (cityRef) {
       fetchWarehouses(cityRef).then((data) => setWarehouses(data));
-      console.log(warehouses);
     }
   }, [cityRef]);
 
@@ -45,7 +44,7 @@ export const SubmitForm: React.FC<Props> = ({ openModal, openForm }) => {
 
     if (city) setCityRef(city.Ref);
     else setCityRef(null);
-  }, [cityName]);
+  }, [cities, cityName]);
 
   const setRefOfCity = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCityName(e.target.value);
