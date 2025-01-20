@@ -38,12 +38,10 @@ export const ProductDetailsPage: React.FC<Props> = ({ type }) => {
   useEffect(() => {
     setError('');
 
-    getProducts().then((allProducts) => {
-      setProducts(allProducts);
+    getProducts().then((products) => {
+      setProducts(products);
 
-      setOtherProducts(
-        allProducts.sort(() => Math.random() - 0.5).slice(0, 10),
-      );
+      setOtherProducts(products.slice(0, 10));
     });
 
     getProductById(type, productId)

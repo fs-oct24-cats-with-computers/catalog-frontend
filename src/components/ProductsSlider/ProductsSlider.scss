@@ -12,18 +12,17 @@
 
 .sliderProducts {
   &__wrapper {
-    margin: 3px;
-    margin: 0 0 56px;
+    margin: 3px 3px 56px;
     height: 526px;
     width: 100%;
 
     @include on-tablet {
-      margin: 0 0 64px;
+      margin: 3px 3px 64px;
       height: 577px;
     }
 
     @include on-desktop {
-      margin: 0 0 80px;
+      margin: 3px 3px 80px;
       height: 571px;
     }
   }
@@ -60,7 +59,6 @@
 
   .swiper-slide-productcard {
     box-sizing: border-box;
-    margin: 3px;
     width: auto;
     max-height: 439px;
 
