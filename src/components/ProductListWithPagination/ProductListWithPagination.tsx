@@ -7,16 +7,18 @@ import { ProductCard } from '../ProductCard/ProductCard';
 
 type PropsType = {
   products: Product[];
+  itemsPerPage: number;
 };
 
 export const ProductsListWithPagination: React.FC<PropsType> = ({
   products,
+  itemsPerPage,
 }) => {
   const [itemOffset, setItemOffset] = useState(0);
 
   const [currentItems, setCurrentItems] = useState<Product[]>([]);
   const [pageCount, setPageCount] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(16);
+  // const [itemsPerPage, setItemsPerPage] = useState(16);
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
@@ -36,7 +38,7 @@ export const ProductsListWithPagination: React.FC<PropsType> = ({
   return (
     <>
       {/* filters */}
-      <label
+      {/* <label
         htmlFor="itemsPerPage"
         className="selectionLabel"
       >
@@ -51,7 +53,7 @@ export const ProductsListWithPagination: React.FC<PropsType> = ({
         <option value={16}>16</option>
         <option value={32}>32</option>
         <option value={64}>64</option>
-      </select>
+      </select> */}
 
       <div className="product-list">
         {currentItems.map((product) => (
