@@ -14,7 +14,6 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { ProductsListSkeleton } from '../../components/ProductsListSkeleton';
 import { NotFoundPage } from '../NotFoundPage';
-
 type Props = {
   type: Category;
 };
