@@ -15,22 +15,48 @@
 .header {
   position: sticky;
   top: 0;
+<<<<<<< HEAD
   background-color: var(--headerBackground);
+||||||| ec1fe79
+  background-color: $hover-bg-color;
+=======
+  background-color: var(--headerBackground);
+  background-color: var(--headerBackground);
+>>>>>>> 2aa9eb37668f521c44b770e775fa333a2a07cde1
   justify-content: left;
   align-items: center;
   display: flex;
   gap: $header-element-gap;
   height: $header-height;
+<<<<<<< HEAD
   border-bottom: 1px solid var(--cardBorder);
+||||||| ec1fe79
+  border-bottom: 1px solid $elements-color;
+=======
+  border-bottom: 1px solid var(--cardBorder);
+  border-bottom: 1px solid var(--cardBorder);
+>>>>>>> 2aa9eb37668f521c44b770e775fa333a2a07cde1
   z-index: 1000;
 
   &__logo {
     padding: 0 $header-padding;
     transform: scale($header-logo-scale);
+<<<<<<< HEAD
 
     &--img {
       color: var(--iconsColor);
     }
+||||||| ec1fe79
+=======
+
+    &--img {
+      color: var(--iconsColor);
+    }
+
+    &--img {
+      color: var(--iconsColor);
+    }
+>>>>>>> 2aa9eb37668f521c44b770e775fa333a2a07cde1
   }
 
   &__nav {
@@ -44,7 +70,14 @@
       position: relative;
       text-decoration: none;
       align-content: center;
+<<<<<<< HEAD
       color: var(--secondaryText);
+||||||| ec1fe79
+      color: $secondary-color;
+=======
+      color: var(--secondaryText);
+      color: var(--secondaryText);
+>>>>>>> 2aa9eb37668f521c44b770e775fa333a2a07cde1
       font-size: 12px;
       font-weight: 800;
       line-height: 11px;
@@ -52,7 +85,14 @@
       height: 100%;
 
       &:hover {
+<<<<<<< HEAD
         color: var(--secondaryTextHoverAndActive);
+||||||| ec1fe79
+        color: $primary-color;
+=======
+        color: var(--secondaryTextHoverAndActive);
+        color: var(--secondaryTextHoverAndActive);
+>>>>>>> 2aa9eb37668f521c44b770e775fa333a2a07cde1
       }
     }
   }
