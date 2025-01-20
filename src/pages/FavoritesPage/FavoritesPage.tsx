@@ -1,5 +1,6 @@
 // import { useAppSelector } from '../../app/hooks';
 // import { FavoritesEmpty } from '../../components/FavoritesEmpty';
+import './FavoritesPage.scss';
 import { useAppSelector } from '../../app/hooks';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { FavoritesEmpty } from '../../components/FavoritesEmpty';
@@ -45,7 +46,7 @@ export const FavoritesPage = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="fav-page container">
         <Breadcrumbs />
         <h1 className="page__title">Favourites</h1>
         <p className="page__subtitle">{favoriteProducts.length} items</p>
