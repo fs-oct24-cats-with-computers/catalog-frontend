@@ -13,12 +13,8 @@
   line-height: 21px;
   color: $secondary-color;
   margin-top: 24px;
-  width: 300px;
-  transition: 1s;
-
-  @include on-desktop {
-    width: 100%;
-  }
+  max-width: 270px;
+  width: 100%;
 
   &__list {
     list-style-type: none;
