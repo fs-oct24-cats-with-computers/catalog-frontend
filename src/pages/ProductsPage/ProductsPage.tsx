@@ -14,6 +14,7 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { ProductsListSkeleton } from '../../components/ProductsListSkeleton';
 import { SearchInput } from '../../components/SearchInput';
+import { CatAnimation } from '../../components/CatAnimation';
 
 type Props = {
   type: Category;
@@ -125,6 +126,17 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
             </div>
           }
         </div>
+
+        {!sortedProducts.length && (
+          <div className="page__no-products">
+            <div className="page__no-products-cat">
+              <CatAnimation />
+            </div>
+            <p className="page__no-products-text">
+              Sorry, your search didn&apos;t match any products
+            </p>
+          </div>
+        )}
 
         {isLoading ?
           <ProductsListSkeleton cards={8} />
