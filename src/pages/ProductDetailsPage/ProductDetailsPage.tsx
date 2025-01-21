@@ -88,7 +88,7 @@ export const ProductDetailsPage: React.FC<Props> = ({ type }) => {
             <div className="section__gallery">
               {isLoading || !(currentProduct && products) ?
                 <Skeleton
-                  width={500}
+                  width={300}
                   height={400}
                 />
               : <PhotosGallery images={currentProduct.images} />}
