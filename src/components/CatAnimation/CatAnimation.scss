@@ -17,7 +17,7 @@ $size: 170px; // (Fully responsive)
   width: 25%;
   background: $secondary-color;
 
-  // Ear hair
+  // Ear hair - CHANGE COLOR FOR DARK THEME
   &::before,
   &::after {
     content: '';
@@ -64,7 +64,7 @@ $size: 170px; // (Fully responsive)
   }
 }
 
-// Face
+// Face  - CHANGE COLOR FOR DARK THEME
 .face {
   position: absolute;
   height: 100%;
@@ -82,7 +82,7 @@ $size: 170px; // (Fully responsive)
   background: $secondary-color;
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 
-  // Eyelids
+  // Eyelids - CHANGE COLOR FOR DARK THEME
   &::after {
     content: '';
     position: absolute;
