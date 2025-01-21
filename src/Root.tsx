@@ -18,6 +18,7 @@ import { ProductsPage } from './pages/ProductsPage/ProductsPage';
 import { Category } from './types/Category';
 import { ContactsPage } from './pages/ContactsPage';
 import { contacts } from '../public/contacts/contacts';
+import { RightsPage } from './pages/RightsPage';
 
 export const Root = () => (
   <StrictMode>
@@ -91,6 +92,10 @@ export const Root = () => (
               <Route
                 path="contacts"
                 element={<ContactsPage contacts={contacts} />}
+              />
+              <Route
+                path="rights"
+                element={<RightsPage />}
               />
 
               <Route

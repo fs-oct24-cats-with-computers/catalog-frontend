@@ -85,8 +85,8 @@
       &--state {
         box-sizing: border-box;
         position: absolute;
-        top: 9px;
-        right: 9px;
+        top: 22%;
+        right: calc(50% - 14px);
         height: 14px;
         width: 14px;
 
@@ -103,9 +103,12 @@
         border: 1px solid $white-color;
         border-radius: 50%;
 
+        @include on-tablet {
+          top: 9px;
+        }
+
         @include on-desktop {
           top: 17px;
-          right: 17px;
         }
       }
     }

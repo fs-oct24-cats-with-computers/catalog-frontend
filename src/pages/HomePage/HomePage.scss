@@ -2,4 +2,16 @@
 
 .page-container {
   width: 100%;
+
+  .home-page {
+    padding-block: 24px;
+
+    @include on-tablet {
+      padding-block: 32px;
+    }
+
+    @include on-desktop {
+      padding-block: 56px;
+    }
+  }
 }

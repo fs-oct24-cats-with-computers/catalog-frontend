@@ -42,18 +42,6 @@
       gap: 80px;
     }
   }
-
-  &__slider {
-    padding-block: 56px;
-
-    @include on-tablet {
-      padding-block: 64px;
-    }
-
-    @include on-desktop {
-      padding-block: 80px;
-    }
-  }
 }
 
 .section {
