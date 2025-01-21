@@ -16,6 +16,8 @@ import { HomePage } from './pages/HomePage';
 import { ProductDetailsPage } from './pages/ProductDetailsPage';
 import { ProductsPage } from './pages/ProductsPage/ProductsPage';
 import { Category } from './types/Category';
+import { ContactsPage } from './pages/ContactsPage';
+import { contacts } from '../public/contacts/contacts';
 import { RightsPage } from './pages/RightsPage';
 
 export const Root = () => (
@@ -86,6 +88,10 @@ export const Root = () => (
               <Route
                 path="cart"
                 element={<CartPage />}
+              />
+              <Route
+                path="contacts"
+                element={<ContactsPage contacts={contacts} />}
               />
               <Route
                 path="rights"

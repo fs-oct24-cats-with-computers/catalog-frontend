@@ -16,7 +16,7 @@
 
 .product-card {
   font-family: 'Mont', sans-serif;
-  width: 100%;
+  width: min-content;
   padding: 32px;
   border: 1px solid $elements-color;
   border-radius: 8px;
