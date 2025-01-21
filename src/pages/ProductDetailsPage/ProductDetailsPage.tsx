@@ -136,11 +136,13 @@ export const ProductDetailsPage: React.FC<Props> = ({ type }) => {
               : <TechSpecs techSpecsObj={currentTechSpecs} />}
             </div>
           </div>
+          <div className="product__slider">
+            <ProductsSlider
+              products={otherProducts}
+              title={'You may also like'}
+            />
+          </div>
         </section>
-
-        <div className="product__slider">
-          <div>Recommended</div>
-        </div>
       </div>
     </>
   );
