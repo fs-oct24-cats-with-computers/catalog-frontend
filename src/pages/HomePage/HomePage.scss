@@ -2,6 +2,15 @@
 
 .page-container {
   width: 100%;
+  padding-bottom: 56px;
+
+  @include on-tablet {
+    padding-bottom: 64px;
+  }
+
+  @include on-desktop {
+    padding-bottom: 80px;
+  }
 
   .home-page {
     padding-block: 24px;
