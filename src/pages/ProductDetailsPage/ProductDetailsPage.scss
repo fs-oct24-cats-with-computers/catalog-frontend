@@ -52,6 +52,10 @@
     flex-direction: row;
   }
 
+  &__details--skeleton {
+    margin: 15px;
+  }
+
   &__title {
     font-family: 'Mont SemiBold';
     font-size: 20px;
