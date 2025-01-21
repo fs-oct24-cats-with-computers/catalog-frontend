@@ -10,8 +10,8 @@ export const PhotosGallery: React.FC<Props> = ({ images }) => {
   const [currentImages, setCurrentImages] = useState(
     images!.map((image) => '../' + image),
   );
-  const [selectedImage, setSelectedImage] = useState(currentImages[0]); // Велике зображення за замовчуванням
-  const [bigImageIndex, setBigImageIndex] = useState(0); // Індекс великого зображення
+  const [selectedImage, setSelectedImage] = useState(currentImages[0]);
+  const [bigImageIndex, setBigImageIndex] = useState(0);
 
   useEffect(() => {
     const newImages = images!.map((image) => '../' + image);
@@ -20,8 +20,8 @@ export const PhotosGallery: React.FC<Props> = ({ images }) => {
   }, [images]);
 
   const handleThumbnailClick = (image: string, index: number) => {
-    setSelectedImage(image); // Змінюємо велике зображення при натисканні на мініатюру
-    setBigImageIndex(index); // Задаємо індекс натиснутої мініатюри
+    setSelectedImage(image);
+    setBigImageIndex(index);
   };
 
   return (
