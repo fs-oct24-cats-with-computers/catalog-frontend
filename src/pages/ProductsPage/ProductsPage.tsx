@@ -13,7 +13,7 @@ import { pageTitle } from '../../utils/titleHelper';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { ProductsListSkeleton } from '../../components/ProductsListSkeleton';
-import Search from '../../../public/icons/Search.svg?react';
+import { SearchInput } from '../../components/SearchInput';
 
 type Props = {
   type: Category;
@@ -32,6 +32,8 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
     sortedProducts,
     itemsPerPage,
     handleItemsPerPage,
+    query,
+    handleQueryChange,
   } = useSortParams(products);
 
   useEffect(() => {
@@ -70,53 +72,60 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
             <Skeleton />
           : `${products.length} models`}
         </p>
-        <div className="page__dropdown">
-          <div className="page__dropdown--sortBy">
-            <p className="page__dropdown--sortBy--label">
+        <div className="page__filters">
+          <div className="page__dropdown">
+            <div className="page__dropdown--sortBy">
+              <p className="page__dropdown--sortBy--label">
+                {isLoading ?
+                  <Skeleton width={65} />
+                : 'Sort by'}
+              </p>
               {isLoading ?
-                <Skeleton width={65} />
-              : 'Sort by'}
-            </p>
-            {isLoading ?
-              <Skeleton
-                width={180}
-                height={40}
-              />
-            : <Dropdown
-                sort={sortBy}
-                handleSortBy={handleSortBy}
-                options={sortByOptions}
-              />
-            }
-          </div>
-          <div className="page__dropdown--items">
-            <p className="page__dropdown--items--label">
+                <Skeleton
+                  width={180}
+                  height={40}
+                />
+              : <Dropdown
+                  sort={sortBy}
+                  handleSortBy={handleSortBy}
+                  options={sortByOptions}
+                />
+              }
+            </div>
+            <div className="page__dropdown--items">
+              <p className="page__dropdown--items--label">
+                {isLoading ?
+                  <Skeleton width={65} />
+                : 'Items on page'}
+              </p>
               {isLoading ?
-                <Skeleton width={65} />
-              : 'Items on page'}
-            </p>
-            {isLoading ?
-              <Skeleton
-                width={180}
-                height={40}
-              />
-            : <Dropdown
-                sort={itemsPerPage}
-                options={itemsPerPageOptions}
-                handleItemsPerPage={handleItemsPerPage}
-              />
-            }
+                <Skeleton
+                  width={180}
+                  height={40}
+                />
+              : <Dropdown
+                  sort={itemsPerPage}
+                  options={itemsPerPageOptions}
+                  handleItemsPerPage={handleItemsPerPage}
+                />
+              }
+            </div>
           </div>
+
+          {isLoading ?
+            <Skeleton
+              width={180}
+              height={40}
+            />
+          : <div className="page__search">
+              <SearchInput
+                query={query}
+                handleQueryChange={handleQueryChange}
+              />
+            </div>
+          }
         </div>
-        <div className="page__search">
-          <input
-            type="search"
-            className="page__search-input"
-          />
-          <span className="page__search-icon">
-            <Search />
-          </span>
-        </div>
+
         {isLoading ?
           <ProductsListSkeleton cards={8} />
         : <ProductsListWithPagination

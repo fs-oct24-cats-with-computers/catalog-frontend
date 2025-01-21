@@ -43,11 +43,29 @@
     }
   }
 
+  &__filters {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    padding-bottom: 24px;
+
+    @include on-tablet {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+  }
+
+  &__search {
+    flex-grow: 1;
+    // width: 66.6%;
+  }
+
   &__dropdown {
     display: flex;
     flex-direction: row;
     gap: 6px;
-    padding-bottom: 24px;
     &--sortBy,
     .page__dropdown--items {
       display: flex;
