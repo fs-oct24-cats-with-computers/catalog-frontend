@@ -19,6 +19,8 @@
 .page {
   font-family: 'Mont', sans-serif;
 
+  @include page-min-height;
+
   &__title {
     font-family: 'Mont Bold', sans-serif;
     font-size: 48px;
