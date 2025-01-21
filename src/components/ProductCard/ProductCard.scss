@@ -17,6 +17,7 @@
 .product-card {
   font-family: 'Mont', sans-serif;
   max-width: min-content;
+  min-width: 148px;
   padding: 32px;
   border: 1px solid $elements-color;
   border-radius: 8px;
@@ -58,13 +59,17 @@
 
   &__title {
     height: 30px;
-    font-size: 14px;
+    font-size: 12px;
     font-family: 'Mont';
     color: $primary-color;
     text-decoration: none;
     font-weight: 600;
     line-height: 21px;
     text-align: left;
+
+    @include on-mobile-large {
+      font-size: 14px;
+    }
   }
 
   &__price {
