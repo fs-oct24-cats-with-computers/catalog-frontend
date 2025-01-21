@@ -44,14 +44,14 @@
 }
 
 @mixin page-min-height {
-  min-height: calc(100vh - 268px - 68px);
+  min-height: calc(100vh - 246px - $header-height);
 
   @include on-tablet {
-    min-height: calc(100vh - 118px - 68px);
+    min-height: calc(100vh - 96px - $header-height);
   }
 
   @include on-desktop {
-    min-height: calc(100vh - 118px - 84px);
+    min-height: calc(100vh - 112px - $header-height);
   }
 }
 

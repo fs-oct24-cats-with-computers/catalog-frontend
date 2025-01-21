@@ -14,13 +14,15 @@
 .cart-page {
   padding-bottom: 56px;
 
+  @include page-min-height;
+
   @include on-tablet {
-    min-height: calc(100vh - $header-height - 96px);
+    // min-height: calc(100vh - $header-height - 96px);
     padding-bottom: 64px;
   }
 
   @include on-desktop {
-    min-height: calc(100vh - $header-height - 112px);
+    // min-height: calc(100vh - $header-height - 112px);
     padding-bottom: 80px;
   }
 
