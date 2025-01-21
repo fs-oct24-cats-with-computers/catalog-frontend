@@ -32,7 +32,7 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
   }, [products]);
 
   return (
-    <section className="sliderProducts__wrapper">
+    <section className="swiper-wrapper-products">
       <motion.div
         className="sliderProducts__title"
         initial={{ opacity: 0, y: -20 }}
@@ -72,7 +72,7 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
 
       <Swiper
         modules={[Navigation]}
-        spaceBetween={16}
+        spaceBetween={10}
         slidesPerView={1.5}
         slidesPerGroup={1}
         onInit={(swiper) => {
@@ -96,11 +96,11 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
         breakpoints={{
           640: {
             slidesPerView: 2.5,
-            spaceBetween: 16,
+            spaceBetween: 10,
           },
           1200: {
             slidesPerView: 4,
-            spaceBetween: 16,
+            spaceBetween: 8,
           },
         }}
       >
