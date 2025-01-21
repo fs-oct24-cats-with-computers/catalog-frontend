@@ -9,7 +9,7 @@ export const contacts = [
   {
     id: 2,
     name: 'Mariia Hospodinova',
-    photo: 'photos/il_570xN.5140114168_k7vp.avif',
+    photo: 'photos/photo_2025-01-21_09-19-59.jpg',
     githubLink: 'https://github.com/Mariagosp',
     telegramLink: 'https://t.me/ma_riika0',
   },
@@ -23,7 +23,7 @@ export const contacts = [
   {
     id: 4,
     name: 'Dmytro Bovt',
-    photo: 'photos/il_570xN.5277236121_w7pi.avif',
+    photo: 'photos/photo_2025-01-21_09-19-32.jpg',
     githubLink: 'https://github.com/Jion353',
     telegramLink: 'https://t.me/Dimon353',
   },
