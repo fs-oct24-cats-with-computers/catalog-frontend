@@ -12,8 +12,8 @@ import { useEffect, useState } from 'react';
 import { getProductById, getProducts } from '../../api';
 import { NotFoundPage } from '../NotFoundPage';
 import { Category } from '../../types/Category';
-import { Loader } from '../../components/Loader';
 import { ProductDetails } from '../../components/ProductDetails';
+import Skeleton from 'react-loading-skeleton';
 import { ProductsSlider } from '../../components/ProductsSlider/ProductsSlider';
 
 type Props = {
@@ -26,6 +26,7 @@ export const ProductDetailsPage: React.FC<Props> = ({ type }) => {
     null,
   );
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
   const { productId } = useParams();
   const [otherProducts, setOtherProducts] = useState<Product[]>([]);
 
@@ -36,6 +37,7 @@ export const ProductDetailsPage: React.FC<Props> = ({ type }) => {
   }
 
   useEffect(() => {
+    setIsLoading(true);
     setError('');
 
     getProducts().then((products) => {
@@ -52,7 +54,8 @@ export const ProductDetailsPage: React.FC<Props> = ({ type }) => {
           setError('Wrong product id!');
         }
       })
-      .catch((error) => setError(error.message));
+      .catch((error) => setError(error.message))
+      .finally(() => setIsLoading(false));
   }, [productId, type]);
 
   if (error) {
@@ -61,47 +64,84 @@ export const ProductDetailsPage: React.FC<Props> = ({ type }) => {
 
   return (
     <>
-      {!(currentProduct && products) ?
-        <Loader />
-      : <div className="product container">
-          <Breadcrumbs />
-          <Back />
-          <h2 className="product__title">{currentProduct.name}</h2>
-          <section className="product__section">
-            <div className="section section--first">
-              <div className="section__gallery">
-                <PhotosGallery images={currentProduct.images} />
-              </div>
-              <div className="section__details">
-                <ProductDetails
+      <div className="product container">
+        {isLoading || !(currentProduct && products) ?
+          <Skeleton
+            className="breadcrumb-skeleton"
+            width={300}
+            height={20}
+          />
+        : <Breadcrumbs />}
+        {isLoading || !(currentProduct && products) ?
+          <Skeleton
+            width={60}
+            height={20}
+          />
+        : <Back />}
+        <h2 className="product__title">
+          {isLoading || !(currentProduct && products) ?
+            <Skeleton />
+          : currentProduct.name}
+        </h2>
+        <section className="product__section">
+          <div className="section section--first">
+            <div className="section__gallery">
+              {isLoading || !(currentProduct && products) ?
+                <Skeleton
+                  width={500}
+                  height={400}
+                />
+              : <PhotosGallery images={currentProduct.images} />}
+            </div>
+            <div className="section__details">
+              {isLoading || !(currentProduct && products) ?
+                <Skeleton
+                  count={5}
+                  height={50}
+                  className="section__details--skeleton"
+                />
+              : <ProductDetails
                   product={currentProduct}
                   products={products}
                 />
-              </div>
+              }
+            </div>
+          </div>
+
+          <div className="section section--second">
+            <div className="section__about">
+              {isLoading || !(currentProduct && products) ?
+                <Skeleton
+                  height={30}
+                  width={150}
+                />
+              : <h3 className="section__title">About</h3>}
+
+              <div className="section__divider"></div>
+              {isLoading || !(currentProduct && products) ?
+                <Skeleton count={15} />
+              : <About description={currentProduct.description} />}
             </div>
 
-            <div className="section section--second">
-              <div className="section__about">
-                <h3 className="section__title">About</h3>
-                <div className="section__divider"></div>
-                <About description={currentProduct.description} />
-              </div>
+            <div className="section__tech">
+              {isLoading || !(currentProduct && products) ?
+                <Skeleton
+                  height={30}
+                  width={150}
+                />
+              : <h3 className="section__title">Tech specs</h3>}
+              <div className="section__divider"></div>
+              {isLoading || !(currentProduct && products) ?
+                <Skeleton count={7} />
+              : <TechSpecs techSpecsObj={currentTechSpecs} />}
+            </div>
+          </div>
+        </section>
 
-              <div className="section__tech">
-                <h3 className="section__title">Tech specs</h3>
-                <div className="section__divider"></div>
-                <TechSpecs techSpecsObj={currentTechSpecs} />
-              </div>
-            </div>
-            <div className="product__slider">
-              <ProductsSlider
-                products={otherProducts}
-                title={'You may also like'}
-              />
-            </div>
-          </section>
+        <div className="product__slider">
+          <div>Recommended</div>
         </div>
-      }
+      </div>
     </>
   );
 };
