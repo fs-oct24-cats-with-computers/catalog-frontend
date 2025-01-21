@@ -86,7 +86,7 @@
         box-sizing: border-box;
         position: absolute;
         top: 22%;
-        right: 43%;
+        right: calc(50% - 14px);
         height: 14px;
         width: 14px;
 
@@ -105,12 +105,10 @@
 
         @include on-tablet {
           top: 9px;
-          right: 9px;
         }
 
         @include on-desktop {
           top: 17px;
-          right: 17px;
         }
       }
     }
