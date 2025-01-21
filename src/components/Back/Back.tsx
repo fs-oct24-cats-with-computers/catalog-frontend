@@ -8,7 +8,7 @@ export const Back = () => {
   return (
     <div
       className="back"
-      onClick={() => navigate('..')}
+      onClick={() => navigate(-1)}
     >
       <ArrowLeft className="back__icon" />
       <span className="back__text">Back</span>

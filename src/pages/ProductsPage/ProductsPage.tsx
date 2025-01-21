@@ -13,6 +13,7 @@ import { pageTitle } from '../../utils/titleHelper';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { ProductsListSkeleton } from '../../components/ProductsListSkeleton';
+import Search from '../../../public/icons/Search.svg?react';
 
 type Props = {
   type: Category;
@@ -106,6 +107,15 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
               />
             }
           </div>
+        </div>
+        <div className="page__search">
+          <input
+            type="search"
+            className="page__search-input"
+          />
+          <span className="page__search-icon">
+            <Search />
+          </span>
         </div>
         {isLoading ?
           <ProductsListSkeleton cards={8} />
