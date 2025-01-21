@@ -133,7 +133,7 @@ $themes: (
     lightTheme: transparent,
   ),
   dropdownBorder: (
-    darkTheme: $white-color,
+    darkTheme: $elements-color,
     lightTheme: $icons-color,
   ),
 
@@ -221,6 +221,14 @@ $themes: (
 
   inputBorderFocusAndHover: (
     darkTheme: $white-color,
+    lightTheme: $secondary-color,
+  ),
+  searchIcon: (
+    darkTheme: $secondary-color,
+    lightTheme: $icons-color,
+  ),
+  searchIconHover: (
+    darkTheme: $primary-color,
     lightTheme: $secondary-color,
   ),
 );

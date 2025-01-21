@@ -7,11 +7,13 @@
 }
 
 .search {
-  color: $icons-color;
+  color: var(--searchIcon);
+  // color: $icons-color;
   position: relative;
 
   &:hover {
-    color: $secondary-color;
+    color: var(--searchIconHover);
+    // color: $secondary-color;
   }
 
   &__input {
