@@ -10,11 +10,13 @@ import { useSortParams } from '../../hooks/useSortParams';
 import { itemsPerPageOptions, sortByOptions } from '../../utils/sortingArrays';
 import { Category } from '../../types/Category';
 import { pageTitle } from '../../utils/titleHelper';
+
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { ProductsListSkeleton } from '../../components/ProductsListSkeleton';
 import { SearchInput } from '../../components/SearchInput';
 import { CatAnimation } from '../../components/CatAnimation';
+import { NotFoundPage } from '../NotFoundPage';
 
 type Props = {
   type: Category;
@@ -50,7 +52,7 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
   }, [type]);
 
   if (error) {
-    return <p>{error}</p>;
+    return <NotFoundPage />;
   }
 
   return (

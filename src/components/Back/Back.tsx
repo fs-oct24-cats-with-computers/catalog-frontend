@@ -6,12 +6,14 @@ export const Back = () => {
   const navigate = useNavigate();
 
   return (
-    <div
-      className="back"
-      onClick={() => navigate(-1)}
-    >
-      <ArrowLeft className="back__icon" />
-      <span className="back__text">Back</span>
+    <div className="wrapper">
+      <div
+        className="back"
+        onClick={() => navigate(-1)}
+      >
+        <ArrowLeft className="back__icon" />
+        <span className="back__text">Back</span>
+      </div>
     </div>
   );
 };

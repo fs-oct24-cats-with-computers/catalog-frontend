@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { getProducts } from '../../api';
 import { Product } from '../../types/Product';
 import { motion } from 'framer-motion';
+import { useTheme } from '../../hooks/useTheme';
 
 const phonesImg = '/img/categories/phones-category.png';
 const tabletsImg = '/img/categories/tablets-category.png';
@@ -14,6 +15,16 @@ export const Categories = () => {
   const [tabletsQuantity, setTabletsQuantity] = useState<number>(0);
   const [accessoriesQuantity, setAccessoriesQuantity] = useState<number>(0);
   const [error, setError] = useState('');
+
+  const [titleColor, setTitleColor] = useState('black');
+
+  const { theme } = useTheme();
+  console.log('theme', theme);
+
+  useEffect(() => {
+    const newColor = theme === 'dark-mode' ? 'white' : 'black';
+    setTitleColor(newColor);
+  }, [theme]);
 
   useEffect(() => {
     getProducts()
@@ -78,7 +89,11 @@ export const Categories = () => {
             <motion.h4
               className="categories__link-title"
               initial={{ opacity: 0, y: 50, color: '#ff0000' }}
-              animate={{ opacity: 1, y: 0, color: '#000000' }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                color: titleColor,
+              }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               {category.title}

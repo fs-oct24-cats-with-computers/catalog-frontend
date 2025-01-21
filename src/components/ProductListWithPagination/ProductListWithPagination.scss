@@ -1,46 +1,6 @@
 @use '../../styles/utils/mixins.scss' as *;
 @use '../../styles/utils/variables.scss' as *;
 
-.selectionLabel {
-  font-family: 'Mont', sans-serif;
-  font-size: 12px;
-  line-height: 15px;
-}
-
-.select {
-  height: 40px;
-  border: 1px solid $icons-color;
-  border-radius: 8px;
-  width: 130px;
-
-  font-family: 'Mont', sans-serif;
-  font-size: 14px;
-  line-height: 21px;
-  margin: 4px 0 24px;
-  color: $primary-color;
-
-  display: flex;
-  align-items: center;
-
-  padding: 10px 12px 9px;
-
-  appearance: none;
-  background-image: url('../../../public/icons/Chevron\ \(Arrow\ Down\).svg');
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 16px;
-  cursor: pointer;
-
-  &:hover {
-    border-color: $secondary-color;
-  }
-
-  &:focus {
-    outline: none;
-    border-color: $primary-color;
-  }
-}
-
 .product-list {
   justify-items: center;
   align-items: center;
@@ -74,7 +34,9 @@
   &-page,
   &-next,
   &-prev {
-    border: 1px solid #e2e6e9;
+    background-color: var(--pageBackground);
+    border: 1px solid var(--paginationBorder);
+    // border: 1px solid #e2e6e9;
     border-radius: 50%;
     box-sizing: border-box;
 
@@ -90,16 +52,18 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 21px;
-    color: #000000;
+    color: var(--paginationText);
   }
 
   &-page:hover {
-    border: 1px solid $primary-color;
+    border: 1px solid var(--paginationBorderHover);
+    // border: 1px solid $primary-color;
   }
 
   &-active {
-    color: #ffffff;
-    background-color: $primary-color;
+    color: var(--paginationTextActive);
+    background-color: var(--paginationBackGround);
+    // background-color: $primary-color;
   }
 
   &-disabled {
@@ -113,7 +77,7 @@
     align-items: center;
     width: 32px;
     height: 32px;
-    color: #666;
+    color: var(--paginationBreakColor);
     cursor: pointer;
   }
 }

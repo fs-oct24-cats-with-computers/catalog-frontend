@@ -25,6 +25,7 @@
     line-height: 30.8px;
     text-align: left;
     letter-spacing: -0.01em;
+    color: var(--titleColor);
   }
 
   &__wrapper {
@@ -58,7 +59,7 @@
       text-align: left;
       text-underline-position: from-font;
       text-decoration-skip-ink: none;
-      color: $primary-color;
+      // color: $primary-color;
     }
 
     &-text {
@@ -67,7 +68,7 @@
       font-weight: 600;
       line-height: 21px;
       text-align: left;
-      color: $secondary-color;
+      color: var(--secondaryText);
     }
   }
 

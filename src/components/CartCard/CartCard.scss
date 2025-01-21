@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: 'Mont';
-  src: url(../../../public/fonts/Mont-Regular.otf);
+  src: url(/fonts/Mont-Regular.otf);
 }
 
 @font-face {
@@ -13,11 +13,13 @@
 
 .card {
   height: 160px;
-  background-color: $white-color;
+  background-color: var(--cardBackGround);
+  // background-color: $white-color;
 
   display: flex;
   flex-direction: column;
-  border: 1px solid #e2e6e9;
+  border: 1px solid var(--cardBorder);
+  // border: 1px solid #e2e6e9;
   border-radius: 16px;
   padding: 16px;
   justify-content: space-between;
@@ -46,7 +48,8 @@
       &--img {
         width: 16px;
         height: 16px;
-        color: $icons-color;
+        color: var(--arrowsColor);
+        // color: $icons-color;
         &:hover {
           color: $primary-color;
         }
@@ -69,7 +72,8 @@
     &--info {
       flex-flow: 1;
       font-family: 'Mont', sans-serif;
-      color: $primary-color;
+      color: var(--titleColor);
+      // color: $primary-color;
       font-size: 16px;
       line-height: 21px;
       text-decoration: none;
@@ -95,16 +99,18 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid $icons-color;
+        border: 1px solid var(--iconsBorder);
+        // border: 1px solid $icons-color;
         border-radius: 50%;
         width: 32px;
         height: 32px;
-        color: #000000;
+        color: var(--minusPlusText);
+        // color: #000000;
         background-color: transparent;
         cursor: pointer;
 
         &:hover {
-          border-color: $primary-color;
+          border-color: var(--iconsBorderHover);
         }
       }
 
@@ -119,17 +125,19 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid $icons-color;
+        border: 1px solid var(--iconsBorder);
+        // border: 1px solid $icons-color;
         border-radius: 50%;
         width: 32px;
         height: 32px;
         font-size: 20px;
-        color: #000000;
+        color: var(--minusPlusText);
         background-color: transparent;
         cursor: pointer;
 
         &:hover {
-          border-color: $primary-color;
+          border-color: var(--iconsBorderHover);
+          // border-color: $primary-color;
         }
       }
     }
@@ -145,7 +153,8 @@
 .disabled {
   cursor: default;
   border-color: $elements-color;
-  color: $icons-color;
+  color: var(--$icons-color);
+  // color: $icons-color;
 
   &:hover {
     border-color: $elements-color;

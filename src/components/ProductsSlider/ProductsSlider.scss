@@ -26,6 +26,7 @@
     text-align: left;
     letter-spacing: -0.01em;
     width: 136px;
+    color: var(--titleColor);
 
     @include on-tablet {
       width: 491px;
@@ -91,16 +92,21 @@
   z-index: 10;
 
   &:not(.disabled) svg path {
-    fill: $primary-color;
+    color: var(--iconsColor);
+    // fill: $primary-color;
   }
 
   &.disabled svg path {
     border-color: light rgb(247, 234, 234);
     cursor: not-allowed;
     svg path {
-      fill: $secondary-color;
+      color: $secondary-color;
     }
   }
+}
+
+.icon__color {
+  color: var(--arrowDisabled);
 }
 
 // .swiper-wrapper {
