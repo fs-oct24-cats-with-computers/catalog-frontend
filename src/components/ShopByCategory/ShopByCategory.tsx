@@ -16,7 +16,15 @@ export const Categories = () => {
   const [accessoriesQuantity, setAccessoriesQuantity] = useState<number>(0);
   const [error, setError] = useState('');
 
+  const [titleColor, setTitleColor] = useState('black');
+
   const { theme } = useTheme();
+  console.log('theme', theme);
+
+  useEffect(() => {
+    const newColor = theme === 'dark-mode' ? 'white' : 'black';
+    setTitleColor(newColor);
+  }, [theme]);
 
   useEffect(() => {
     getProducts()
@@ -84,7 +92,7 @@ export const Categories = () => {
               animate={{
                 opacity: 1,
                 y: 0,
-                color: theme === 'light-mode' ? '#000000' : '#fff',
+                color: titleColor,
               }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >

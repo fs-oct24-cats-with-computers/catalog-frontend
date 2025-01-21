@@ -8,8 +8,10 @@ import 'swiper/css/navigation';
 import './ProductsSlider.scss';
 import { ProductCard } from '../ProductCard/ProductCard';
 import { Product } from '../../types/Product';
-import { ArrowIcon } from '../ArrowIcon';
-import { useTheme } from '../../hooks/useTheme';
+// import { ArrowIcon } from '../ArrowIcon';
+import ArrowLeft from '../../../public/icons/Chevron (Arrow Left).svg?react';
+import ArrowRight from '../../../public/icons/Chevron (Arrow Right).svg?react';
+import cn from 'classnames';
 
 type Props = {
   products: Product[];
@@ -21,15 +23,6 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
 
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
-
-  const { theme } = useTheme();
-
-  const getColor = (value: boolean) => {
-    if (value) {
-      return 'lightgrey';
-    }
-    return theme === 'light-mode' ? '#000' : '#fff';
-  };
 
   useEffect(() => {
     if (swiperRef.current) {
@@ -53,7 +46,10 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
             onClick={() => swiperRef.current?.slidePrev()}
             disabled={isBeginning}
           >
-            <ArrowIcon color={getColor(isBeginning)} />
+            <ArrowLeft
+              className={cn('icon__color', { notAllowed: isBeginning })}
+            />
+            {/* <ArrowIcon color={isBeginning ? 'lightgrey' : color} /> */}
             {/* <ArrowIcon color={isBeginning ? 'lightgrey' : 'black'} /> */}
           </button>
           <button
@@ -61,10 +57,11 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
             onClick={() => swiperRef.current?.slideNext()}
             disabled={isEnd}
           >
-            <ArrowIcon
-              color={getColor(isEnd)}
+            <ArrowRight className={cn('icon__color', { notAllowed: isEnd })} />
+            {/* <ArrowIcon
+              color={isEnd ? 'lightgrey' : color}
               rotate="180deg"
-            />
+            /> */}
             {/* <ArrowIcon
               color={isEnd ? 'lightgrey' : 'black'}
               rotate="180deg"

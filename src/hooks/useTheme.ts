@@ -1,17 +1,12 @@
-import { useLayoutEffect, useState } from 'react';
-
-const isDarkTheme = window?.matchMedia('(prefers-color-scheme: dark)').matches;
-const defaultTheme = isDarkTheme ? 'dark-mode' : 'light-mode';
+import { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 
 export const useTheme = () => {
-  const [theme, setTheme] = useState(
-    localStorage.getItem('app-theme') || defaultTheme,
-  );
+  const context = useContext(ThemeContext);
 
-  useLayoutEffect(() => {
-    document.documentElement.setAttribute('class', theme);
-    localStorage.setItem('app-theme', theme);
-  }, [theme]);
+  if (!context) {
+    throw new Error('useTheme must be used within a ThemeProvider');
+  }
 
-  return { theme, setTheme };
+  return context;
 };
