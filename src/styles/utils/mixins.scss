@@ -189,7 +189,19 @@ $themes: (
   // chooseColorButton: (
   //   darkTheme: $primary-color,
   //   lightTheme: $white-color,
-   // ),
+  // ),
+  swiperButtonsBorder: (
+      darkTheme: #b4bdc3,
+      lightTheme: $secondary-color,
+    ),
+  swiperPaginationBackground: (
+    darkTheme: transparent,
+    lightTheme: $white-color,
+  ),
+  swiperPaginationBullet: (
+    darkTheme: $white-color,
+    lightTheme: #89939a,
+  ),
 );
 
 @mixin styles($mode) {

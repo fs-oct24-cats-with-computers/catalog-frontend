@@ -9,6 +9,7 @@ import './ProductsSlider.scss';
 import { ProductCard } from '../ProductCard/ProductCard';
 import { Product } from '../../types/Product';
 import { ArrowIcon } from '../ArrowIcon';
+import { useTheme } from '../../hooks/useTheme';
 
 type Props = {
   products: Product[];
@@ -20,6 +21,15 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
 
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
+
+  const { theme } = useTheme();
+
+  const getColor = (value: boolean) => {
+    if (value) {
+      return 'lightgrey';
+    }
+    return theme === 'light-mode' ? '#000' : '#fff';
+  };
 
   useEffect(() => {
     if (swiperRef.current) {
@@ -43,7 +53,8 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
             onClick={() => swiperRef.current?.slidePrev()}
             disabled={isBeginning}
           >
-            <ArrowIcon color={isBeginning ? 'lightgrey' : 'black'} />
+            <ArrowIcon color={getColor(isBeginning)} />
+            {/* <ArrowIcon color={isBeginning ? 'lightgrey' : 'black'} /> */}
           </button>
           <button
             className={`nextButton ${isEnd ? 'disabled' : ''}`}
@@ -51,9 +62,13 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
             disabled={isEnd}
           >
             <ArrowIcon
-              color={isEnd ? 'lightgrey' : 'black'}
+              color={getColor(isEnd)}
               rotate="180deg"
             />
+            {/* <ArrowIcon
+              color={isEnd ? 'lightgrey' : 'black'}
+              rotate="180deg"
+            /> */}
           </button>
         </div>
       </motion.div>
@@ -104,7 +119,6 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
             >
               <ProductCard product={product} />
             </motion.div>
-
           </SwiperSlide>
         ))}
       </Swiper>
