@@ -213,6 +213,16 @@ $themes: (
     darkTheme: $secondary-color,
     lightTheme: $icons-color,
   ),
+
+  catAnimationEarHair: (
+    darkTheme: $hover-bg-color-dark,
+    lightTheme: $white-color,
+  ),
+
+  inputBorderFocusAndHover: (
+    darkTheme: $white-color,
+    lightTheme: $secondary-color,
+  ),
 );
 
 @mixin styles($mode) {
