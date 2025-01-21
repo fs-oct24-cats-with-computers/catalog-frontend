@@ -104,6 +104,7 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
             >
               <ProductCard product={product} />
             </motion.div>
+
           </SwiperSlide>
         ))}
       </Swiper>

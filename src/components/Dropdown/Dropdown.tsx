@@ -6,8 +6,6 @@ import { ItemsPerPageOptions, SortByOption } from '../../types/SortingOptions';
 
 type Props = {
   options: SortByOption[] | ItemsPerPageOptions[];
-  // sortBy: string;
-  // itemsPerPage: number;
   sort: string | number;
   handleSortBy?: (sortOption: string) => void;
   handleItemsPerPage?: (value: number) => void;
