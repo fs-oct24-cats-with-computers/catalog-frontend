@@ -40,8 +40,16 @@ export const ProductDetailsPage: React.FC<Props> = ({ type }) => {
 
     getProducts().then((products) => {
       setProducts(products);
+      const firstRandomProducts = products
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 10);
 
-      setOtherProducts(products.slice(0, 10));
+      const updatedProducts = firstRandomProducts.map((product) => ({
+        ...product,
+        image: '../' + product.image,
+      }));
+
+      setOtherProducts(updatedProducts);
     });
 
     getProductById(type, productId)

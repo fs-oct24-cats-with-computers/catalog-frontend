@@ -71,6 +71,7 @@
         height: 100%;
         background-color: rgb(37, 35, 35);
         border-radius: 10px;
+        transform: scale(0.9);
       }
 
       .TextContent_title {
@@ -183,7 +184,7 @@
 
       &::after {
         font-size: 16px;
-        color: #000;
+        color: $primary-color;
       }
     }
   }
