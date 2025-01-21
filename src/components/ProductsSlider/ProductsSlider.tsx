@@ -62,6 +62,7 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
         modules={[Navigation]}
         spaceBetween={16}
         slidesPerView={1.5}
+        slidesPerGroup={1}
         onInit={(swiper) => {
           swiperRef.current = swiper;
           setIsBeginning(swiper.isBeginning);

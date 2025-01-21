@@ -81,7 +81,7 @@
         line-height: 1;
 
         @include on-desktop {
-          font-size: 48px;
+          font-size: 44px;
         }
       }
 
@@ -96,11 +96,13 @@
       }
 
       .TextContent_button {
-        text-decoration: none;
         display: flex;
+        box-sizing: border-box;
+        padding: 10px;
         width: fit-content;
         font-family: 'Mont Bold';
         font-size: 18px;
+        text-decoration: none;
         color: $white-color;
         border-radius: 30px;
         border: 1px solid $secondary-color;

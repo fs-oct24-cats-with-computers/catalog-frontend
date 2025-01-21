@@ -12,7 +12,8 @@
 
 .sliderProducts {
   &__wrapper {
-    margin: 3px 3px 56px;
+    box-sizing: border-box;
+    margin: 5px 5px 56px;
     height: 526px;
     width: 100%;
 
@@ -59,16 +60,16 @@
 
   .swiper-slide-productcard {
     box-sizing: border-box;
-    width: auto;
+    width: 212px;
     max-height: 439px;
 
     @include on-tablet {
-      // width: 237px;
+      width: 237px;
       max-height: 512px;
     }
 
     @include on-desktop {
-      // width: 272px;
+      width: 272px;
       max-height: 506px;
     }
   }
@@ -99,3 +100,7 @@
     }
   }
 }
+
+// .swiper-wrapper {
+//   padding: 10px;
+// }
