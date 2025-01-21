@@ -12,17 +12,20 @@
 
 .sliderProducts {
   &__wrapper {
-    position: relative;
-    margin-bottom: 80px;
-    // padding-inline: 16px 0;
+    box-sizing: border-box;
+    margin: 5px 5px 56px;
+    height: 526px;
+    width: 100%;
 
-    // @include on-tablet {
-    //   padding-inline: 24px 0;
-    // }
+    @include on-tablet {
+      margin: 3px 3px 64px;
+      height: 577px;
+    }
 
-    // @include on-desktop {
-    //   padding-inline: 32px 0;
-    // }
+    @include on-desktop {
+      margin: 3px 3px 80px;
+      height: 571px;
+    }
   }
 
   &__title {
@@ -31,74 +34,73 @@
     align-items: center;
     margin-bottom: 24px;
   }
+
+  &__title-content {
+    font-family: 'Mont Bold';
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 30.8px;
+    text-align: left;
+    letter-spacing: -0.01em;
+    width: 136px;
+
+    @include on-tablet {
+      width: 491px;
+    }
+
+    @include on-desktop {
+      width: 560px;
+    }
+  }
+
+  &-buttons-wrapper {
+    display: flex;
+    gap: 8px;
+  }
+
+  .swiper-slide-productcard {
+    box-sizing: border-box;
+    width: 212px;
+    max-height: 439px;
+
+    @include on-tablet {
+      width: 237px;
+      max-height: 512px;
+    }
+
+    @include on-desktop {
+      width: 272px;
+      max-height: 506px;
+    }
+  }
 }
 
-.sliderProducts__title-content {
-  font-family: 'Mont Bold';
-  font-size: 22px;
-  font-weight: 800;
-  line-height: 30.8px;
-  text-align: left;
-  letter-spacing: -0.01em;
-  width: 136px;
-
-  @include on-tablet {
-    width: 491px;
-  }
-
-  @include on-desktop {
-    width: 560px;
-  }
-}
-
-.ProductWrapper {
-  width: 212px;
-  height: 439px;
-
-  @include on-tablet {
-    width: 237px;
-    height: 512px;
-  }
-
-  @include on-desktop {
-    width: 272px;
-    height: 506px;
-  }
-}
-
-.swiper-buttons-wrapper {
-  position: relative;
+.prevButton,
+.nextButton {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  width: 80px;
-  height: 32px;
-}
-
-.swiper-button-prev,
-.swiper-button-next {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  height: 32px;
+  align-items: center;
   width: 32px;
-  margin: 0;
+  height: 32px;
   border-radius: 48px;
-
   border: 1px solid $elements-color;
   background-color: transparent;
+  cursor: pointer;
+  z-index: 10;
 
-  &::after {
-    font-size: 10px;
-    color: $primary-color;
+  &:not(.disabled) svg path {
+    fill: $primary-color;
   }
 
-  &:disabled {
+  &.disabled svg path {
+    border-color: light rgb(247, 234, 234);
     cursor: not-allowed;
-    opacity: 0.5;
+    svg path {
+      fill: $secondary-color;
+    }
   }
 }
+
+// .swiper-wrapper {
+//   padding: 10px;
+// }

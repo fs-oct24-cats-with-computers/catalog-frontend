@@ -4,11 +4,13 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const bannerImages = [
-  '../../../../public/img/banner-accessories.png',
-  '../../../../public/img/banner-phones.png',
-  '../../../../public/img/banner-tablets.png',
+  '/img/banner-accessories.png',
+  '/img/banner-phones.png',
+  '/img/banner-tablets.png',
 ];
 
 export const PicturesSlider = () => {
@@ -39,19 +41,62 @@ export const PicturesSlider = () => {
             key={index}
           >
             <div className="ContentWrapper">
-              <div className="TextContent">
-                <h2 className="TextContent_title">
-                  Now available in our store! 👌
-                </h2>
-                <p className="TextContent_text">Be the first!</p>
-                <button className="TextContent_button">ORDER NOW</button>
-              </div>
-              <div className="ImgWrapper">
+              <motion.div
+                className="TextContent"
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="TextContent_wrapper">
+                  <div className="TextContent_body">
+                    <motion.h2
+                      className="TextContent_title"
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5 }}
+                      whileHover={{ y: -5 }}
+                    >
+                      Now available in our store! 👌
+                    </motion.h2>
+                    <motion.p
+                      className="TextContent_text"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.1 }}
+                      whileHover={{ y: 5 }}
+                    >
+                      Be the first!
+                    </motion.p>
+                  </div>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Link
+                      to="/phones"
+                      className="TextContent_button"
+                    >
+                      ORDER NOW
+                    </Link>
+                  </motion.div>
+                </div>
+              </motion.div>
+              <motion.div
+                className="ImgWrapper"
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                whileHover={{ scale: 1.05 }}
+              >
                 <img
                   src={image}
                   alt={`Slide ${index + 1}`}
                 />
-              </div>
+              </motion.div>
             </div>
           </SwiperSlide>
         ))}
