@@ -43,7 +43,12 @@ export const CartPage = () => {
           </div>
         </section>
       : <CartEmpty />}
-      {isModalMessage && <ModalMessage closeMessage={onClickModal} />}
+      {isModalMessage && (
+        <ModalMessage
+          products={products}
+          closeMessage={onClickModal}
+        />
+      )}
     </>
   );
 };
