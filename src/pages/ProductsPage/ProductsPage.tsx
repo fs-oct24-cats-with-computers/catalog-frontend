@@ -127,7 +127,7 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
           }
         </div>
 
-        {!sortedProducts.length && (
+        {!sortedProducts.length && !isLoading && (
           <div className="page__no-products">
             <div className="page__no-products-cat">
               <CatAnimation />
