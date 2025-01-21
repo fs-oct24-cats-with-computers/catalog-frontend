@@ -1,5 +1,5 @@
 import './ContactsPage.scss';
-import React, { Fragment } from 'react';
+import React from 'react';
 import { ContactCard } from '../../components/ContactCard/ContactCard';
 import { Contact } from '../../types/Contact';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
