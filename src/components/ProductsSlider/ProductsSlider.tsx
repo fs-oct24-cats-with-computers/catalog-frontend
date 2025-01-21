@@ -8,7 +8,10 @@ import 'swiper/css/navigation';
 import './ProductsSlider.scss';
 import { ProductCard } from '../ProductCard/ProductCard';
 import { Product } from '../../types/Product';
-import { ArrowIcon } from '../ArrowIcon';
+// import { ArrowIcon } from '../ArrowIcon';
+import ArrowLeft from '../../../public/icons/Chevron (Arrow Left).svg?react';
+import ArrowRight from '../../../public/icons/Chevron (Arrow Right).svg?react';
+import cn from 'classnames';
 
 type Props = {
   products: Product[];
@@ -29,7 +32,7 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
   }, [products]);
 
   return (
-    <section className="sliderProducts__wrapper">
+    <section className="swiper-wrapper-products">
       <motion.div
         className="sliderProducts__title"
         initial={{ opacity: 0, y: -20 }}
@@ -43,24 +46,33 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
             onClick={() => swiperRef.current?.slidePrev()}
             disabled={isBeginning}
           >
-            <ArrowIcon color={isBeginning ? 'lightgrey' : 'black'} />
+            <ArrowLeft
+              className={cn('icon__color', { notAllowed: isBeginning })}
+            />
+            {/* <ArrowIcon color={isBeginning ? 'lightgrey' : color} /> */}
+            {/* <ArrowIcon color={isBeginning ? 'lightgrey' : 'black'} /> */}
           </button>
           <button
             className={`nextButton ${isEnd ? 'disabled' : ''}`}
             onClick={() => swiperRef.current?.slideNext()}
             disabled={isEnd}
           >
-            <ArrowIcon
+            <ArrowRight className={cn('icon__color', { notAllowed: isEnd })} />
+            {/* <ArrowIcon
+              color={isEnd ? 'lightgrey' : color}
+              rotate="180deg"
+            /> */}
+            {/* <ArrowIcon
               color={isEnd ? 'lightgrey' : 'black'}
               rotate="180deg"
-            />
+            /> */}
           </button>
         </div>
       </motion.div>
 
       <Swiper
         modules={[Navigation]}
-        spaceBetween={16}
+        spaceBetween={10}
         slidesPerView={1.5}
         slidesPerGroup={1}
         onInit={(swiper) => {
@@ -84,11 +96,11 @@ export const ProductsSlider: React.FC<Props> = ({ products, title }) => {
         breakpoints={{
           640: {
             slidesPerView: 2.5,
-            spaceBetween: 16,
+            spaceBetween: 10,
           },
           1200: {
             slidesPerView: 4,
-            spaceBetween: 16,
+            spaceBetween: 8,
           },
         }}
       >

@@ -1,4 +1,9 @@
-export const ArrowIcon = ({ color = '#0F0F11', rotate = '0deg' }) => {
+type Props = {
+  color: string;
+  rotate?: string;
+};
+
+export const ArrowIcon: React.FC<Props> = ({ color, rotate = '0deg' }) => {
   return (
     <svg
       width="16"

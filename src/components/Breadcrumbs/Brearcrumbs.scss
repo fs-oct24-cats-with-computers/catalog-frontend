@@ -21,11 +21,16 @@
     align-items: center;
     text-decoration: none;
 
+    &--icon {
+      color: var(--arrowsColor);
+    }
+
     &--link {
       text-transform: capitalize;
       padding: 8px;
       text-decoration: none;
-      color: $secondary-color;
+      color: var(--secondaryText);
+      // color: $secondary-color;
       font-family: 'Mont', sans-serif;
       font-size: 12px;
       font-weight: 700;

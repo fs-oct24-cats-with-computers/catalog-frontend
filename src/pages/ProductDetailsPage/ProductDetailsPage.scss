@@ -21,6 +21,7 @@
     font-size: 22px;
     line-height: 31px;
     padding: 16px 0px 32px;
+    color: var(--titleColor);
 
     @include on-tablet {
       font-size: 32px;
@@ -52,11 +53,16 @@
     flex-direction: row;
   }
 
+  &__details--skeleton {
+    margin: 15px;
+  }
+
   &__title {
     font-family: 'Mont SemiBold';
     font-size: 20px;
     line-height: 26px;
-    color: $primary-color;
+    color: var(--titleColor);
+    // color: $primary-color;
 
     @include on-tablet {
       font-family: 'Mont Bold';

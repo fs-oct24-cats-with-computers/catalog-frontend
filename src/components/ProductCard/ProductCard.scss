@@ -19,16 +19,19 @@
   max-width: min-content;
   min-width: 148px;
   padding: 32px;
-  border: 1px solid $elements-color;
+  border: 1px solid var(--cardBorder);
+  // border: 1px solid $elements-color;
   border-radius: 8px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   gap: 8px;
   overflow: hidden;
+  background-color: var(--cardBackGround);
 
   &:hover {
-    box-shadow: 0px 3px 13px 0 #17203166;
+    box-shadow: 0px 3px 13px 0 var(--cardBoxShadow);
+    // box-shadow: 0px 3px 13px 0 #17203166;
   }
 
   &__image {
@@ -61,7 +64,8 @@
     height: 30px;
     font-size: 12px;
     font-family: 'Mont';
-    color: $primary-color;
+    color: var(--titleColor);
+    // color: $primary-color;
     text-decoration: none;
     font-weight: 600;
     line-height: 21px;
@@ -86,7 +90,8 @@
     }
 
     &-no-discount {
-      color: $secondary-color;
+      color: var(--secondaryText);
+      // color: $secondary-color;
       font-family: 'Mont';
       font-weight: 500;
       text-decoration: line-through;
@@ -116,7 +121,8 @@
     font-size: 12px;
 
     &-name {
-      color: $secondary-color;
+      color: var(--cardCharactericticsColor);
+      // color: $secondary-color;
       font-family: 'Mont-SemiBold';
       font-weight: 700;
     }
@@ -156,8 +162,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 1px solid $secondary-color;
-      background: $white-color;
+      border: 1px solid var(--cardCharactericticsColor);
+      background: var(--cardBackGround);
+      // background: $white-color;
       border-radius: 50%;
       width: 40px;
       height: 40px;

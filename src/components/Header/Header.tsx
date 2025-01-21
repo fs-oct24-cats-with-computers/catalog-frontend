@@ -3,12 +3,23 @@ import { useState, useEffect } from 'react';
 import './Header.scss';
 import { BurgerMenu } from '../BurgerMenu';
 import { useAppSelector } from '../../app/hooks';
+import Logo from '../../../public/img/header_components/Logo.svg?react';
+import Favourites from '../../../public/img/header_components/Favourites.svg?react';
+import ShoppingBag from '../../../public/img/header_components/Shopping bag.svg?react';
+import Menu from '../../../public/img/header_components/Menu.svg?react';
+import CloseIcon from '../../../public/img/header_components/Close.svg?react';
+import { useTheme } from '../../hooks/useTheme';
 // import classnames from 'classnames';
 
 export const Header = () => {
   const mobileScreen: number = 640;
   const [isMobile, checkIsMobile] = useState(window.innerWidth < mobileScreen);
   const [isBurgerClose, checkIsBurgerClose] = useState(true);
+
+  const { theme, setTheme } = useTheme();
+  const handleThemeClick = () => {
+    setTheme(theme === 'light-mode' ? 'dark-mode' : 'light-mode');
+  };
 
   const favoriteProducts = useAppSelector((state) => state.favoriteProducts);
   const cartProducts = useAppSelector((state) => state.cartProducts);
@@ -39,13 +50,19 @@ export const Header = () => {
       <header className="header">
         <div className="header__logo">
           <NavLink to="/">
-            <img
+            <Logo
+              className="header__logo--img"
+              onClick={() => {
+                checkIsBurgerClose(true);
+              }}
+            />
+            {/* <img
               src="img/header_components/Logo.svg"
               alt="Nice gadgets logo"
               onClick={() => {
                 checkIsBurgerClose(true);
               }}
-            />
+            /> */}
           </NavLink>
         </div>
         {!isMobile && (
@@ -80,14 +97,21 @@ export const Header = () => {
         <div className="header__buttons">
           {!isMobile ?
             <>
+              <div
+                className="header__buttons_element theme"
+                onClick={handleThemeClick}
+              >
+                {theme === 'light-mode' ? '🌃' : '🌅'}
+              </div>
               <NavLink
                 to="/favorites"
                 className={chooseActivePageButton}
               >
-                <img
+                <Favourites />
+                {/* <img
                   src="img/header_components/Favourites.svg"
                   alt="Favourites"
-                />
+                /> */}
                 {!!favoriteProducts.length && (
                   <span className="header__buttons_element--state">
                     {favoriteProducts.length}
@@ -98,10 +122,11 @@ export const Header = () => {
                 to="/cart"
                 className={chooseActivePageButton}
               >
-                <img
+                <ShoppingBag />
+                {/* <img
                   src="img/header_components/Shopping bag.svg"
                   alt="Shopping bag"
-                />
+                /> */}
                 {!!cartProducts.length && (
                   <span className="header__buttons_element--state">
                     {cartProducts.length}
@@ -110,18 +135,27 @@ export const Header = () => {
               </NavLink>
             </>
           : isBurgerClose ?
-            <NavLink
-              to="#"
-              className="header__buttons_element"
-              onClick={() => {
-                checkIsBurgerClose(false);
-              }}
-            >
-              <img
+            <>
+              <div
+                className="header__buttons_element theme"
+                onClick={handleThemeClick}
+              >
+                {theme === 'light-mode' ? '🌃' : '🌅'}
+              </div>
+              <NavLink
+                to="#"
+                className="header__buttons_element"
+                onClick={() => {
+                  checkIsBurgerClose(false);
+                }}
+              >
+                <Menu />
+                {/* <img
                 src="img/header_components/Menu.svg"
                 alt="Burger menu"
-              />
-            </NavLink>
+              /> */}
+              </NavLink>
+            </>
           : <NavLink
               to="#"
               className="header__buttons_element"
@@ -129,10 +163,11 @@ export const Header = () => {
                 checkIsBurgerClose(true);
               }}
             >
-              <img
+              <CloseIcon />
+              {/* <img
                 src="img/header_components/Close.svg"
                 alt="Close burger menu"
-              />
+              /> */}
             </NavLink>
           }
         </div>

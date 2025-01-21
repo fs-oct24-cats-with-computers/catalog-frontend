@@ -19,93 +19,96 @@ import { Category } from './types/Category';
 import { ContactsPage } from './pages/ContactsPage';
 import { contacts } from '../public/contacts/contacts';
 import { RightsPage } from './pages/RightsPage';
+import { ThemeProvider } from './context/ThemeProvider';
 
 export const Root = () => (
   <StrictMode>
-    <Provider store={store}>
-      <PersistGate
-        loading={null}
-        persistor={persistor}
-      >
-        <Router
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
+    <ThemeProvider>
+      <Provider store={store}>
+        <PersistGate
+          loading={null}
+          persistor={persistor}
         >
-          <Routes>
-            <Route
-              path="/"
-              element={<App />}
-            >
+          <Router
+            future={{
+              v7_startTransition: true,
+              v7_relativeSplatPath: true,
+            }}
+          >
+            <Routes>
               <Route
-                index
-                element={<HomePage />}
-              />
-              <Route
-                path="home"
-                element={
-                  <Navigate
-                    to="/"
-                    replace
+                path="/"
+                element={<App />}
+              >
+                <Route
+                  index
+                  element={<HomePage />}
+                />
+                <Route
+                  path="home"
+                  element={
+                    <Navigate
+                      to="/"
+                      replace
+                    />
+                  }
+                />
+                <Route path="phones">
+                  <Route
+                    index
+                    element={<ProductsPage type={Category.phones} />}
                   />
-                }
-              />
-              <Route path="phones">
+                  <Route
+                    path=":productId"
+                    element={<ProductDetailsPage type={Category.phones} />}
+                  />
+                </Route>
+                <Route path="tablets">
+                  <Route
+                    index
+                    element={<ProductsPage type={Category.tablets} />}
+                  />
+                  <Route
+                    path=":productId"
+                    element={<ProductDetailsPage type={Category.tablets} />}
+                  />
+                </Route>
+                <Route path="accessories">
+                  <Route
+                    index
+                    element={<ProductsPage type={Category.accessories} />}
+                  />
+                  <Route
+                    path=":productId"
+                    element={<ProductDetailsPage type={Category.accessories} />}
+                  />
+                </Route>
                 <Route
-                  index
-                  element={<ProductsPage type={Category.phones} />}
+                  path="favorites"
+                  element={<FavoritesPage />}
                 />
                 <Route
-                  path=":productId"
-                  element={<ProductDetailsPage type={Category.phones} />}
-                />
-              </Route>
-              <Route path="tablets">
-                <Route
-                  index
-                  element={<ProductsPage type={Category.tablets} />}
+                  path="cart"
+                  element={<CartPage />}
                 />
                 <Route
-                  path=":productId"
-                  element={<ProductDetailsPage type={Category.tablets} />}
-                />
-              </Route>
-              <Route path="accessories">
-                <Route
-                  index
-                  element={<ProductsPage type={Category.accessories} />}
+                  path="contacts"
+                  element={<ContactsPage contacts={contacts} />}
                 />
                 <Route
-                  path=":productId"
-                  element={<ProductDetailsPage type={Category.accessories} />}
+                  path="rights"
+                  element={<RightsPage />}
                 />
-              </Route>
-              <Route
-                path="favorites"
-                element={<FavoritesPage />}
-              />
-              <Route
-                path="cart"
-                element={<CartPage />}
-              />
-              <Route
-                path="contacts"
-                element={<ContactsPage contacts={contacts} />}
-              />
-              <Route
-                path="rights"
-                element={<RightsPage />}
-              />
 
-              <Route
-                path="*"
-                element={<NotFoundPage />}
-              />
-            </Route>
-          </Routes>
-        </Router>
-      </PersistGate>
-    </Provider>
+                <Route
+                  path="*"
+                  element={<NotFoundPage />}
+                />
+              </Route>
+            </Routes>
+          </Router>
+        </PersistGate>
+      </Provider>
+    </ThemeProvider>
   </StrictMode>
 );

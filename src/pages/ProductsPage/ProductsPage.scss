@@ -3,17 +3,17 @@
 
 @font-face {
   font-family: 'Mont Bold';
-  src: url(../../../public/fonts/Mont-Bold.otf);
+  src: url(/fonts/Mont-Bold.otf);
 }
 
 @font-face {
   font-family: 'Mont';
-  src: url(../../../public/fonts/Mont-Regular.otf);
+  src: url(/fonts/Mont-Regular.otf);
 }
 
 @font-face {
   font-family: 'Mont SemiBold';
-  src: url(../../../public/fonts/Mont-SemiBold.otf);
+  src: url(/fonts/Mont-SemiBold.otf);
 }
 
 .page {
@@ -21,8 +21,9 @@
 
   &__title {
     font-family: 'Mont Bold', sans-serif;
-    font-size: 32px;
-    line-height: 41px;
+    font-size: 48px;
+    line-height: 56px;
+    color: var(--titleColor);
     padding-bottom: 8px;
 
     @include on-tablet {
@@ -33,7 +34,7 @@
 
   &__subtitle {
     font-family: 'Mont', sans-serif;
-    color: $secondary-color;
+    color: var(--secondaryText);
     font-size: 14px;
     line-height: 21px;
     margin-bottom: 32px;
@@ -70,7 +71,7 @@
         font-family: 'Mont', sans-serif;
         font-size: 12px;
         line-height: 15.34px;
-        color: $secondary-color;
+        color: var(--secondaryText);
         padding-bottom: 4px;
       }
     }
@@ -99,6 +100,7 @@
 
     &-text {
       font-family: 'Mont Bold', sans-serif;
+      color: var(--titleColor);
       font-size: 18px;
       text-align: center;
 

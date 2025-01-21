@@ -15,18 +15,22 @@
 .header {
   position: sticky;
   top: 0;
-  background-color: $hover-bg-color;
+  background-color: var(--headerBackground);
   justify-content: left;
   align-items: center;
   display: flex;
   gap: $header-element-gap;
   height: $header-height;
-  border-bottom: 1px solid $elements-color;
+  border-bottom: 1px solid var(--cardBorder);
   z-index: 1000;
 
   &__logo {
     padding: 0 $header-padding;
     transform: scale($header-logo-scale);
+
+    &--img {
+      color: var(--iconsColor);
+    }
   }
 
   &__nav {
@@ -40,7 +44,8 @@
       position: relative;
       text-decoration: none;
       align-content: center;
-      color: $secondary-color;
+
+      color: var(--secondaryText);
       font-size: 12px;
       font-weight: 800;
       line-height: 11px;
@@ -48,13 +53,13 @@
       height: 100%;
 
       &:hover {
-        color: $primary-color;
+        color: var(--secondaryTextHoverAndActive);
       }
     }
   }
 
   &__is-active {
-    color: $primary-color;
+    color: var(--secondaryTextHoverAndActive);
 
     &::after {
       content: '';
@@ -64,7 +69,8 @@
       height: 4px;
       bottom: 0;
       left: 0;
-      background-color: $primary-color;
+      background-color: var(--headerUnderScore);
+      // background-color: $primary-color;
       animation-duration: 0.5s;
       animation-name: select;
     }
@@ -80,7 +86,9 @@
       padding: $header-padding;
       position: relative;
       display: inline-block;
-      border-left: 1px solid $elements-color;
+      border-left: 1px solid var(--cardBorder);
+      color: var(--iconsColor);
+      cursor: pointer;
 
       &--state {
         box-sizing: border-box;
@@ -137,4 +145,8 @@
       padding: $header-padding;
     }
   }
+}
+
+.theme {
+  line-height: 20px;
 }

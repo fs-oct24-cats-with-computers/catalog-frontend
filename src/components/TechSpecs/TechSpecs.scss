@@ -9,11 +9,13 @@
     line-height: 21px;
 
     &-name {
-      color: $secondary-color;
+      color: var(--secondaryText);
+      // color: $secondary-color;
       padding-right: 20px;
     }
     &-value {
-      color: $primary-color;
+      color: var(--secondaryTextHoverAndActive);
+      // color: $primary-color;
       text-align: right;
     }
 

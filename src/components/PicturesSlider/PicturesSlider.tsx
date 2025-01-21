@@ -41,14 +41,14 @@ export const PicturesSlider = () => {
             key={index}
           >
             <div className="ContentWrapper">
-              <motion.div
-                className="TextContent"
-                initial={{ opacity: 0, x: -100 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="TextContent_wrapper">
+              <div className="TextContent">
+                <motion.div
+                  className="TextContent_wrapper"
+                  initial={{ opacity: 0, x: -100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  whileHover={{ scale: 1.05 }}
+                >
                   <div className="TextContent_body">
                     <motion.h2
                       className="TextContent_title"
@@ -83,8 +83,8 @@ export const PicturesSlider = () => {
                       ORDER NOW
                     </Link>
                   </motion.div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </div>
               <motion.div
                 className="ImgWrapper"
                 initial={{ opacity: 0, x: 100 }}
